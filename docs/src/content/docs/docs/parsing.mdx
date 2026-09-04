@@ -1,0 +1,51 @@
+---
+title: Parsing
+description: Core parse API
+---
+
+## `parseUA`
+
+Returns the full result:
+
+```ts
+import { parseUA } from '@iamsquare/ua';
+import { BrowserName } from '@iamsquare/ua/enums';
+import { isBrowser, toString } from '@iamsquare/ua/helpers';
+
+const result = parseUA(
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+);
+
+result.browser; // { name, version, major, type? }
+result.os; // { name, version }
+result.device; // { type?, vendor?, model? }
+result.engine; // { name, version }
+result.cpu; // { architecture? }
+result.ua; // original string
+
+isBrowser(result.browser, BrowserName.CHROME);
+toString(result.browser, ['name', 'version']); // "Chrome 120.0.0.0"
+```
+
+In the browser, omit the UA to use `navigator.userAgent`.
+
+### Options
+
+```ts
+parseUA(ua, {
+  extensions: [crawler],
+  withClientHints: true,
+  headers: request.headers,
+  withFeatureCheck: true,
+});
+```
+
+See [Client Hints](/docs/client-hints/) and [Enums](/docs/enums/).
+
+## Modular parsers
+
+```ts
+import { parseBrowser, parseOS, parseDevice, parseCPU, parseEngine } from '@iamsquare/ua';
+```
+
+Each function returns only its slice of the result.

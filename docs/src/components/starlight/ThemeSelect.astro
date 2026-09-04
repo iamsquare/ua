@@ -1,0 +1,7 @@
+---
+import { ThemeSelect as ThemeSelectButton } from '@/components/ThemeSelect';
+
+const label = Astro.locals.t('themeSelect.accessibleLabel');
+---
+
+<ThemeSelectButton client:only="react" label={label} />

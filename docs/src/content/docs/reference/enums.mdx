@@ -1,0 +1,35 @@
+---
+title: Enums
+description: Constants for browser, device, OS, engine, and CPU values
+---
+
+Import from `@iamsquare/ua/enums` and compare with typed helpers. Full value lists are under [`@iamsquare/ua/enums`](/reference/typedoc/iamsquare/ua/enums/readme/).
+
+```ts
+import { parseUA } from '@iamsquare/ua';
+import { BrowserName, BrowserType, DeviceType, OSName } from '@iamsquare/ua/enums';
+import { isBrowser, isOS, isDevice } from '@iamsquare/ua/helpers';
+import { crawler } from '@iamsquare/ua/extensions';
+
+const result = parseUA(navigator.userAgent);
+
+if (isBrowser(result.browser, BrowserName.INSTAGRAM)) {
+  // Instagram in-app browser
+}
+
+if (isOS(result.os, OSName.IOS)) {
+  // iOS
+}
+
+const withCrawlers = parseUA(ua, { extensions: [crawler] });
+
+if (withCrawlers.browser.type === BrowserType.CRAWLER) {
+  // crawler
+}
+
+if (isDevice(result.device, DeviceType.MOBILE)) {
+  // phone / mobile
+}
+```
+
+Use the maps that match the slice you care about (`BrowserName` → `browser.name`, `OSName` → `os.name`, and so on). Values match common parser output strings (for example `BrowserName.CHROME` is `"Chrome"`).

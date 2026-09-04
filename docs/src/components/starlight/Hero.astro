@@ -1,0 +1,90 @@
+---
+import { LinkButton } from '@astrojs/starlight/components';
+
+import { HeroMeshGradient } from '@/components/HeroMeshGradient';
+import { InstallCommand } from '@/components/InstallCommand';
+import { cn } from '@/lib/cn';
+import { hasAtLeast, isNonNullish, map } from 'remeda';
+
+import pkg from '@/repo-root/package.json';
+
+const { data } = Astro.locals.starlightRoute.entry;
+const { tagline, actions = [] } = data.hero || {};
+---
+
+<section class="relative grid text-center">
+  <div
+    class="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
+    aria-hidden="true"
+  >
+    <HeroMeshGradient client:only="react" />
+  </div>
+  <div
+    class="relative z-10 grid min-h-[min(72vh,40rem)] items-center justify-items-center pt-[clamp(3rem,8vh,5rem)] pb-[clamp(2.5rem,6vh,4rem)]"
+  >
+    <div class="grid max-w-736 justify-items-center gap-20">
+      <div
+        class="inline-flex items-center justify-center gap-10 rounded-full border border-gray-300 bg-gray-100/80 px-6 py-6 text-xs sm:pl-6 sm:pr-14 dark:border-gray-700 dark:bg-gray-900/60"
+      >
+        <span
+          class="rounded-full bg-accent-600 px-10 py-3 font-mono font-semibold tracking-wide text-white"
+        >
+          v{pkg.version}
+        </span>
+        <span class="hidden font-sans text-gray-700 sm:inline dark:text-gray-300">
+          Typed User-Agent detection without the hassle.
+        </span>
+      </div>
+      <div class="grid justify-items-center gap-12">
+        <p
+          class="font-display text-[clamp(1.15rem,2.2vw,1.45rem)] font-semibold tracking-tight text-accent-700 dark:text-accent-200"
+        >
+          {data.title}
+        </p>
+        <h1
+          id="_top"
+          data-page-title
+          class="max-w-[18ch] font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-tight tracking-tight text-gray-900 dark:text-white"
+        >
+          Know your traffic.<br />
+          <span class="text-accent-600 dark:text-accent-300">Make every visit count.</span>
+        </h1>
+        {
+          isNonNullish(tagline) && (
+            <p
+              class="max-w-[46ch] font-mono text-[clamp(0.95rem,1.4vw,1.1rem)] leading-relaxed text-gray-600 dark:text-gray-400"
+              set:html={tagline}
+            />
+          )
+        }
+      </div>
+      {
+        hasAtLeast(actions, 1) && (
+          <div class="flex flex-wrap justify-center gap-12">
+            {map(actions, ({ attrs = {}, icon, link: href, text, variant }) => {
+              const { class: className, ...props } = attrs;
+
+              return (
+                <Fragment>
+                  <LinkButton
+                    href={href}
+                    variant={variant}
+                    icon={icon?.name}
+                    class={cn(
+                      'rounded-sm px-18 py-11 font-sans font-semibold [&_svg]:size-16!',
+                      className,
+                    )}
+                    {...props}
+                  >
+                    {text}
+                  </LinkButton>
+                </Fragment>
+              );
+            })}
+          </div>
+        )
+      }
+      <InstallCommand client:load sizeLabel="~16.7 kB min+gzip" />
+    </div>
+  </div>
+</section>

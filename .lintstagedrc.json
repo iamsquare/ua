@@ -1,0 +1,13 @@
+{
+  "src/**/*.{js,ts,mts,cts,cjs,mjs}": ["eslint --fix"],
+  "test/**/*.{js,ts,mts,cts,cjs,mjs}": ["eslint --fix"],
+  "tsdown.config.ts": ["eslint --fix"],
+  "vitest.config.ts": ["eslint --fix"],
+  "eslint.config.ts": ["eslint --fix"],
+  "prettier.config.ts": ["eslint --fix"],
+  "commitlint.config.ts": ["eslint --fix"],
+  "docs/**/*.{js,ts,tsx,mts,cts,cjs,mjs}": ["pnpm --dir docs exec eslint --fix"],
+  "eslintConfig/**/*.{js,ts,mts,cts,cjs,mjs}": ["pnpm --dir eslintConfig exec eslint --fix"],
+  "prettierConfig/**/*.{js,ts,mts,cts,cjs,mjs}": ["pnpm --dir prettierConfig exec eslint --fix"],
+  "**/*.{md,mdx,json,yml,yaml,css}": ["prettier --write"]
+}

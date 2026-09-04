@@ -1,0 +1,67 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { map } from 'remeda';
+
+const isSplash = Astro.locals.starlightRoute.entry.data.template === 'splash';
+
+const badges = [
+  {
+    href: 'https://github.com/iamsquare/ua',
+    src: 'https://img.shields.io/github/stars/iamsquare/ua?style=flat-square&label=stars',
+    alt: 'GitHub stars',
+  },
+  {
+    href: 'https://www.npmjs.com/package/@iamsquare/ua',
+    src: 'https://img.shields.io/npm/dm/@iamsquare/ua.svg?style=flat-square',
+    alt: 'npm monthly downloads',
+  },
+  {
+    href: 'https://www.npmjs.com/package/@iamsquare/ua',
+    src: 'https://img.shields.io/npm/v/@iamsquare/ua.svg?style=flat-square',
+    alt: 'npm version',
+  },
+  {
+    href: 'https://www.typescriptlang.org/',
+    src: 'https://img.shields.io/badge/TypeScript-ready-blue.svg?style=flat-square',
+    alt: 'TypeScript ready',
+  },
+] as const;
+---
+
+{
+  isSplash ? (
+    <footer class="not-content splash-footer border-t border-gray-800 bg-gray-950 text-gray-300">
+      <div class="mx-auto grid w-full max-w-[min(60rem,100%)] gap-24 px-[clamp(20px,5vw,48px)] py-[clamp(2.5rem,6vw,4rem)]">
+        <div class="fle flex-col flex-wrap items-center justify-center gap-20">
+          <p class="text-center font-display text-xl font-semibold tracking-tight text-white">
+            @iamsquare/ua
+          </p>
+          <div class="flex flex-wrap w-full justify-center items-center gap-10">
+            {map(badges, ({ href, src, alt }) => (
+              <a
+                href={href}
+                class="inline-flex leading-none no-underline opacity-90 hover:opacity-100"
+              >
+                <img src={src} alt={alt} height="20" class="h-20 w-auto" loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </div>
+        <p class="text-center font-mono text-[0.8rem] text-gray-500">
+          Copyright © {new Date().getFullYear()} iamsquare. Licensed under{' '}
+          <a
+            href="https://github.com/iamsquare/ua/blob/master/LICENSE"
+            class="text-gray-400 underline underline-offset-2 hover:text-gray-200"
+          >
+            MIT
+          </a>
+          .
+        </p>
+      </div>
+    </footer>
+  ) : (
+    <Default>
+      <slot />
+    </Default>
+  )
+}

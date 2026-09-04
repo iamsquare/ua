@@ -1,0 +1,19 @@
+---
+title: Bots
+description: Bot and AI crawler helpers
+---
+
+```ts
+import { isBot, isAICrawler, isAIAssistant } from '@iamsquare/ua/bots';
+import { parseUA } from '@iamsquare/ua';
+import { bots } from '@iamsquare/ua/extensions';
+
+const result = parseUA(ua, { extensions: [bots] });
+
+isBot(result);
+isAICrawler(ua);
+isAIAssistant(ua);
+```
+
+`isBot` checks browser type against CLI / crawler / fetcher / library.
+`isAICrawler` and `isAIAssistant` match known AI agent names.

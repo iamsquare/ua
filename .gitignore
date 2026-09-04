@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+.DS_Store
+*.log
+.tmp
+.temp
+.npmrc
+.astro
+benchmarks/results/*.json
+benchmarks/results/*.md
+docs/src/content/docs/reference/typedoc

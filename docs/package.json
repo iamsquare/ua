@@ -1,0 +1,48 @@
+{
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/starlight": "^0.42.0",
+    "@astrojs/starlight-tailwind": "^5.0.0",
+    "@iamsquare/ua": "workspace:*",
+    "@paper-design/shaders-react": "^0.0.80",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "astro": "^7.3.1",
+    "clsx": "^2.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remeda": "^2.45.0",
+    "sharp": "^0.35.3",
+    "starlight-typedoc": "^0.23.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.0"
+  },
+  "devDependencies": {
+    "@iamsquare/eslint-config": "workspace:*",
+    "@iamsquare/prettier-config": "workspace:*",
+    "@typescript-eslint/parser": "^8.69.0",
+    "eslint": "^10.10.0",
+    "eslint-plugin-astro": "^3.1.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.69.0"
+  }
+}

@@ -1,0 +1,16 @@
+---
+import Default from '@astrojs/starlight/components/PageSidebar.astro';
+import { sumBy } from 'remeda';
+
+type TocItem = {
+  children: TocItem[];
+};
+
+const countLinks = (items: TocItem[]): number =>
+  sumBy(items, (item) => 1 + countLinks(item.children));
+
+const toc = Astro.locals.starlightRoute.toc;
+const linkCount = toc ? countLinks(toc.items) : 0;
+---
+
+{linkCount > 1 && <Default />}

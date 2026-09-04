@@ -1,0 +1,64 @@
+---
+title: API
+description: Public API surface
+---
+
+Overview of the public package surface. Full signatures live under [Type reference](/reference/typedoc/readme/).
+
+## Package exports
+
+| Import                     | Contents                                                                                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------ |
+| `@iamsquare/ua`            | `parseUA`, modular parsers, types                                                                |
+| `@iamsquare/ua/extensions` | Extension packs                                                                                  |
+| `@iamsquare/ua/bots`       | `isBot`, `isAICrawler`, `isAIAssistant`                                                          |
+| `@iamsquare/ua/helpers`    | `isBrowser`, `isOS`, `isEngine`, `isDevice`, `isCPU`, `is`, `toString`, `isChromeFamily`, …      |
+| `@iamsquare/ua/enums`      | `BrowserName`, `BrowserType`, `DeviceType`, `DeviceVendor`, `EngineName`, `OSName`, `CPUArch`, … |
+
+## Options at a glance
+
+- `withClientHints: true` — apply Sec-CH-UA headers; `headers` is required.
+- `withFeatureCheck: true` — browser-only Brave / iPad (and related) refinements after parse.
+
+```ts
+const result = parseUA(ua, {
+  withClientHints: true,
+  headers: request.headers,
+  withFeatureCheck: true,
+});
+```
+
+See [ParseOptions](/reference/typedoc/iamsquare/ua/type-aliases/parseoptions/) and [Result](/reference/typedoc/iamsquare/ua/type-aliases/result/) for the full type shapes.
+
+## `isBrowser` / `isOS` / … / `toString`
+
+From `@iamsquare/ua/helpers` — plain helpers over result slices (no methods on the objects):
+
+```ts
+import { isBrowser, isOS, isDevice, is, toString } from '@iamsquare/ua/helpers';
+import { BrowserName, OSName, DeviceType } from '@iamsquare/ua/enums';
+
+isBrowser(result.browser, BrowserName.CHROME);
+isOS(result.os, OSName.ANDROID);
+isDevice(result.device, DeviceType.MOBILE);
+
+// Power user: generic is with custom ignore / strip
+is(result.browser, result.browser.version ?? '');
+
+toString(result.browser, ['name', 'version']); // "Chrome 120.0.0.0"
+toString(result.device, ['vendor', 'model']); // "Samsung SM-X706B"
+toString(result.os, ['name', 'version']); // "Android 12"
+// fields are typed from the slice: Browser → name | version | major | type
+```
+
+Typed `is*` helpers bake in ua-parser-js defaults:
+
+| Helper      | Ignores            | Strip           |
+| ----------- | ------------------ | --------------- |
+| `isBrowser` | `version`, `major` | `/ ?browser$/i` |
+| `isOS`      | `version`          | `/ ?os$/i`      |
+| `isEngine`  | `version`          | —               |
+| `isDevice`  | —                  | —               |
+| `isCPU`     | —                  | —               |
+
+Comparisons are case-insensitive. Use generic `is` when you need different ignore/strip rules.

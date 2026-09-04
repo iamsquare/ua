@@ -1,0 +1,10 @@
+packages:
+  - .
+  - docs
+  - eslintConfig
+  - prettierConfig
+  - benchmarks
+
+allowBuilds:
+  esbuild: true
+  sharp: true

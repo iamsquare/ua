@@ -1,0 +1,41 @@
+---
+title: Competitors
+description: Accuracy, speed, and size versus other User-Agent parsers
+---
+
+import { CompetitorsTables } from '@/components/CompetitorsTables';
+
+How `@iamsquare/ua` compares to other User-Agent parsers on this repo's fixture suite.
+
+## How to read this
+
+- **Accuracy** is string equality against fixture `expect` fields. Those expects are authored for `@iamsquare/ua`, so other libraries can score lower on naming differences even when broadly correct.
+- **Speed** uses the same unique User-Agent list from the fixtures.
+- **Size** is an esbuild bundle of each package entry (raw and gzip).
+
+Refresh the snapshot locally (not in CI):
+
+```bash
+pnpm build
+pnpm --dir benchmarks bench
+```
+
+That updates `docs/src/data/competitors.json`.
+
+Libraries compared: [`ua-parser-js`](https://github.com/faisalman/ua-parser-js), [`my-ua-parser`](https://github.com/mcollina/my-ua-parser), [`bowser`](https://github.com/bowser-js/bowser), [`platform`](https://github.com/bestiejs/platform.js), [`detect-browser`](https://github.com/DamonOehlman/detect-browser), [`device-detector-js`](https://github.com/etienne-martin/device-detector-js).
+
+## Summary
+
+<CompetitorsTables section="summary" />
+
+## Accuracy by category
+
+<CompetitorsTables section="accuracy" />
+
+## Speed
+
+<CompetitorsTables section="speed" />
+
+## Size
+
+<CompetitorsTables section="size" />

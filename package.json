@@ -1,0 +1,136 @@
+{
+  "name": "@iamsquare/ua",
+  "version": "0.0.1",
+  "description": "The essential tool for User-Agent detection. Detect browsers, OS, devices, bots, apps, AI crawlers, and more. Browser and Node.js.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Marco <squaremarco@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamsquare/ua.git"
+  },
+  "keywords": [
+    "user-agent",
+    "parser",
+    "browser",
+    "engine",
+    "os",
+    "device",
+    "cpu",
+    "client-hints",
+    "bot-detection"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./bots": {
+      "import": {
+        "types": "./dist/bots.d.ts",
+        "default": "./dist/bots.js"
+      },
+      "require": {
+        "types": "./dist/bots.d.cts",
+        "default": "./dist/bots.cjs"
+      }
+    },
+    "./extensions": {
+      "import": {
+        "types": "./dist/extensions.d.ts",
+        "default": "./dist/extensions.js"
+      },
+      "require": {
+        "types": "./dist/extensions.d.cts",
+        "default": "./dist/extensions.cjs"
+      }
+    },
+    "./helpers": {
+      "import": {
+        "types": "./dist/helpers.d.ts",
+        "default": "./dist/helpers.js"
+      },
+      "require": {
+        "types": "./dist/helpers.d.cts",
+        "default": "./dist/helpers.cjs"
+      }
+    },
+    "./enums": {
+      "import": {
+        "types": "./dist/enums.d.ts",
+        "default": "./dist/enums.js"
+      },
+      "require": {
+        "types": "./dist/enums.d.cts",
+        "default": "./dist/enums.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "prepare": "husky || true",
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint --fix && pnpm --dir docs lint:fix && pnpm --dir eslintConfig lint:fix && pnpm --dir prettierConfig lint:fix",
+    "lint:check": "eslint && pnpm --dir docs lint && pnpm --dir eslintConfig lint && pnpm --dir prettierConfig lint",
+    "format": "prettier --write .",
+    "lint-staged": "lint-staged",
+    "bench": "pnpm --dir benchmarks bench",
+    "docs:dev": "pnpm --dir docs dev",
+    "docs:build": "pnpm --dir docs build",
+    "sync:uap-core": "jiti scripts/sync-uap-core-fixtures.ts",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "dependencies": {
+    "remeda": "^2.32.0",
+    "type-fest": "^5.9.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.1",
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@commitlint/types": "^21.2.0",
+    "@iamsquare/eslint-config": "workspace:*",
+    "@iamsquare/prettier-config": "workspace:*",
+    "@types/node": "^22.15.30",
+    "consola": "^3.4.2",
+    "eslint": "^10.10.0",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.8.3",
+    "tsdown": "^0.23.0",
+    "typescript": "^5.8.3",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0",
+    "yaml": "^2.9.0"
+  },
+  "packageManager": "pnpm@10.12.1"
+}

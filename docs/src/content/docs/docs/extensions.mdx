@@ -1,0 +1,30 @@
+---
+title: Extensions
+description: Optional detection packs
+---
+
+Extension packs prepend extra rules for specialized clients:
+
+```ts
+import { parseUA } from '@iamsquare/ua';
+import { crawler, email, library } from '@iamsquare/ua/extensions';
+
+const result = parseUA(ua, {
+  extensions: [crawler, email, library],
+});
+```
+
+Available packs:
+
+- `cli`
+- `crawler`
+- `email`
+- `extraDevice`
+- `fetcher`
+- `inApp`
+- `library`
+- `mediaPlayer`
+- `vehicle`
+- `bots`
+
+You can also pass a custom `ExtensionPack` with `browser` / `os` / `device` / `cpu` / `engine` rule arrays.

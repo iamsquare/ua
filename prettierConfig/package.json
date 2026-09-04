@@ -1,0 +1,30 @@
+{
+  "name": "@iamsquare/prettier-config",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shared Prettier configuration for @iamsquare projects",
+  "type": "module",
+  "main": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "files": [
+    "index.ts"
+  ],
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "@iamsquare/eslint-config": "workspace:*",
+    "@types/node": "^22.15.30",
+    "eslint": "^10.10.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.8.3",
+    "typescript": "^5.8.3"
+  }
+}
