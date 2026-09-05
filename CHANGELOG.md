@@ -1,5 +1,11 @@
 # @iamsquare/ua
 
+## 1.1.0
+
+### Minor Changes
+
+- 9866770: Added CLI script
+
 ## 1.0.1
 
 ### Patch Changes
