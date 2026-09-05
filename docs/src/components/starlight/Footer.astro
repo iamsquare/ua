@@ -1,16 +1,20 @@
 ---
 import Default from '@astrojs/starlight/components/Footer.astro';
 
+import LogoMark from '@/components/starlight/LogoMark.astro';
+
 const isSplash = Astro.locals.starlightRoute.entry.data.template === 'splash';
+const { siteTitle } = Astro.locals.starlightRoute;
 ---
 
 {
   isSplash ? (
     <footer class="not-content splash-footer border-t border-gray-800 bg-gray-950 text-gray-300">
-      <div class="mx-auto grid w-full max-w-[min(60rem,100%)] gap-24 px-[clamp(20px,5vw,48px)] py-[clamp(2.5rem,6vw,4rem)]">
-        <p class="text-center font-display text-xl font-semibold tracking-tight text-white">
-          @iamsquare/ua
-        </p>
+      <div class="mx-auto grid w-full max-w-[min(60rem,100%)] justify-items-center gap-24 px-[clamp(20px,5vw,48px)] py-[clamp(2.5rem,6vw,4rem)]">
+        <div class="flex flex-col items-center gap-12 text-white">
+          <LogoMark class="size-40" aria-hidden="true" />
+          <p class="font-display text-xl font-semibold tracking-tight">{siteTitle}</p>
+        </div>
         <p class="text-center font-mono text-[0.8rem] text-gray-500">
           Copyright © {new Date().getFullYear()} iamsquare. Licensed under{' '}
           <a

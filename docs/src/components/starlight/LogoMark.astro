@@ -1,0 +1,11 @@
+---
+import Logo from '@/assets/logo.svg';
+
+type Props = {
+  class?: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<Logo class={className} aria-hidden="true" />

@@ -185,17 +185,34 @@ export const Playground = ({ showResults = true, showJson = false }: PlaygroundP
   ];
 
   return (
-    <div className="grid gap-20">
+    <div className="not-content grid gap-20">
+      <div className={cn(panelClass, 'grid gap-10')}>
+        <h3 className="m-0 font-display text-lg font-semibold text-gray-900 dark:text-white">
+          User-Agent string
+        </h3>
+        <label className="grid gap-8 text-sm text-gray-600 dark:text-gray-400">
+          Enter your own User-Agent to test
+          <textarea
+            className={cn(fieldClass, 'min-h-120 resize-y')}
+            rows={5}
+            value={ua}
+            onChange={(event) => {
+              setPresetId('custom');
+              setUa(event.target.value);
+            }}
+          />
+        </label>
+      </div>
       <div className="grid gap-8 sm:grid-cols-[auto_1fr] sm:items-center">
         <label
           htmlFor={presetFieldId}
-          className="text-[0.9rem] font-medium text-gray-700 dark:text-gray-300"
+          className="text-base font-medium text-gray-700 dark:text-gray-300"
         >
-          Select a User-Agent example
+          Or select a User-Agent example
         </label>
         <select
           id={presetFieldId}
-          className={cn(fieldClass, 'cursor-pointer')}
+          className={cn(fieldClass, 'overflow-hidden text-ellipsis cursor-pointer')}
           value={presetId}
           onChange={(event) => {
             const next = event.target.value as string;
@@ -213,36 +230,16 @@ export const Playground = ({ showResults = true, showJson = false }: PlaygroundP
           ))}
         </select>
       </div>
-
-      <div className={cn(panelClass, 'grid gap-10')}>
-        <h3 className="m-0 font-display text-[1.1rem] font-semibold text-gray-900 dark:text-white">
-          User-Agent string
-        </h3>
-        <label className="grid gap-8 text-[0.85rem] text-gray-600 dark:text-gray-400">
-          Or enter your own User-Agent to test
-          <textarea
-            className={cn(fieldClass, 'min-h-120 resize-y')}
-            rows={5}
-            value={ua}
-            onChange={(event) => {
-              setPresetId('custom');
-              setUa(event.target.value);
-            }}
-          />
-        </label>
-      </div>
-
       {showJson && (
         <pre
           className={cn(
             fieldClass,
-            'overflow-x-auto bg-gray-950 text-[0.78rem] text-gray-100 dark:bg-black',
+            'overflow-x-auto bg-gray-950 text-xs text-gray-100 dark:bg-black',
           )}
         >
           {JSON.stringify(result, null, 2)}
         </pre>
       )}
-
       {showResults && (
         <div
           className={cn(

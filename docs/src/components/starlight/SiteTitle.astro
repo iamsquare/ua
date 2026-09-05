@@ -1,0 +1,14 @@
+---
+import LogoMark from '@/components/starlight/LogoMark.astro';
+
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+---
+
+<a
+  href={siteTitleHref}
+  class="site-title sl-flex no-underline text-accent-600 dark:text-accent-200"
+  aria-label={siteTitle}
+>
+  <LogoMark class="h-[calc(var(--sl-nav-height)-3*var(--sl-nav-pad-y))] w-auto shrink-0" />
+  <span class="sr-only" translate="no">{siteTitle}</span>
+</a>

@@ -38,6 +38,7 @@
 
   --animate-install-copy-flash: install-copy-flash 0.75s ease-out forwards;
   --animate-install-copy-toast: install-copy-toast 0.75s ease-out forwards;
+  --animate-page-fade-in: page-fade-in 0.7s ease-out forwards;
 }
 
 @keyframes install-copy-flash {
@@ -74,9 +75,20 @@
   }
 }
 
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @layer base {
   html {
-    scroll-behavior: smooth;
+    @apply scroll-smooth;
+
     background:
       radial-gradient(1200px 600px at 12% -10%, rgb(37 99 235 / 0.12), transparent 55%),
       radial-gradient(900px 500px at 88% 8%, rgb(14 165 233 / 0.1), transparent 50%),
@@ -85,51 +97,59 @@
 
   @media (prefers-reduced-motion: reduce) {
     html {
-      scroll-behavior: auto;
+      @apply scroll-auto;
     }
   }
 }
 
 @layer overrides {
   :root {
+    --sl-main-pad: 0;
     --viewport-height: 100vh;
     --viewport-height: 100svh;
     --viewport-height: 100dvh;
   }
 
   .page {
-    min-height: var(--viewport-height);
+    @apply min-h-(--viewport-height);
   }
 
   @media (width >= 72rem) {
     :root[data-has-sidebar] .main-pane {
       --sl-content-margin-inline: 0;
-      width: auto;
-      max-width: none;
-      min-width: 0;
-      flex: 1 1 auto;
+
+      @apply w-auto max-w-none min-w-0 flex-1;
     }
 
     .right-sidebar-container {
-      flex: 0 0 var(--sl-sidebar-width);
-      width: var(--sl-sidebar-width);
-      min-width: var(--sl-sidebar-width);
+      @apply grow-0 shrink-0 basis-(--sl-sidebar-width) w-(--sl-sidebar-width) min-w-(--sl-sidebar-width);
     }
 
     .right-sidebar-panel .sl-container {
-      width: calc(var(--sl-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
-      max-width: none;
+      @apply w-[calc(var(--sl-sidebar-width)-2*var(--sl-sidebar-pad-x))] max-w-none;
     }
 
     .content-panel .sl-container {
-      margin-inline: 0;
-      width: 100%;
-      max-width: none;
+      @apply mx-0 w-full max-w-none;
     }
   }
 
-  [data-has-hero] {
-    scroll-padding-top: var(--sl-nav-height);
+  [data-has-hero][data-page-pending]:not([data-page-ready]) .main-frame {
+    opacity: 0;
+  }
+
+  [data-has-hero][data-page-ready] .main-frame {
+    @apply animate-page-fade-in;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-has-hero][data-page-pending]:not([data-page-ready]) .main-frame {
+      @apply opacity-1;
+    }
+
+    [data-has-hero][data-page-ready] .main-frame {
+      @apply animate-none opacity-1;
+    }
   }
 
   .site-title {

@@ -16,7 +16,7 @@ export const InstallCommand = ({ sizeLabel }: InstallCommandProps) => {
     <button
       type="button"
       className={cn(
-        'relative flex w-full max-w-560 cursor-pointer flex-col items-center gap-8 rounded-2xl border border-gray-300 bg-gray-950 px-14 py-12 font-mono text-gray-100 transition-colors',
+        'relative flex max-w-max cursor-pointer flex-col items-center gap-8 rounded-2xl border border-gray-300 bg-gray-950 px-14 py-12 font-mono text-gray-100 transition-colors',
         'hover:border-gray-500 sm:flex-row sm:justify-between sm:gap-12 sm:rounded-full sm:px-18 dark:border-gray-700 dark:hover:border-gray-500',
       )}
       aria-label={`Copy “${COMMAND}”`}

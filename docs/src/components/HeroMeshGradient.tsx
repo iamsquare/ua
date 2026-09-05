@@ -32,14 +32,7 @@ export const HeroMeshGradient = () => {
   }, []);
 
   return (
-    <div
-      className="size-full opacity-40"
-      style={{
-        maskImage: 'linear-gradient(to bottom, black 0%, black 20%, black 65%, transparent 100%)',
-        WebkitMaskImage:
-          'linear-gradient(to bottom, black 0%, black 20%, black 65%, transparent 100%)',
-      }}
-    >
+    <div className="size-full dark:opacity-50 opacity-100 mask-b-from-black via-black/65% to-transparent/95%">
       <MeshGradient
         width="100%"
         height="100%"

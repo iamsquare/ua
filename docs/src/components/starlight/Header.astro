@@ -1,10 +1,10 @@
 ---
 import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
 import Search from '@astrojs/starlight/components/Search.astro';
-import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
 import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
 import { map } from 'remeda';
 
+import SiteTitle from '@/components/starlight/SiteTitle.astro';
 import ThemeSelect from '@/components/starlight/ThemeSelect.astro';
 
 const isSplash = Astro.locals.starlightRoute.entry.data.template === 'splash';
@@ -20,14 +20,11 @@ const splashAnchors = [
     <SiteTitle />
     {
       isSplash ? (
-        <nav
-          aria-label="Page sections"
-          class="sl-hidden items-center gap-20 print:hidden md:sl-flex"
-        >
+        <nav aria-label="Page sections" class="sl-flex items-center gap-12 print:hidden sm:gap-20">
           {map(splashAnchors, ({ href, label }) => (
             <a
               href={href}
-              class="font-sans text-base font-medium text-gray-700 no-underline hover:text-accent-600 dark:text-gray-300 dark:hover:text-accent-200"
+              class="font-sans text-sm font-medium text-gray-700 no-underline hover:text-accent-600 sm:text-base dark:text-gray-300 dark:hover:text-accent-200"
             >
               {label}
             </a>
@@ -40,7 +37,7 @@ const splashAnchors = [
       )
     }
   </div>
-  <div class="sl-hidden items-center gap-16 print:hidden md:sl-flex">
+  <div class="sl-flex items-center gap-12 print:hidden sm:gap-16">
     {
       isSplash && (
         <a

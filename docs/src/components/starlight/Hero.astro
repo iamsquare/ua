@@ -1,6 +1,7 @@
 ---
 import { LinkButton } from '@astrojs/starlight/components';
 
+import { HeroLiquidMetalLogo } from '@/components/HeroLiquidMetalLogo';
 import { HeroMeshGradient } from '@/components/HeroMeshGradient';
 import { InstallCommand } from '@/components/InstallCommand';
 import { cn } from '@/lib/cn';
@@ -8,13 +9,23 @@ import { hasAtLeast, isNonNullish, map } from 'remeda';
 
 import pkg from '@/repo-root/package.json';
 
-const { data } = Astro.locals.starlightRoute.entry;
-const { tagline, actions = [] } = data.hero || {};
+const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero || {};
 ---
 
-<section class="relative grid text-center">
+<script is:inline>
+  document.documentElement.setAttribute('data-page-pending', '');
+
+  window.setTimeout(() => {
+    if (document.documentElement.hasAttribute('data-page-ready')) return;
+
+    document.documentElement.setAttribute('data-page-ready', '');
+    document.documentElement.removeAttribute('data-page-pending');
+  }, 2500);
+</script>
+
+<section class="mt-0 md:pt-45 relative grid text-center">
   <div
-    class="pointer-events-none absolute top-0 -bottom-150 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
+    class="pointer-events-none absolute top-0 -bottom-180 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
     aria-hidden="true"
   >
     <HeroMeshGradient client:only="react" />
@@ -23,28 +34,12 @@ const { tagline, actions = [] } = data.hero || {};
     class="relative z-10 grid min-h-[min(72svh,--spacing(640))] items-center justify-items-center pt-[clamp(--spacing(48),8svh,--spacing(80))] pb-[clamp(--spacing(40),6svh,--spacing(64))]"
   >
     <div class="grid max-w-736 justify-items-center gap-24">
-      <div
-        class="inline-flex items-center justify-center gap-10 rounded-full border border-gray-300 bg-gray-100/80 px-6 py-6 text-xs sm:pl-6 sm:pr-14 dark:border-gray-700 dark:bg-gray-900/60"
-      >
-        <span
-          class="rounded-full bg-accent-600 px-10 py-3 font-mono font-semibold tracking-wide text-white"
-        >
-          v{pkg.version}
-        </span>
-        <span class="hidden font-sans text-gray-700 sm:inline dark:text-gray-300">
-          Typed User-Agent detection for browsers and Node.js
-        </span>
-      </div>
       <div class="grid justify-items-center gap-12">
-        <p
-          class="font-display text-[clamp(1.15rem,2.2vw,1.45rem)] font-semibold tracking-tight text-accent-700 dark:text-accent-200"
-        >
-          {data.title}
-        </p>
+        <HeroLiquidMetalLogo client:only="react" />
         <h1
           id="_top"
           data-page-title
-          class="max-w-[18ch] font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-tight tracking-tight text-gray-900 dark:text-white"
+          class="max-w-[18ch] mt-20 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-tight tracking-tight text-gray-900 dark:text-white"
         >
           Parse User-Agents<br />
           <span class="text-accent-600 dark:text-accent-300">Get structured results</span>
@@ -83,6 +78,16 @@ const { tagline, actions = [] } = data.hero || {};
         )
       }
       <InstallCommand client:load sizeLabel="~16.7 kB min+gzip" />
+      <div
+        class="flex items-center justify-center gap-10 rounded-full border border-gray-300 bg-gray-100/80 px-6 py-6 text-xs sm:pl-6 sm:pr-14 dark:border-gray-700 dark:bg-gray-900/60"
+      >
+        <span
+          class="rounded-full bg-accent-600 px-10 py-3 font-mono font-semibold tracking-wide text-white"
+        >
+          v{pkg.version}
+        </span>
+        <span class="font-sans text-gray-700 dark:text-gray-300"> Initial release! 🎉 </span>
+      </div>
     </div>
   </div>
 </section>

@@ -6,6 +6,7 @@ import starlight from '@astrojs/starlight';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import starlightTypeDoc, { typeDocSidebarGroup } from 'starlight-typedoc';
+import svgr from 'vite-plugin-svgr';
 
 const repoRoot = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 
@@ -27,10 +28,50 @@ export default defineConfig({
         Header: './src/components/starlight/Header.astro',
         Hero: './src/components/starlight/Hero.astro',
         Footer: './src/components/starlight/Footer.astro',
+        SiteTitle: './src/components/starlight/SiteTitle.astro',
         ThemeSelect: './src/components/starlight/ThemeSelect.astro',
         PageSidebar: './src/components/starlight/PageSidebar.astro',
       },
-      favicon: './public/favicon.png',
+      favicon: 'favicon.png',
+      head: [
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: 'https://ua.iamsquare.it/og.png?v=1',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:type', content: 'image/png' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:width', content: '1200' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:height', content: '630' },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image:alt',
+            content: '@iamsquare/ua | Typed User-Agent detection for browsers and Node.js',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'twitter:card', content: 'summary_large_image' },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: 'https://ua.iamsquare.it/og.png?v=1',
+          },
+        },
+      ],
       plugins: [
         starlightTypeDoc({
           entryPoints: [
@@ -102,6 +143,6 @@ export default defineConfig({
         allow: [repoRoot],
       },
     },
-    plugins: [tailwindcss()],
+    plugins: [svgr(), tailwindcss()],
   },
 });
