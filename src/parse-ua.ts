@@ -118,6 +118,9 @@ const resolveParse = (ua?: string, options: ParseOptions = {}) => ({
   extensions: normalizeExtensions(options.extensions),
 });
 
+const _parseBrowser = (ua: string, extensions: ExtensionPack[]): Browser =>
+  toBrowser(matchRules(ua, rulesFor('browser', extensions, browserRules)));
+
 /**
  * Parse only the browser slice from a User-Agent string.
  *
@@ -127,8 +130,11 @@ const resolveParse = (ua?: string, options: ParseOptions = {}) => ({
 export const parseBrowser = (ua?: string, options: ParseOptions = {}): Browser => {
   const { ua: resolved, extensions } = resolveParse(ua, options);
 
-  return toBrowser(matchRules(resolved, rulesFor('browser', extensions, browserRules)));
+  return _parseBrowser(resolved, extensions);
 };
+
+const _parseCPU = (ua: string, extensions: ExtensionPack[]): CPU =>
+  toCpu(matchRules(ua, rulesFor('cpu', extensions, cpuRules)));
 
 /**
  * Parse only the CPU architecture slice from a User-Agent string.
@@ -139,8 +145,11 @@ export const parseBrowser = (ua?: string, options: ParseOptions = {}): Browser =
 export const parseCPU = (ua?: string, options: ParseOptions = {}): CPU => {
   const { ua: resolved, extensions } = resolveParse(ua, options);
 
-  return toCpu(matchRules(resolved, rulesFor('cpu', extensions, cpuRules)));
+  return _parseCPU(resolved, extensions);
 };
+
+const _parseDevice = (ua: string, extensions: ExtensionPack[]): Device =>
+  toDevice(matchDeviceRules(ua, rulesFor('device', extensions, deviceRules)));
 
 /**
  * Parse only the device slice from a User-Agent string.
@@ -151,8 +160,11 @@ export const parseCPU = (ua?: string, options: ParseOptions = {}): CPU => {
 export const parseDevice = (ua?: string, options: ParseOptions = {}): Device => {
   const { ua: resolved, extensions } = resolveParse(ua, options);
 
-  return toDevice(matchDeviceRules(resolved, rulesFor('device', extensions, deviceRules)));
+  return _parseDevice(resolved, extensions);
 };
+
+const _parseEngine = (ua: string, extensions: ExtensionPack[]): Engine =>
+  toEngine(matchRules(ua, rulesFor('engine', extensions, engineRules)));
 
 /**
  * Parse only the rendering-engine slice from a User-Agent string.
@@ -163,8 +175,11 @@ export const parseDevice = (ua?: string, options: ParseOptions = {}): Device => 
 export const parseEngine = (ua?: string, options: ParseOptions = {}): Engine => {
   const { ua: resolved, extensions } = resolveParse(ua, options);
 
-  return toEngine(matchRules(resolved, rulesFor('engine', extensions, engineRules)));
+  return _parseEngine(resolved, extensions);
 };
+
+const _parseOS = (ua: string, extensions: ExtensionPack[]): OS =>
+  applyIosSafariVersionFix(toOs(matchRules(ua, rulesFor('os', extensions, osRules))), ua);
 
 /**
  * Parse only the OS slice from a User-Agent string.
@@ -175,10 +190,7 @@ export const parseEngine = (ua?: string, options: ParseOptions = {}): Engine => 
 export const parseOS = (ua?: string, options: ParseOptions = {}): OS => {
   const { ua: resolved, extensions } = resolveParse(ua, options);
 
-  return applyIosSafariVersionFix(
-    toOs(matchRules(resolved, rulesFor('os', extensions, osRules))),
-    resolved,
-  );
+  return _parseOS(resolved, extensions);
 };
 
 /**
@@ -196,19 +208,17 @@ export const parseOS = (ua?: string, options: ParseOptions = {}): OS => {
  */
 export const parseUA = (ua?: string, options: ParseOptions = {}): Result => {
   const { ua: resolved, extensions } = resolveParse(ua, options);
+
   const headers = clientHintHeaders(options);
   const hints = isNonNullish(headers) ? parseClientHints(headers) : undefined;
 
   const base = {
     ua: resolved,
-    browser: toBrowser(matchRules(resolved, rulesFor('browser', extensions, browserRules))),
-    cpu: toCpu(matchRules(resolved, rulesFor('cpu', extensions, cpuRules))),
-    device: toDevice(matchDeviceRules(resolved, rulesFor('device', extensions, deviceRules))),
-    engine: toEngine(matchRules(resolved, rulesFor('engine', extensions, engineRules))),
-    os: applyIosSafariVersionFix(
-      toOs(matchRules(resolved, rulesFor('os', extensions, osRules))),
-      resolved,
-    ),
+    browser: _parseBrowser(resolved, extensions),
+    cpu: _parseCPU(resolved, extensions),
+    device: _parseDevice(resolved, extensions),
+    engine: _parseEngine(resolved, extensions),
+    os: _parseOS(resolved, extensions),
   };
 
   return pipe(

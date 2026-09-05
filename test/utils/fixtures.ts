@@ -84,7 +84,7 @@ const EXTENSION_SLICE_KEYS = {
 type ExtensionFixturesOptions = {
   name: string;
   file: string;
-  extensions: ExtensionPack | ExtensionPack[];
+  extensions: ExtensionPack[];
   slice: keyof typeof EXTENSION_SLICE_KEYS;
 };
 

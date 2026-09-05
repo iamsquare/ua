@@ -93,7 +93,7 @@ export type ExtensionPack = Partial<{
 }>;
 
 type ParseOptionsBase = {
-  extensions?: ExtensionPack | ExtensionPack[];
+  extensions?: ExtensionPack[];
   withFeatureCheck?: boolean;
 };
 

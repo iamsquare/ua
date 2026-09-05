@@ -1,4 +1,9 @@
-import { map } from 'remeda';
+import { execFile } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { promisify } from 'node:util';
+
+import { filter, isEmptyish, last, pipe, split, startsWith } from 'remeda';
+import { Bench } from 'tinybench';
 
 import type { ParserAdapter } from '@/adapters/types';
 
@@ -11,35 +16,71 @@ export type SpeedResult = {
   uaCount: number;
 };
 
-const WARMUP_ITERS = 3;
-const BENCH_ITERS = 5;
+const execFileAsync = promisify(execFile);
 
-const parseAll = async (adapter: ParserAdapter, uas: string[]) => {
-  await Promise.all(map(uas, (ua) => Promise.resolve(adapter.parse(ua))));
-};
+const BENCH_TIME_MS = 2000;
+const WARMUP_TIME_MS = 2000;
 
-const runPasses = async (adapter: ParserAdapter, uas: string[], iterations: number) => {
-  for (let i = 0; i < iterations; i++) {
-    await parseAll(adapter, uas);
+const workerPath = fileURLToPath(new URL('../run-speed-worker.ts', import.meta.url));
+
+export const measureSpeed = async (adapter: ParserAdapter, uas: string[]) => {
+  if (uas.length === 0) {
+    return {
+      id: adapter.id,
+      label: adapter.label,
+      totalMs: 0,
+      opsPerSec: 0,
+      iterations: 0,
+      uaCount: 0,
+    };
   }
-};
 
-export const measureSpeed = async (adapter: ParserAdapter, uas: string[]): Promise<SpeedResult> => {
-  await runPasses(adapter, uas, WARMUP_ITERS);
+  let index = 0;
 
-  const start = performance.now();
+  const bench = new Bench({ time: BENCH_TIME_MS, warmupTime: WARMUP_TIME_MS, throws: true });
 
-  await runPasses(adapter, uas, BENCH_ITERS);
+  bench.add(
+    adapter.id,
+    () => {
+      adapter.parse(uas[index] ?? '');
+      index = (index + 1) % uas.length;
+    },
+    { async: false },
+  );
 
-  const totalMs = performance.now() - start;
-  const totalOps = uas.length * BENCH_ITERS;
+  await bench.run();
+
+  const task = bench.getTask(adapter.id);
+  const result = task?.result;
+
+  if (result?.state !== 'completed') {
+    throw new Error(
+      `Speed benchmark failed for ${adapter.id}: ${result?.state ?? 'missing result'}`,
+    );
+  }
 
   return {
     id: adapter.id,
     label: adapter.label,
-    totalMs,
-    opsPerSec: totalMs === 0 ? 0 : (totalOps / totalMs) * 1000,
-    iterations: BENCH_ITERS,
+    totalMs: result.totalTime,
+    opsPerSec: result.throughput.mean,
+    iterations: result.throughput.samplesCount,
     uaCount: uas.length,
   };
+};
+
+export const measureSpeedIsolated = async (adapterId: string): Promise<SpeedResult> => {
+  const { stdout, stderr } = await execFileAsync('pnpm', ['exec', 'tsx', workerPath, adapterId], {
+    cwd: fileURLToPath(new URL('../..', import.meta.url)),
+    maxBuffer: 10 * 1024 * 1024,
+    encoding: 'utf8',
+  });
+
+  const line = pipe(stdout.trim(), split('\n'), filter(startsWith('{')), last());
+
+  if (isEmptyish(line)) {
+    throw new Error(`Speed worker produced no JSON for ${adapterId}\nstderr: ${stderr}`);
+  }
+
+  return JSON.parse(line);
 };

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-05T10:49:30.530Z",
+    "generatedAt": "2026-09-05T21:38:43.314Z",
     "node": "v24.16.0",
     "fixtureCases": 19824,
     "uniqueUserAgents": 19306
@@ -51,16 +51,16 @@
       "speed": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
-        "totalMs": 1456.395292,
-        "opsPerSec": 66280.08242696243,
-        "iterations": 5,
+        "totalMs": 2000.0081190001024,
+        "opsPerSec": 73504.32286974428,
+        "iterations": 102145,
         "uaCount": 19306
       },
       "size": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
-        "rawBytes": 92813,
-        "gzipBytes": 17105
+        "rawBytes": 92905,
+        "gzipBytes": 17160
       }
     },
     {
@@ -108,9 +108,9 @@
       "speed": {
         "id": "ua-parser-js",
         "label": "ua-parser-js",
-        "totalMs": 3230.150708,
-        "opsPerSec": 29884.054561580535,
-        "iterations": 5,
+        "totalMs": 2000.0101380000388,
+        "opsPerSec": 28527.32373007932,
+        "iterations": 48922,
         "uaCount": 19306
       },
       "size": {
@@ -165,9 +165,9 @@
       "speed": {
         "id": "my-ua-parser",
         "label": "my-ua-parser",
-        "totalMs": 1091.4924159999991,
-        "opsPerSec": 88438.5439467864,
-        "iterations": 5,
+        "totalMs": 2000.009704000095,
+        "opsPerSec": 118819.98773270404,
+        "iterations": 158190,
         "uaCount": 19306
       },
       "size": {
@@ -222,9 +222,9 @@
       "speed": {
         "id": "bowser",
         "label": "bowser",
-        "totalMs": 645.8723339999997,
-        "opsPerSec": 149456.781036235,
-        "iterations": 5,
+        "totalMs": 2000.0098269999012,
+        "opsPerSec": 146284.39377454598,
+        "iterations": 247702,
         "uaCount": 19306
       },
       "size": {
@@ -279,9 +279,9 @@
       "speed": {
         "id": "platform",
         "label": "platform",
-        "totalMs": 4418.8835,
-        "opsPerSec": 21844.88457321855,
-        "iterations": 5,
+        "totalMs": 2000.0189080000064,
+        "opsPerSec": 19240.399185218965,
+        "iterations": 36935,
         "uaCount": 19306
       },
       "size": {
@@ -336,9 +336,9 @@
       "speed": {
         "id": "detect-browser",
         "label": "detect-browser",
-        "totalMs": 132.52970899999855,
-        "opsPerSec": 728364.9887135953,
-        "iterations": 5,
+        "totalMs": 2000.000175999895,
+        "opsPerSec": 794727.6757659462,
+        "iterations": 1199830,
         "uaCount": 19306
       },
       "size": {
@@ -346,63 +346,6 @@
         "label": "detect-browser",
         "rawBytes": 7550,
         "gzipBytes": 2445
-      }
-    },
-    {
-      "id": "device-detector-js",
-      "label": "device-detector-js",
-      "accuracy": {
-        "id": "device-detector-js",
-        "label": "device-detector-js",
-        "passed": 3816,
-        "total": 19824,
-        "percent": 19.249394673123486,
-        "byCategory": [
-          {
-            "category": "browser",
-            "passed": 994,
-            "total": 1899,
-            "percent": 52.343338599262765
-          },
-          {
-            "category": "os",
-            "passed": 312,
-            "total": 753,
-            "percent": 41.43426294820717
-          },
-          {
-            "category": "device",
-            "passed": 2503,
-            "total": 17111,
-            "percent": 14.628017065045876
-          },
-          {
-            "category": "cpu",
-            "passed": 0,
-            "total": 39,
-            "percent": 0
-          },
-          {
-            "category": "engine",
-            "passed": 7,
-            "total": 22,
-            "percent": 31.818181818181817
-          }
-        ]
-      },
-      "speed": {
-        "id": "device-detector-js",
-        "label": "device-detector-js",
-        "totalMs": 61962.609083999996,
-        "opsPerSec": 1557.875006024012,
-        "iterations": 5,
-        "uaCount": 19306
-      },
-      "size": {
-        "id": "device-detector-js",
-        "label": "device-detector-js",
-        "rawBytes": 1231224,
-        "gzipBytes": 180178
       }
     }
   ]

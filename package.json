@@ -109,8 +109,8 @@
     "release": "pnpm build && changeset publish"
   },
   "dependencies": {
-    "remeda": "^2.32.0",
-    "type-fest": "^5.9.0"
+    "remeda": "catalog:",
+    "type-fest": "catalog:"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
@@ -119,16 +119,16 @@
     "@commitlint/types": "^21.2.0",
     "@iamsquare/eslint-config": "workspace:*",
     "@iamsquare/prettier-config": "workspace:*",
-    "@types/node": "^22.15.30",
-    "consola": "^3.4.2",
-    "eslint": "^10.10.0",
-    "eslint-import-resolver-typescript": "^4.4.5",
+    "@types/node": "catalog:",
+    "consola": "catalog:",
+    "eslint": "catalog:",
+    "eslint-import-resolver-typescript": "catalog:",
     "husky": "^9.1.7",
-    "jiti": "^2.6.1",
+    "jiti": "catalog:",
     "lint-staged": "^17.0.8",
-    "prettier": "^3.8.3",
+    "prettier": "catalog:",
     "tsdown": "^0.23.0",
-    "typescript": "^5.8.3",
+    "typescript": "catalog:",
     "vite": "^8.2.2",
     "vitest": "^5.0.0",
     "yaml": "^2.9.0"

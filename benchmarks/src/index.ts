@@ -7,18 +7,14 @@ import type { ParserAdapter } from '@/adapters/types';
 import { allUserAgents, loadFixtures, type CategoryFixtures } from '@/load-fixtures';
 import { measureAccuracy } from '@/metrics/accuracy';
 import { measureSize } from '@/metrics/size';
-import { measureSpeed } from '@/metrics/speed';
+import { measureSpeedIsolated } from '@/metrics/speed';
 import { printSummary, writeReports, type BenchmarkReport, type LibraryReport } from '@/report';
 
-const measureLibrary = async (
-  adapter: ParserAdapter,
-  fixtures: CategoryFixtures[],
-  uas: string[],
-) => {
+const measureLibrary = async (adapter: ParserAdapter, fixtures: CategoryFixtures[]) => {
   consola.start(chalk.cyan(`Measuring ${adapter.label}...`));
 
   const accuracy = await measureAccuracy(adapter, fixtures);
-  const speed = await measureSpeed(adapter, uas);
+  const speed = await measureSpeedIsolated(adapter.id);
   const size = await measureSize(adapter);
 
   consola.success(chalk.green(`Done ${adapter.label}`));
@@ -46,7 +42,7 @@ const main = async () => {
   const libraries: LibraryReport[] = [];
 
   for (const adapter of adapters) {
-    libraries.push(await measureLibrary(adapter, fixtures, uas));
+    libraries.push(await measureLibrary(adapter, fixtures));
   }
 
   const report = {

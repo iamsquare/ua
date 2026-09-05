@@ -21,10 +21,10 @@
   },
   "devDependencies": {
     "@iamsquare/eslint-config": "workspace:*",
-    "@types/node": "^22.15.30",
-    "eslint": "^10.10.0",
-    "jiti": "^2.6.1",
-    "prettier": "^3.8.3",
-    "typescript": "^5.8.3"
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
   }
 }

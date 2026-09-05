@@ -26,7 +26,7 @@
     "clsx": "^2.1.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "remeda": "^2.45.0",
+    "remeda": "catalog:",
     "sharp": "^0.35.3",
     "starlight-typedoc": "^0.23.1",
     "tailwind-merge": "^3.6.0",
@@ -38,13 +38,13 @@
     "@iamsquare/eslint-config": "workspace:*",
     "@iamsquare/prettier-config": "workspace:*",
     "@typescript-eslint/parser": "^8.69.0",
-    "eslint": "^10.10.0",
+    "eslint": "catalog:",
     "eslint-plugin-astro": "^3.1.0",
-    "jiti": "^2.6.1",
-    "prettier": "^3.8.3",
+    "jiti": "catalog:",
+    "prettier": "catalog:",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.69.0",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
     "vite-plugin-svgr": "^5.2.0"
   }
 }

@@ -26,14 +26,14 @@ Writes:
 
 ## Metrics
 
-| Metric   | Meaning                                                                           |
-| -------- | --------------------------------------------------------------------------------- |
-| Accuracy | Share of fixture expect keys matched (string equality) against `test/fixtures/ua` |
-| Speed    | Ops/s parsing the fixture UA list                                                 |
-| Size     | esbuild bundle of the package entry, raw and gzip                                 |
+| Metric   | Meaning                                                                                                           |
+| -------- | ----------------------------------------------------------------------------------------------------------------- |
+| Accuracy | Share of fixture expect keys matched (string equality) against `test/fixtures/ua`                                 |
+| Speed    | Ops/s from [tinybench](https://github.com/tinylibs/tinybench) in a fresh Node process per library (sync UA parse) |
+| Size     | esbuild bundle of the package entry, raw and gzip                                                                 |
 
 Fixture expects are authored for `@iamsquare/ua`. Other libraries can fail on naming differences even when broadly correct.
 
 ## Competitors
 
-`ua-parser-js`, `my-ua-parser`, `bowser`, `platform`, `detect-browser`, `device-detector-js`.
+`@iamsquare/ua`, `ua-parser-js`, `my-ua-parser`, `bowser`, `platform`, `detect-browser`.
