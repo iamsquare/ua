@@ -2,7 +2,7 @@
   "name": "@iamsquare/eslint-config",
   "private": true,
   "version": "1.0.0",
-  "description": "Shared ESLint configuration for @iamsquare projects",
+  "description": "Shared ESLint configuration",
   "type": "module",
   "exports": {
     "./base": "./base.ts",
