@@ -1,0 +1,12 @@
+---
+import Default from '@astrojs/starlight/components/ThemeProvider.astro';
+---
+
+<Default />
+
+<script is:inline>
+  const stored = localStorage?.getItem('starlight-theme');
+
+  document.documentElement.dataset.themePreference =
+    stored === 'light' || stored === 'dark' ? stored : 'auto';
+</script>

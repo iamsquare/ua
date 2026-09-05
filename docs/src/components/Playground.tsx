@@ -118,10 +118,10 @@ const panelClass =
   'rounded-lg border border-gray-300 bg-white p-16 dark:border-gray-700 dark:bg-gray-950';
 
 const fieldClass =
-  'm-0 w-full rounded-md border border-gray-300 bg-transparent p-12 font-mono text-[0.8rem] leading-relaxed text-gray-900 dark:border-gray-700 dark:text-gray-100';
+  'm-0 w-full rounded-md border border-gray-300 bg-transparent p-12 font-mono text-sm leading-relaxed text-gray-900 dark:border-gray-700 dark:text-gray-100';
 
 const labelPillClass =
-  'inline-flex rounded-full border border-gray-300 bg-gray-100 px-10 py-4 text-[0.75rem] font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300';
+  'inline-flex rounded-full border border-gray-300 bg-gray-100 px-10 py-4 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300';
 
 const pairValues = (name?: string, version?: string): string[] => {
   if (!name && !version) return ['—'];
@@ -132,7 +132,7 @@ const pairValues = (name?: string, version?: string): string[] => {
 const boolValue = (value: boolean) => (value ? 'true' : 'false');
 
 const ResultPill = ({ value }: { value: string }) => (
-  <span className="inline-flex max-w-full truncate rounded-md border border-accent-500 px-10 py-5 font-mono text-[0.8rem] text-accent-700 dark:border-accent-400 dark:text-accent-200">
+  <span className="inline-flex max-w-full truncate rounded-md border border-accent-500 px-10 py-5 font-mono text-sm text-accent-700 dark:border-accent-400 dark:text-accent-200">
     {value}
   </span>
 );

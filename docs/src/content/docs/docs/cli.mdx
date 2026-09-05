@@ -174,4 +174,25 @@ yarn dlx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.
 Available packs: `cli`, `crawler`, `extraDevice`, `email`, `fetcher`, `inApp`, `library`, `mediaPlayer`, `vehicle`, `bots`, plus the special values `none` and `all`.
 
 Unknown pack names are warned and ignored. If none of the names are valid, the CLI exits with an error.
+
+:::caution[Fresh releases and package managers]
+If [pnpm `minimumReleaseAge`](https://pnpm.io/settings#minimumreleaseage) or [Yarn `npmMinimalAgeGate`](https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate) is set, a newly published version may be blocked until it ages past the configured window. Pin an exact version instead:
+
+<Tabs syncKey="fresh-releases-manager">
+  <TabItem icon="pnpm" label="pnpm">
+```
+
+pnpm dlx @iamsquare/ua@1.1.0 "<INSERT-USER-AGENT-HERE>"
+
+```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+```
+
+yarn dlx @iamsquare/ua@1.1.0 "<INSERT-USER-AGENT-HERE>"
+
+```
+  </TabItem>
+</Tabs>
+:::
 ```

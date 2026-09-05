@@ -63,7 +63,7 @@ const cellClass =
 
 const Table = ({ headers, rows }: { headers: string[]; rows: string[][] }) => (
   <div className="overflow-x-auto">
-    <table className="w-full border-collapse text-[0.9rem]">
+    <table className="w-full border-collapse text-base">
       <thead>
         <tr>
           {map(headers, (header) => (

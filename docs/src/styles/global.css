@@ -87,24 +87,38 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth motion-reduce:scroll-auto motion-safe:transition-colors motion-safe:duration-300 motion-safe:ease-in-out;
 
     background:
-      radial-gradient(1200px 600px at 12% -10%, rgb(37 99 235 / 0.12), transparent 55%),
-      radial-gradient(900px 500px at 88% 8%, rgb(14 165 233 / 0.1), transparent 50%),
+      radial-gradient(
+        --spacing(1200) --spacing(600) at 12% -10%,
+        rgb(37 99 235 / 0.12),
+        transparent 55%
+      ),
+      radial-gradient(
+        --spacing(900) --spacing(500) at 88% 8%,
+        rgb(14 165 233 / 0.1),
+        transparent 50%
+      ),
       var(--sl-color-bg);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      @apply scroll-auto;
-    }
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    @apply motion-safe:[transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,box-shadow]!
+      motion-safe:duration-300! motion-safe:ease-in-out!;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    @apply motion-safe:[animation-duration:300ms] motion-safe:[animation-timing-function:ease];
   }
 }
 
 @layer overrides {
   :root {
-    --sl-main-pad: 0;
     --viewport-height: 100vh;
     --viewport-height: 100svh;
     --viewport-height: 100dvh;
@@ -112,6 +126,10 @@
 
   .page {
     @apply min-h-(--viewport-height);
+  }
+
+  .sl-markdown-content ul {
+    @apply pl-15;
   }
 
   @media (width >= 72rem) {
@@ -135,21 +153,11 @@
   }
 
   [data-has-hero][data-page-pending]:not([data-page-ready]) .main-frame {
-    opacity: 0;
+    @apply motion-safe:opacity-0 motion-reduce:opacity-1;
   }
 
   [data-has-hero][data-page-ready] .main-frame {
-    @apply animate-page-fade-in;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-has-hero][data-page-pending]:not([data-page-ready]) .main-frame {
-      @apply opacity-1;
-    }
-
-    [data-has-hero][data-page-ready] .main-frame {
-      @apply animate-none opacity-1;
-    }
+    @apply motion-safe:animate-page-fade-in motion-reduce:animate-none motion-reduce:opacity-1;
   }
 
   .site-title {
@@ -161,7 +169,7 @@
   }
 
   [data-has-hero] .content-panel {
-    @apply px-[clamp(20px,5vw,48px)];
+    @apply px-[clamp(--spacing(20),5vw,--spacing(48))];
   }
 
   [data-has-hero] .content-panel:first-child {
@@ -169,7 +177,7 @@
   }
 
   [data-has-hero] .content-panel .sl-container {
-    @apply mx-auto w-full max-w-[min(60rem,100%)];
+    @apply mx-auto w-full max-w-[min(--spacing(720),100%)];
   }
 
   [data-has-hero] .content-panel + .content-panel {

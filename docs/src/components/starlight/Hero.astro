@@ -23,7 +23,7 @@ const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero ||
   }, 2500);
 </script>
 
-<section class="mt-0 md:pt-45 relative grid text-center">
+<section class="mt-0 relative grid text-center">
   <div
     class="pointer-events-none absolute top-0 -bottom-180 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
     aria-hidden="true"
@@ -39,7 +39,7 @@ const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero ||
         <h1
           id="_top"
           data-page-title
-          class="max-w-[18ch] mt-20 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-tight tracking-tight text-gray-900 dark:text-white"
+          class="max-w-[18ch] mt-20 font-display text-[clamp(--spacing(36),6vw,--spacing(56))] font-bold leading-tight tracking-tight text-gray-900 dark:text-white"
         >
           Parse User-Agents<br />
           <span class="text-accent-600 dark:text-accent-300">Get structured results</span>
@@ -47,7 +47,7 @@ const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero ||
         {
           isNonNullish(tagline) && (
             <p
-              class="max-w-[46ch] font-mono text-[clamp(0.95rem,1.4vw,1.1rem)] leading-relaxed text-gray-600 dark:text-gray-400"
+              class="max-w-[46ch] font-mono text-base leading-relaxed text-gray-600 dark:text-gray-400"
               set:html={tagline}
             />
           )
@@ -77,16 +77,13 @@ const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero ||
           </div>
         )
       }
-      <InstallCommand client:load sizeLabel="~16.7 kB min+gzip" />
-      <div
-        class="flex items-center justify-center gap-10 rounded-full border border-gray-300 bg-gray-100/80 px-6 py-6 text-xs sm:pl-6 sm:pr-14 dark:border-gray-700 dark:bg-gray-900/60"
-      >
-        <span
-          class="rounded-full bg-accent-600 px-10 py-3 font-mono font-semibold tracking-wide text-white"
+      <div class="flex flex-col items-center justify-center gap-3">
+        <div
+          class="text-[--spacing(10)] rounded-full bg-accent-600 dark:bg-accent-500 px-10 py-3 font-mono font-semibold tracking-wide text-white"
         >
           v{pkg.version}
-        </span>
-        <span class="font-sans text-gray-700 dark:text-gray-300"> Initial release! 🎉 </span>
+        </div>
+        <InstallCommand client:load sizeLabel="~16.7 kB min+gzip" />
       </div>
     </div>
   </div>

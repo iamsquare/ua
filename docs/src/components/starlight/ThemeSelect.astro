@@ -1,7 +1,141 @@
 ---
-import { ThemeSelect as ThemeSelectButton } from '@/components/ThemeSelect';
+import ThemeAutoIcon from '@/assets/theme-auto.svg';
+import ThemeDarkIcon from '@/assets/theme-dark.svg';
+import ThemeLightIcon from '@/assets/theme-light.svg';
 
 const label = Astro.locals.t('themeSelect.accessibleLabel');
 ---
 
-<ThemeSelectButton client:only="react" label={label} />
+<ua-theme-select class="contents">
+  <button
+    type="button"
+    class="flex cursor-pointer items-center justify-center border-0 bg-transparent p-8 text-(--sl-color-gray-2) hover:text-(--sl-color-white)"
+    data-id="theme-select-button"
+    aria-label={label}
+    title={label}
+  >
+    <ThemeLightIcon class="theme-icon theme-icon-light size-16" aria-hidden="true" />
+    <ThemeDarkIcon class="theme-icon theme-icon-dark size-16" aria-hidden="true" />
+    <ThemeAutoIcon class="theme-icon theme-icon-auto size-16" aria-hidden="true" />
+  </button>
+</ua-theme-select>
+
+<style is:global>
+  html:not([data-theme-preference]) .theme-icon,
+  html[data-theme-preference='dark'] .theme-icon-light,
+  html[data-theme-preference='auto'] .theme-icon-light,
+  html[data-theme-preference='light'] .theme-icon-dark,
+  html[data-theme-preference='auto'] .theme-icon-dark,
+  html[data-theme-preference='light'] .theme-icon-auto,
+  html[data-theme-preference='dark'] .theme-icon-auto {
+    @apply hidden;
+  }
+</style>
+
+<script>
+  import { isFunction, isNonNullish, isNullish } from 'remeda';
+  import type { ValueOf } from 'type-fest';
+
+  const THEME = {
+    AUTO: 'auto',
+    DARK: 'dark',
+    LIGHT: 'light',
+  } as const;
+
+  type Theme = ValueOf<typeof THEME>;
+
+  const STORAGE_KEY = 'starlight-theme';
+  const THEME_TRANSITION_MS = 200;
+
+  const parseTheme = (theme: unknown): Theme =>
+    theme === THEME.AUTO || theme === THEME.DARK || theme === THEME.LIGHT ? theme : THEME.AUTO;
+
+  const loadTheme = (): Theme =>
+    parseTheme(isNonNullish(localStorage) && localStorage.getItem(STORAGE_KEY));
+
+  const storeTheme = (theme: Theme) => {
+    if (isNullish(localStorage)) return;
+
+    localStorage.setItem(STORAGE_KEY, theme === THEME.LIGHT || theme === THEME.DARK ? theme : '');
+  };
+
+  const getPreferredColorScheme = (): Exclude<Theme, 'auto'> =>
+    matchMedia('(prefers-color-scheme: light)').matches ? THEME.LIGHT : THEME.DARK;
+
+  const resolveTheme = (theme: Theme): Exclude<Theme, 'auto'> =>
+    theme === THEME.AUTO ? getPreferredColorScheme() : theme;
+
+  const prefersReducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const setThemePreference = (theme: Theme) => {
+    document.documentElement.dataset.themePreference = theme;
+  };
+
+  const applyDocumentTheme = (theme: Theme) => {
+    const root = document.documentElement;
+    const apply = () => {
+      root.dataset.theme = resolveTheme(theme);
+    };
+
+    if (prefersReducedMotion()) {
+      apply();
+      return;
+    }
+
+    if (isFunction(document.startViewTransition)) {
+      document.startViewTransition(apply);
+      return;
+    }
+
+    root.classList.add('theme-transition');
+    apply();
+    window.setTimeout(() => root.classList.remove('theme-transition'), THEME_TRANSITION_MS);
+  };
+
+  const applyTheme = (theme: Theme) => {
+    applyDocumentTheme(theme);
+    storeTheme(theme);
+    setThemePreference(theme);
+  };
+
+  class UaThemeSelect extends HTMLElement {
+    #onSystemPreferenceChange = () => {
+      if (loadTheme() !== THEME.AUTO) return;
+
+      applyDocumentTheme(THEME.AUTO);
+      setThemePreference(THEME.AUTO);
+    };
+
+    connectedCallback() {
+      setThemePreference(loadTheme());
+
+      this.querySelector('[data-id="theme-select-button"]')!.addEventListener(
+        'click',
+        this.#onClick,
+      );
+      matchMedia('(prefers-color-scheme: light)').addEventListener(
+        'change',
+        this.#onSystemPreferenceChange,
+      );
+    }
+
+    disconnectedCallback() {
+      this.querySelector('[data-id="theme-select-button"]')!.removeEventListener(
+        'click',
+        this.#onClick,
+      );
+      matchMedia('(prefers-color-scheme: light)').removeEventListener(
+        'change',
+        this.#onSystemPreferenceChange,
+      );
+    }
+
+    #onClick = () => {
+      applyTheme(resolveTheme(loadTheme()) === THEME.DARK ? THEME.LIGHT : THEME.DARK);
+    };
+  }
+
+  if (!customElements.get('ua-theme-select')) {
+    customElements.define('ua-theme-select', UaThemeSelect);
+  }
+</script>

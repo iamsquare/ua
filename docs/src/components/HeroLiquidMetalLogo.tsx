@@ -93,7 +93,7 @@ export const HeroLiquidMetalLogo = () => {
   }, []);
 
   return (
-    <div className="size-[clamp(8rem,28vw,15rem)]" aria-hidden="true">
+    <div className="size-[clamp(--spacing(128),28vw,--spacing(256))]" aria-hidden="true">
       <Suspense fallback={null}>
         <HeroLiquidMetalLogoInner />
       </Suspense>
