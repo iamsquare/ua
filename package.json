@@ -5,6 +5,7 @@
   "type": "module",
   "license": "MIT",
   "author": "Marco <squaremarco@gmail.com>",
+  "homepage": "https://ua.iamsquare.it",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iamsquare/ua.git"
