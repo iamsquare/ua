@@ -103,6 +103,7 @@ export default defineConfig({
           items: [
             { label: 'Why @iamsquare/ua', slug: 'docs/why' },
             { label: 'Installation', slug: 'docs/installation' },
+            { label: 'Using the CLI', slug: 'docs/cli' },
           ],
         },
         { label: 'Playground', slug: 'docs/playground' },

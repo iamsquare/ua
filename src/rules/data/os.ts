@@ -1,3 +1,4 @@
+import { windowsVersionMap } from '@/rules/data/maps';
 import { AssignKind } from '@/rules/kinds';
 import type { AuthoredCategory } from '@/rules/load';
 
@@ -9,19 +10,7 @@ export const osRulesData = [
       {
         type: AssignKind.Map,
         field: 'version',
-        map: {
-          '7': '6.1',
-          '8': '6.2',
-          '10': ['6.4', '10.0'],
-          '2000': ['5.0', '5.01'],
-          ME: '4.90',
-          'NT 3.51': '3.51',
-          'NT 4.0': '4.0',
-          XP: ['5.1', '5.2'],
-          Vista: '6.0',
-          '8.1': '6.3',
-          NT: '',
-        },
+        map: windowsVersionMap,
       },
     ],
   },
@@ -42,19 +31,7 @@ export const osRulesData = [
         type: AssignKind.ReplaceMap,
         field: 'version',
         replace: [/(;|\))/g, ''] as const,
-        map: {
-          '7': '6.1',
-          '8': '6.2',
-          '10': ['6.4', '10.0'],
-          '2000': ['5.0', '5.01'],
-          ME: '4.90',
-          'NT 3.51': '3.51',
-          'NT 4.0': '4.0',
-          XP: ['5.1', '5.2'],
-          Vista: '6.0',
-          '8.1': '6.3',
-          NT: '',
-        },
+        map: windowsVersionMap,
       },
       { type: AssignKind.Literal, field: 'name', value: 'Windows' },
     ],

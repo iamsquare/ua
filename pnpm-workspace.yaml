@@ -5,8 +5,14 @@ packages:
   - prettierConfig
   - benchmarks
 
+allowBuilds:
+  esbuild: true
+  sharp: true
+
 catalog:
   '@types/node': ^22.15.30
+  chalk: ^6.0.0
+  commander: ^15.0.0
   consola: ^3.4.2
   eslint: ^10.10.0
   eslint-import-resolver-typescript: ^4.4.5
@@ -14,9 +20,5 @@ catalog:
   prettier: ^3.8.3
   remeda: ^2.45.0
   type-fest: ^5.9.0
-  typescript: ^5.8.3
+  typescript: ^6.0.3
   typescript-eslint: ^8.69.0
-
-allowBuilds:
-  esbuild: true
-  sharp: true

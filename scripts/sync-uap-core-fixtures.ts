@@ -49,10 +49,11 @@ const CATEGORIES = [
   { category: 'device' as const, file: 'test_device.yaml' },
 ] as const;
 
-const isPresent = (value?: string | null): value is string => isString(value) && !isEmpty(value);
+const isNonEmptyString = (value?: string | null): value is string =>
+  isString(value) && !isEmpty(value);
 
 const joinVersion = (...parts: (string | null | undefined)[]) => {
-  const present = pipe(parts, filter(isPresent));
+  const present = pipe(parts, filter(isNonEmptyString));
 
   if (isEmpty(present)) return undefined;
 
@@ -60,23 +61,23 @@ const joinVersion = (...parts: (string | null | undefined)[]) => {
 };
 
 const label = (...parts: (string | null | undefined)[]) =>
-  pipe(parts, filter(isPresent), joinParts(' '));
+  pipe(parts, filter(isNonEmptyString), joinParts(' '));
 
 const toBrowserOrOsCase = (unit: UpstreamCase, withMajor: boolean) => {
   const family = unit.family ?? 'Other';
   const version = joinVersion(unit.major, unit.minor, unit.patch, unit.patch_minor);
-  const isOther = family === 'Other';
 
   return {
     desc: `uap-core: ${label(family, version)}`,
     ua: unit.user_agent_string,
-    expect: isOther
-      ? {}
-      : {
-          name: family,
-          version: isPresent(version) ? version : undefined,
-          major: withMajor && isPresent(unit.major) ? unit.major : undefined,
-        },
+    expect:
+      family === 'Other'
+        ? {}
+        : {
+            name: family,
+            version: isNonEmptyString(version) ? version : undefined,
+            major: withMajor && isNonEmptyString(unit.major) ? unit.major : undefined,
+          },
   };
 };
 
@@ -84,8 +85,8 @@ const toDeviceCase = (unit: UpstreamCase) => ({
   desc: `uap-core: ${label(unit.brand, unit.family, unit.model)}`,
   ua: unit.user_agent_string,
   expect: {
-    vendor: isPresent(unit.brand) ? unit.brand : undefined,
-    model: isPresent(unit.model) ? unit.model : undefined,
+    vendor: isNonEmptyString(unit.brand) ? unit.brand : undefined,
+    model: isNonEmptyString(unit.model) ? unit.model : undefined,
   },
 });
 

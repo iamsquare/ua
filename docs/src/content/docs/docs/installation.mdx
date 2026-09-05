@@ -3,26 +3,25 @@ title: Installation
 description: Install @iamsquare/ua
 ---
 
-```
-pnpm add @iamsquare/ua
-```
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-```
-npm install @iamsquare/ua
-```
-
-```
-yarn add @iamsquare/ua
-```
+<Tabs syncKey="package-manager">
+  <TabItem icon="pnpm" label="pnpm">
+    ``` pnpm add @iamsquare/ua ```
+  </TabItem>
+  <TabItem icon="seti:npm" label="npm">
+    ``` npm install @iamsquare/ua ```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+    ``` yarn add @iamsquare/ua ```
+  </TabItem>
+</Tabs>
 
 ESM is the default entry. CommonJS works through `require()` when you need it.
 
-```ts
-import { parseUA } from '@iamsquare/ua';
-```
-
-```js
-const { parseUA } = require('@iamsquare/ua');
-```
+<Tabs>
+  <TabItem label="esm">```ts import {parseUA} from '@iamsquare/ua'; ```</TabItem>
+  <TabItem label="cjs">```js const {parseUA} = require('@iamsquare/ua'); ```</TabItem>
+</Tabs>
 
 Requires **Node.js 20+**.

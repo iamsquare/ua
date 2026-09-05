@@ -20,6 +20,41 @@ User-Agent parser for browsers and Node.js. Detect browsers, OS, devices, bots, 
 pnpm add @iamsquare/ua
 ```
 
+## CLI
+
+Parse User-Agent strings from the terminal with `npx` / `pnpx` (binary: `ua`):
+
+```bash
+npx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)"
+```
+
+```json
+[
+  {
+    "ua": "Flock/2.16 (Zenwalk 7.3; es_PR;)",
+    "browser": { "name": "Flock", "version": "2.16", "major": "2" },
+    "cpu": {},
+    "device": {},
+    "engine": {},
+    "os": { "name": "Zenwalk", "version": "7.3" }
+  }
+]
+```
+
+Batch from a file (one UA per line):
+
+```bash
+npx @iamsquare/ua --input-file log.txt --output-file log-result.json
+```
+
+| Option                       | Description                                                    |
+| ---------------------------- | -------------------------------------------------------------- |
+| `-i`, `--input-file <path>`  | Text file with User-Agent strings (one per line)               |
+| `-o`, `--output-file <path>` | Write the JSON array to this file                              |
+| `-e`, `--extensions <packs>` | Comma-separated packs (`none`, `all`, or e.g. `crawler,email`) |
+
+Defaults load `bots`, `email`, `extraDevice`, `inApp`, and `vehicle`. Full details: [Using the CLI](https://ua.iamsquare.it/docs/cli/).
+
 ## Usage
 
 ```ts

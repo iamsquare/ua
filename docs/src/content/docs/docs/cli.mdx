@@ -1,0 +1,177 @@
+---
+title: Using the CLI
+description: Parse User-Agent strings from the command line with @iamsquare/ua
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+You can use [npx](https://docs.npmjs.com/cli/v10/commands/npx), [pnpm dlx](https://pnpm.io/cli/dlx), or [yarn dlx](https://yarnpkg.com/cli/dlx) to run `@iamsquare/ua` without a global install. The binary is `ua`.
+
+## Processing a single User-Agent string
+
+<Tabs syncKey="package-manager">
+  <TabItem icon="pnpm" label="pnpm">
+```
+pnpm dlx @iamsquare/ua "<INSERT-USER-AGENT-HERE>"
+```
+  </TabItem>
+  <TabItem icon="seti:npm" label="npm">
+```
+npx @iamsquare/ua "<INSERT-USER-AGENT-HERE>"
+```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+```
+yarn dlx @iamsquare/ua "<INSERT-USER-AGENT-HERE>"
+```
+  </TabItem>
+</Tabs>
+
+Example:
+
+<Tabs syncKey="package-manager">
+  <TabItem icon="pnpm" label="pnpm">
+```
+pnpm dlx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)"
+```
+  </TabItem>
+  <TabItem icon="seti:npm" label="npm">
+```
+npx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)"
+```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+```
+yarn dlx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)"
+```
+  </TabItem>
+</Tabs>
+```json title="output"
+[
+  {
+    "ua": "Flock/2.16 (Zenwalk 7.3; es_PR;)",
+    "browser": {
+      "name": "Flock",
+      "version": "2.16",
+      "major": "2"
+    },
+    "cpu": {},
+    "device": {},
+    "engine": {},
+    "os": {
+      "name": "Zenwalk",
+      "version": "7.3"
+    }
+  }
+]
+```
+
+Redirect to a file if you want:
+
+<Tabs syncKey="package-manager">
+  <TabItem icon="pnpm" label="pnpm">
+```
+pnpm dlx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)" >> log.txt
+```
+  </TabItem>
+  <TabItem icon="seti:npm" label="npm">
+```
+npx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)" >> log.txt
+```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+```
+yarn dlx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)" >> log.txt
+```
+  </TabItem>
+</Tabs>
+
+## Processing batch User-Agent data from a file
+
+Parse one User-Agent per line and write a JSON array:
+
+<Tabs syncKey="package-manager">
+  <TabItem icon="pnpm" label="pnpm">
+    ``` pnpm dlx @iamsquare/ua --input-file log.txt --output-file log-result.json ```
+  </TabItem>
+  <TabItem icon="seti:npm" label="npm">
+    ``` npx @iamsquare/ua --input-file log.txt --output-file log-result.json ```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+    ``` yarn dlx @iamsquare/ua --input-file log.txt --output-file log-result.json ```
+  </TabItem>
+</Tabs>
+
+When `--output-file` is set, the CLI also prints how many lines were parsed and how long the task took.
+
+## Options
+
+| Option                       | Description                                      |
+| ---------------------------- | ------------------------------------------------ |
+| `-i`, `--input-file <path>`  | Text file with User-Agent strings (one per line) |
+| `-o`, `--output-file <path>` | Write the JSON array to this file (batch mode)   |
+| `-e`, `--extensions <packs>` | Comma-separated extension packs (see below)      |
+| `-h`, `--help`               | Show usage                                       |
+
+## Extension packs
+
+By default the CLI loads `bots`, `email`, `extraDevice`, `inApp`, and `vehicle`.
+
+Override with `-e` / `--extensions`:
+
+<Tabs syncKey="package-manager">
+  <TabItem icon="pnpm" label="pnpm">
+```
+# Core rules only
+pnpm dlx @iamsquare/ua -e none "curl/8.0"
+
+# Every built-in pack
+
+pnpm dlx @iamsquare/ua -e all "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+# Specific packs
+
+pnpm dlx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+```
+  </TabItem>
+  <TabItem icon="seti:npm" label="npm">
+```
+
+# Core rules only
+
+npx @iamsquare/ua -e none "curl/8.0"
+
+# Every built-in pack
+
+npx @iamsquare/ua -e all "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+# Specific packs
+
+npx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+```
+  </TabItem>
+  <TabItem icon="seti:yarn" label="yarn">
+```
+
+# Core rules only
+
+yarn dlx @iamsquare/ua -e none "curl/8.0"
+
+# Every built-in pack
+
+yarn dlx @iamsquare/ua -e all "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+# Specific packs
+
+yarn dlx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+```
+  </TabItem>
+</Tabs>
+
+Available packs: `cli`, `crawler`, `extraDevice`, `email`, `fetcher`, `inApp`, `library`, `mediaPlayer`, `vehicle`, `bots`, plus the special values `none` and `all`.
+
+Unknown pack names are warned and ignored. If none of the names are valid, the CLI exits with an error.
+```

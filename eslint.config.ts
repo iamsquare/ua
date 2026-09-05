@@ -5,7 +5,7 @@ import { typescriptConfig } from '@iamsquare/eslint-config/typescript';
 
 export default [
   {
-    ignores: ['docs/**', 'eslintConfig/**', 'prettierConfig/**'],
+    ignores: ['dist/**', '.bin/**', 'docs/**', 'eslintConfig/**', 'prettierConfig/**'],
   },
   ...baseConfig,
   ...typescriptConfig(import.meta.url),

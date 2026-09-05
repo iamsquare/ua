@@ -25,64 +25,68 @@
     "node": ">=20"
   },
   "sideEffects": false,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
       }
     },
     "./bots": {
       "import": {
-        "types": "./dist/bots.d.ts",
-        "default": "./dist/bots.js"
+        "types": "./dist/esm/bots.d.ts",
+        "default": "./dist/esm/bots.js"
       },
       "require": {
-        "types": "./dist/bots.d.cts",
-        "default": "./dist/bots.cjs"
+        "types": "./dist/cjs/bots.d.cts",
+        "default": "./dist/cjs/bots.cjs"
       }
     },
     "./extensions": {
       "import": {
-        "types": "./dist/extensions.d.ts",
-        "default": "./dist/extensions.js"
+        "types": "./dist/esm/extensions.d.ts",
+        "default": "./dist/esm/extensions.js"
       },
       "require": {
-        "types": "./dist/extensions.d.cts",
-        "default": "./dist/extensions.cjs"
+        "types": "./dist/cjs/extensions.d.cts",
+        "default": "./dist/cjs/extensions.cjs"
       }
     },
     "./helpers": {
       "import": {
-        "types": "./dist/helpers.d.ts",
-        "default": "./dist/helpers.js"
+        "types": "./dist/esm/helpers.d.ts",
+        "default": "./dist/esm/helpers.js"
       },
       "require": {
-        "types": "./dist/helpers.d.cts",
-        "default": "./dist/helpers.cjs"
+        "types": "./dist/cjs/helpers.d.cts",
+        "default": "./dist/cjs/helpers.cjs"
       }
     },
     "./enums": {
       "import": {
-        "types": "./dist/enums.d.ts",
-        "default": "./dist/enums.js"
+        "types": "./dist/esm/enums.d.ts",
+        "default": "./dist/esm/enums.js"
       },
       "require": {
-        "types": "./dist/enums.d.cts",
-        "default": "./dist/enums.cjs"
+        "types": "./dist/cjs/enums.d.cts",
+        "default": "./dist/cjs/enums.cjs"
       }
     },
     "./package.json": "./package.json"
   },
+  "bin": {
+    "ua": "./.bin/cli.js"
+  },
   "files": [
     "dist",
+    ".bin",
     "LICENSE",
     "README.md"
   ],
@@ -92,6 +96,7 @@
   },
   "scripts": {
     "prepare": "husky || true",
+    "ua": "node ./.bin/cli.js",
     "build": "tsdown",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -109,23 +114,25 @@
     "release": "pnpm build && changeset publish"
   },
   "dependencies": {
+    "chalk": "catalog:",
+    "commander": "catalog:",
+    "consola": "catalog:",
     "remeda": "catalog:",
     "type-fest": "catalog:"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.31.1",
+    "@changesets/cli": "^3.0.2",
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
     "@commitlint/types": "^21.2.0",
     "@iamsquare/eslint-config": "workspace:*",
     "@iamsquare/prettier-config": "workspace:*",
     "@types/node": "catalog:",
-    "consola": "catalog:",
     "eslint": "catalog:",
     "eslint-import-resolver-typescript": "catalog:",
     "husky": "^9.1.7",
     "jiti": "catalog:",
-    "lint-staged": "^17.0.8",
+    "lint-staged": "^17.5.0",
     "prettier": "catalog:",
     "tsdown": "^0.23.0",
     "typescript": "catalog:",
