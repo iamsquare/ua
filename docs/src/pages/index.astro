@@ -1,0 +1,112 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { map } from 'remeda';
+
+import { Playground } from '@/components/Playground';
+
+const features = [
+  {
+    title: 'Typed API',
+    body: 'Returns browser, OS, device, engine, and CPU fields with TypeScript types included.',
+  },
+  {
+    title: 'Wide coverage',
+    body: 'Handles browsers, platforms, devices, bots, apps, and AI crawlers from real User-Agent strings.',
+  },
+  {
+    title: 'Small and fast',
+    body: 'No runtime dependencies. Compact gzip size for browser and server use.',
+  },
+  {
+    title: 'Works everywhere',
+    body: 'Same API in browsers and Node.js, with ESM and CommonJS builds.',
+  },
+  {
+    title: 'npm package',
+    body: 'Install with your package manager and import what you need. Types ship with the package.',
+  },
+  {
+    title: 'Client Hints and extensions',
+    body: 'Add Client Hints or optional extension packs when a bare User-Agent is not enough.',
+  },
+] as const;
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '@iamsquare/ua',
+    description:
+      'Typed User-Agent detection for browsers and Node.js. Detect browsers, platforms, devices, apps, bots, and AI crawlers.',
+    head: [
+      {
+        tag: 'title',
+        content: '@iamsquare/ua | Typed User-Agent detection for browsers and Node.js',
+      },
+    ],
+    template: 'splash',
+    hero: {
+      tagline: 'Detect browsers, platforms, devices, apps, bots, and AI crawlers.',
+      actions: [
+        {
+          text: 'Try playground',
+          link: '#playground',
+          icon: 'right-arrow',
+        },
+        {
+          text: 'Read docs',
+          link: '/docs/why/',
+          variant: 'minimal',
+          icon: 'document',
+        },
+      ],
+    },
+  }}
+>
+  <section
+    id="playground"
+    class="not-content scroll-mt-(--sl-nav-height) grid justify-items-center gap-20 py-[clamp(3rem,8vw,5.5rem)]"
+  >
+    <div class="text-center">
+      <h2
+        class="mb-0 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-gray-900 dark:text-white"
+      >
+        User-Agent playground
+      </h2>
+      <p
+        class="mx-auto mt-12 mb-0 max-w-[48ch] text-base leading-relaxed text-gray-700 dark:text-gray-300"
+      >
+        Paste a string or pick an example
+      </p>
+    </div>
+    <div class="w-full max-w-960">
+      <Playground client:only="react" />
+    </div>
+  </section>
+  <section
+    id="features"
+    class="not-content scroll-mt-(--sl-nav-height) grid justify-items-center gap-24 pt-[clamp(3rem,8vw,5.5rem)] pb-[clamp(4rem,10vw,7rem)]"
+  >
+    <div class="text-center">
+      <p class="font-mono text-sm tracking-[0.18em] text-gray-500 uppercase dark:text-gray-400">
+        Features
+      </p>
+      <h2
+        class="mt-10 mb-0 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-gray-900 dark:text-white"
+      >
+        Broad coverage. Small footprint.
+      </h2>
+    </div>
+    <ul class="grid w-full max-w-960 list-none gap-20 p-0 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        map(features, ({ title, body }) => (
+          <li class="flex flex-col gap-8">
+            <h3 class="font-display text-lg font-semibold text-gray-900 dark:text-white">
+              {title}
+            </h3>
+            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">{body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</StarlightPage>

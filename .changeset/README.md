@@ -1,6 +1,6 @@
 # Changesets
 
-This repo uses [Changesets](https://github.com/changesets/changesets) to version and publish `@iamsquare/ua` publicly to npm via [trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers/) — no long-lived `NPM_TOKEN`.
+This repo uses [Changesets](https://github.com/changesets/changesets) to version and publish `@iamsquare/ua` publicly to npm via [trusted publishing (OIDC)](https://docs.npmjs.com/trusted-publishers/).
 
 ## Adding a changeset
 

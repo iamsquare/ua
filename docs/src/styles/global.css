@@ -90,35 +90,50 @@
   }
 }
 
-/*
-  After `starlight` so we beat `--sl-content-width: 45rem` and TOC pages’
-  `margin-inline: auto 0` (which right-aligns the reading column).
-*/
 @layer overrides {
   :root {
-    --sl-content-width: 100%;
+    --viewport-height: 100vh;
+    --viewport-height: 100svh;
+    --viewport-height: 100dvh;
   }
 
-  /* Size TOC text to content; do NOT set w-max on .right-sidebar* —
-     the sidebar is position:fixed, so max-content on the container collapses to 0. */
-  .right-sidebar-panel .sl-container {
-    @apply w-max max-w-max;
+  .page {
+    min-height: var(--viewport-height);
   }
 
   @media (width >= 72rem) {
-    :root[data-has-sidebar][data-has-toc] .main-pane,
     :root[data-has-sidebar] .main-pane {
       --sl-content-margin-inline: 0;
-      @apply w-auto max-w-none flex-auto;
+      width: auto;
+      max-width: none;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .right-sidebar-container {
+      flex: 0 0 var(--sl-sidebar-width);
+      width: var(--sl-sidebar-width);
+      min-width: var(--sl-sidebar-width);
+    }
+
+    .right-sidebar-panel .sl-container {
+      width: calc(var(--sl-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
+      max-width: none;
     }
 
     .content-panel .sl-container {
-      @apply mx-0 w-full max-w-none;
+      margin-inline: 0;
+      width: 100%;
+      max-width: none;
     }
   }
 
-  .content-panel .sl-container {
-    @apply mx-0 w-full max-w-none;
+  [data-has-hero] {
+    scroll-padding-top: var(--sl-nav-height);
+  }
+
+  .site-title {
+    @apply font-display text-lg;
   }
 
   [data-has-hero] .main-pane {

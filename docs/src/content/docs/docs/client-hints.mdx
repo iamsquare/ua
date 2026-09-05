@@ -3,7 +3,7 @@ title: Client Hints
 description: Parse Sec-CH-UA headers
 ---
 
-Pass `withClientHints: true` and HTTP headers (or a `Headers` instance) to enrich results from Client Hints. TypeScript requires `headers` when the flag is set:
+Pass `withClientHints: true` and HTTP headers (or a `Headers` instance) to fill in fields from Client Hints. TypeScript requires `headers` when the flag is set:
 
 ```ts
 import { parseUA } from '@iamsquare/ua';
@@ -22,4 +22,4 @@ const result = parseUA(undefined, {
 });
 ```
 
-Hints are merged into browser, OS, device, CPU, and engine fields when present.
+When present, hints are merged into browser, OS, device, CPU, and engine fields.

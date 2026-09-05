@@ -8,13 +8,11 @@
 [![Node.js](https://img.shields.io/node/v/@iamsquare/ua.svg)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue.svg)](https://www.typescriptlang.org/)
 
-The Essential Web Development Tool for User-Agent Detection. Detect Browsers, OS, Devices, Bots, Apps, AI Crawlers, and more. Run in Browser (client-side) or Node.js (server-side).
+User-Agent parser for browsers and Node.js. Detect browsers, OS, devices, bots, apps, and AI crawlers.
 
-Powerful User-Agent detection in a compact, TypeScript-first library with Client Hints support.
-
-- **Comprehensive detection:** Identify browsers, engines, OS, devices, CPUs, bots, apps, AI crawlers, and more
-- **Modern & typed:** Dual ESM/CJS builds, Client Hints support, and a functional TypeScript API
-- **Runs everywhere:** Use seamlessly in browsers, Node.js, and modern JavaScript runtimes
+- Typed results for browser, engine, OS, device, and CPU
+- Dual ESM/CJS builds, Client Hints, and extension packs
+- Same API in browsers and Node.js
 
 ## Install
 
@@ -71,7 +69,7 @@ const result = parseUA(undefined, {
 pnpm docs:dev
 ```
 
-Documentation lives in [`/docs`](./docs). Published docs: https://ua.iamsquare.it/
+Docs live in [`/docs`](./docs). Published site: https://ua.iamsquare.it/
 
 ## Releasing
 
@@ -98,13 +96,13 @@ CI publishes public releases to npm from `master`. See [`.changeset/README.md`](
 
 ## Testing
 
-The Vitest suite under [`test/fixtures`](./test/fixtures) includes User-Agent cases from [uap-core](https://github.com/ua-parser/uap-core) and other UA-parser libraries. Those fixtures verify this library's behavior against known inputs. They are not shipped in the published package.
+The Vitest suite under [`test/fixtures`](./test/fixtures) includes User-Agent cases from [uap-core](https://github.com/ua-parser/uap-core) and other UA-parser libraries. Those fixtures check this library against known inputs. They are not shipped in the published package.
 
 To pull new upstream cases without overwriting local expects, run `pnpm sync:uap-core` (see [`scripts/README.md`](./scripts/README.md)).
 
 ## Contributors
 
-Contributions are welcome! Please read the [CONTRIBUTING GUIDE](./CONTRIBUTING.md) first for detailed contribution instructions.
+Contributions are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a PR.
 
 ## License
 

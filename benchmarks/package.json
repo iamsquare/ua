@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "version": "1.0.0",
-  "description": "Benchmarks for @iamsquare/ua",
+  "description": "Accuracy, speed, and size benchmarks for @iamsquare/ua",
   "scripts": {
     "bench": "tsx src/index.ts"
   },

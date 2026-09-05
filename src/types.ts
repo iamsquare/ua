@@ -65,7 +65,7 @@ export type OS = {
 /**
  * Full parse result from {@link parseUA}.
  *
- * Slice objects are plain data — use `@iamsquare/ua/helpers` for comparisons and formatting.
+ * Slice objects are plain data. Use `@iamsquare/ua/helpers` for comparisons and formatting.
  */
 export type Result = {
   ua: string;

@@ -14,7 +14,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: '@iamsquare/ua',
-      description: 'MIT-licensed User-Agent parser for browsers and Node.js',
+      description:
+        'User-Agent parser for browsers and Node.js. Detect browsers, OS, devices, and bots.',
       social: [
         {
           icon: 'github',
@@ -29,6 +30,7 @@ export default defineConfig({
         ThemeSelect: './src/components/starlight/ThemeSelect.astro',
         PageSidebar: './src/components/starlight/PageSidebar.astro',
       },
+      favicon: './public/favicon.png',
       plugins: [
         starlightTypeDoc({
           entryPoints: [

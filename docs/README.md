@@ -2,10 +2,6 @@
 
 Starlight site for `@iamsquare/ua`.
 
-```
-pnpm create astro@latest -- --template starlight
-```
-
 ## Project structure
 
 ```
@@ -16,30 +12,30 @@ pnpm create astro@latest -- --template starlight
 │   ├── content/
 │   │   └── docs/
 │   └── content.config.ts
-├── astro.config.mjs
+├── astro.config.ts
 ├── package.json
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in `src/content/docs/`. Each file is a route based on its name.
+Starlight picks up `.md` or `.mdx` files in `src/content/docs/`. Each file becomes a route from its path.
 
-Images go in `src/assets/` and can be embedded with a relative link.
+Put images in `src/assets/` and link them relatively.
 
 Static assets such as favicons go in `public/`.
 
 ## Commands
 
-Run from the repo root (or `docs/` when working in this package alone):
+Run from the repo root, or from `docs/` when working in this package alone:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| Command                | Action                                     |
+| :--------------------- | :----------------------------------------- |
+| `pnpm install`         | Install dependencies                       |
+| `pnpm dev`             | Start the local server at `localhost:4321` |
+| `pnpm build`           | Build the production site to `./dist/`     |
+| `pnpm preview`         | Preview the production build locally       |
+| `pnpm astro ...`       | Run Astro CLI commands (`add`, `check`, …) |
+| `pnpm astro -- --help` | Show Astro CLI help                        |
 
 ## Learn more
 
-See [Starlight docs](https://starlight.astro.build/), [Astro docs](https://docs.astro.build), or the [Astro Discord](https://astro.build/chat).
+[Starlight docs](https://starlight.astro.build/), [Astro docs](https://docs.astro.build), or the [Astro Discord](https://astro.build/chat).

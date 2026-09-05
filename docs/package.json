@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "version": "1.0.0",
-  "description": "Documentation for @iamsquare/ua",
+  "description": "Docs site for @iamsquare/ua",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

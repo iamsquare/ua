@@ -14,15 +14,15 @@ const { tagline, actions = [] } = data.hero || {};
 
 <section class="relative grid text-center">
   <div
-    class="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
+    class="pointer-events-none absolute top-0 -bottom-150 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
     aria-hidden="true"
   >
     <HeroMeshGradient client:only="react" />
   </div>
   <div
-    class="relative z-10 grid min-h-[min(72vh,40rem)] items-center justify-items-center pt-[clamp(3rem,8vh,5rem)] pb-[clamp(2.5rem,6vh,4rem)]"
+    class="relative z-10 grid min-h-[min(72svh,--spacing(640))] items-center justify-items-center pt-[clamp(--spacing(48),8svh,--spacing(80))] pb-[clamp(--spacing(40),6svh,--spacing(64))]"
   >
-    <div class="grid max-w-736 justify-items-center gap-20">
+    <div class="grid max-w-736 justify-items-center gap-24">
       <div
         class="inline-flex items-center justify-center gap-10 rounded-full border border-gray-300 bg-gray-100/80 px-6 py-6 text-xs sm:pl-6 sm:pr-14 dark:border-gray-700 dark:bg-gray-900/60"
       >
@@ -32,7 +32,7 @@ const { tagline, actions = [] } = data.hero || {};
           v{pkg.version}
         </span>
         <span class="hidden font-sans text-gray-700 sm:inline dark:text-gray-300">
-          Typed User-Agent detection without the hassle.
+          Typed User-Agent detection for browsers and Node.js
         </span>
       </div>
       <div class="grid justify-items-center gap-12">
@@ -46,8 +46,8 @@ const { tagline, actions = [] } = data.hero || {};
           data-page-title
           class="max-w-[18ch] font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-tight tracking-tight text-gray-900 dark:text-white"
         >
-          Know your traffic.<br />
-          <span class="text-accent-600 dark:text-accent-300">Make every visit count.</span>
+          Parse User-Agents<br />
+          <span class="text-accent-600 dark:text-accent-300">Get structured results</span>
         </h1>
         {
           isNonNullish(tagline) && (
@@ -65,20 +65,18 @@ const { tagline, actions = [] } = data.hero || {};
               const { class: className, ...props } = attrs;
 
               return (
-                <Fragment>
-                  <LinkButton
-                    href={href}
-                    variant={variant}
-                    icon={icon?.name}
-                    class={cn(
-                      'rounded-sm px-18 py-11 font-sans font-semibold [&_svg]:size-16!',
-                      className,
-                    )}
-                    {...props}
-                  >
-                    {text}
-                  </LinkButton>
-                </Fragment>
+                <LinkButton
+                  href={href}
+                  variant={variant}
+                  icon={icon?.name}
+                  class={cn(
+                    'rounded-sm px-18 py-11 font-sans font-semibold [&_svg]:size-16!',
+                    className,
+                  )}
+                  {...props}
+                >
+                  {text}
+                </LinkButton>
               );
             })}
           </div>

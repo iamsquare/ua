@@ -124,7 +124,7 @@ export const matchRules = (ua: string, rules: Rule[]) => {
   }
 };
 
-/** Desktop shells that usually have no device — skipped unless DEVICE_UA_SIGNAL matches. */
+/** Desktop shells that usually have no device. Skipped unless DEVICE_UA_SIGNAL matches. */
 const DEVICE_DESKTOP_SHELL = /Windows NT|\bWin64\b|\bWOW64\b|X11;|Linux x86_64|Linux i686/i;
 
 /** Device signals that override a desktop-shell fast miss. */

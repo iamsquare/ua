@@ -1,7 +1,7 @@
 {
   "name": "@iamsquare/ua",
   "version": "1.0.0",
-  "description": "The essential tool for User-Agent detection. Detect browsers, OS, devices, bots, apps, AI crawlers, and more. Browser and Node.js.",
+  "description": "User-Agent parser for browsers and Node.js. Detect browsers, OS, devices, bots, apps, and AI crawlers.",
   "type": "module",
   "license": "MIT",
   "author": "Marco <squaremarco@gmail.com>",

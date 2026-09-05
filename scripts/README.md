@@ -24,9 +24,9 @@ UAP_CORE_REF=v0.18.0 pnpm sync:uap-core
 
 Missing = UA string not already present. Mapping:
 
-- **browser** — `family` → `name`, joined version parts → `version` / `major`; `{}` when family is `Other`
-- **os** — same without `major`
-- **device** — `brand` → `vendor`, `model` → `model` (no `type`; uap-core does not provide one)
+- **browser**: `family` → `name`, joined version parts → `version` / `major`. Empty object `{}` when family is `Other`
+- **os**: same without `major`
+- **device**: `brand` → `vendor`, `model` → `model` (no `type`, since uap-core does not provide one)
 
 Does not touch `src/rules/` or `regexes.yaml`.
 
