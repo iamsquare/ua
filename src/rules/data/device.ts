@@ -810,7 +810,7 @@ export const deviceRulesData = [
     ],
   ],
   [
-    [/(watch)(?: ?os[,/]|\d,\d\/)[\d.]+/i],
+    [/(?:watch(?: ?os[,/]| \d,\d\/)[\d.]+).+(watch\d,\d)/i],
     [
       { type: AssignKind.Capture, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Apple' },
