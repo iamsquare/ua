@@ -7,21 +7,35 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 <Tabs syncKey="package-manager">
   <TabItem icon="pnpm" label="pnpm">
-    ``` pnpm add @iamsquare/ua ```
+```
+pnpm add @iamsquare/ua
+```
   </TabItem>
   <TabItem icon="seti:npm" label="npm">
-    ``` npm install @iamsquare/ua ```
+```
+npm install @iamsquare/ua
+```
   </TabItem>
   <TabItem icon="seti:yarn" label="yarn">
-    ``` yarn add @iamsquare/ua ```
+```
+yarn add @iamsquare/ua
+```
   </TabItem>
 </Tabs>
 
 ESM is the default entry. CommonJS works through `require()` when you need it.
 
 <Tabs>
-  <TabItem label="esm">```ts import {parseUA} from '@iamsquare/ua'; ```</TabItem>
-  <TabItem label="cjs">```js const {parseUA} = require('@iamsquare/ua'); ```</TabItem>
+  <TabItem label="esm">
+```ts
+import { parseUA } from '@iamsquare/ua';
+```
+  </TabItem>
+  <TabItem label="cjs">
+```js
+const { parseUA } = require('@iamsquare/ua');
+```
+  </TabItem>
 </Tabs>
 
 Requires **Node.js 20+**.

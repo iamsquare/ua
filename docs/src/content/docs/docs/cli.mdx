@@ -46,6 +46,7 @@ yarn dlx @iamsquare/ua "Flock/2.16 (Zenwalk 7.3; es_PR;)"
 ```
   </TabItem>
 </Tabs>
+
 ```json title="output"
 [
   {
@@ -92,13 +93,19 @@ Parse one User-Agent per line and write a JSON array:
 
 <Tabs syncKey="package-manager">
   <TabItem icon="pnpm" label="pnpm">
-    ``` pnpm dlx @iamsquare/ua --input-file log.txt --output-file log-result.json ```
+```
+pnpm dlx @iamsquare/ua --input-file log.txt --output-file log-result.json
+```
   </TabItem>
   <TabItem icon="seti:npm" label="npm">
-    ``` npx @iamsquare/ua --input-file log.txt --output-file log-result.json ```
+```
+npx @iamsquare/ua --input-file log.txt --output-file log-result.json
+```
   </TabItem>
   <TabItem icon="seti:yarn" label="yarn">
-    ``` yarn dlx @iamsquare/ua --input-file log.txt --output-file log-result.json ```
+```
+yarn dlx @iamsquare/ua --input-file log.txt --output-file log-result.json
+```
   </TabItem>
 </Tabs>
 
@@ -126,47 +133,34 @@ Override with `-e` / `--extensions`:
 pnpm dlx @iamsquare/ua -e none "curl/8.0"
 
 # Every built-in pack
-
 pnpm dlx @iamsquare/ua -e all "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 
 # Specific packs
-
 pnpm dlx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-
 ```
   </TabItem>
   <TabItem icon="seti:npm" label="npm">
 ```
-
 # Core rules only
-
 npx @iamsquare/ua -e none "curl/8.0"
 
 # Every built-in pack
-
 npx @iamsquare/ua -e all "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 
 # Specific packs
-
 npx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-
 ```
   </TabItem>
   <TabItem icon="seti:yarn" label="yarn">
 ```
-
 # Core rules only
-
 yarn dlx @iamsquare/ua -e none "curl/8.0"
 
 # Every built-in pack
-
 yarn dlx @iamsquare/ua -e all "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 
 # Specific packs
-
 yarn dlx @iamsquare/ua -e crawler,fetcher "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-
 ```
   </TabItem>
 </Tabs>
@@ -181,18 +175,13 @@ If [pnpm `minimumReleaseAge`](https://pnpm.io/settings#minimumreleaseage) or [Ya
 <Tabs syncKey="fresh-releases-manager">
   <TabItem icon="pnpm" label="pnpm">
 ```
-
 pnpm dlx @iamsquare/ua@1.1.0 "<INSERT-USER-AGENT-HERE>"
-
 ```
   </TabItem>
   <TabItem icon="seti:yarn" label="yarn">
 ```
-
 yarn dlx @iamsquare/ua@1.1.0 "<INSERT-USER-AGENT-HERE>"
-
 ```
   </TabItem>
 </Tabs>
 :::
-```

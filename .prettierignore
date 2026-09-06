@@ -8,3 +8,4 @@ coverage
 .astro
 pnpm-lock.yaml
 *-lock.*
+*.mdx

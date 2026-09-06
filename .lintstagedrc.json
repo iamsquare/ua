@@ -9,5 +9,5 @@
   "docs/**/*.{js,ts,tsx,mts,cts,cjs,mjs}": ["pnpm --dir docs exec eslint --fix"],
   "eslintConfig/**/*.{js,ts,mts,cts,cjs,mjs}": ["pnpm --dir eslintConfig exec eslint --fix"],
   "prettierConfig/**/*.{js,ts,mts,cts,cjs,mjs}": ["pnpm --dir prettierConfig exec eslint --fix"],
-  "**/*.{md,mdx,json,yml,yaml,css}": ["prettier --write"]
+  "**/*.{md,json,yml,yaml,css}": ["prettier --write"]
 }

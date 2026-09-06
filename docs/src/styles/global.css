@@ -119,6 +119,7 @@
 
 @layer overrides {
   :root {
+    --sl-main-pad: 0;
     --viewport-height: 100vh;
     --viewport-height: 100svh;
     --viewport-height: 100dvh;
