@@ -7,7 +7,7 @@ Downloads [uap-core](https://github.com/ua-parser/uap-core) test cases and **alw
 Those fixtures are **not** part of `pnpm test`. Run them separately while filling in regex coverage:
 
 ```bash
-pnpm test:uap-core
+pnpm exec vitest run test/uap-core.fixtures.test.ts
 ```
 
 Benchmark accuracy also reports main-suite and uap-core scores side by side (`pnpm --dir benchmarks bench`).

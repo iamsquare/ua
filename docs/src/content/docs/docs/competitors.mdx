@@ -10,7 +10,7 @@ How `@iamsquare/ua` compares to other User-Agent parsers on this repo's fixture 
 ## How to read this
 
 - **Accuracy** is string equality against the curated fixture suite under `test/fixtures/ua` (excluding `uap-core.json`). Those expects are written for `@iamsquare/ua`, so other libraries can score lower on naming differences even when they are mostly right.
-- **vs uap-core accuracy** is the same check against upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures (`uap-core.json`). That suite is tracked separately while regex coverage is filled in (`pnpm test:uap-core`).
+- **vs uap-core accuracy** is the same check against upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures (`uap-core.json`). That suite is tracked separately while regex coverage is filled in (`pnpm exec vitest run test/uap-core.fixtures.test.ts`).
 - **Speed** is mean throughput from [tinybench](https://github.com/tinylibs/tinybench) (sync single-UA parses over the main fixture UA list), each library in its own Node process.
 - **Size** is an esbuild bundle of each package entry (raw and gzip).
 - **Memory** is the memory footprint after loading one adapter, then retained heap after parsing all unique main-suite fixture UAs once.

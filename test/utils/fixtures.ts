@@ -14,6 +14,7 @@ import {
   pipe,
   when,
 } from 'remeda';
+import type { KeyAsString } from 'type-fest';
 import { describe, expect, it } from 'vitest';
 
 import { parseUA } from '@/index';
@@ -81,7 +82,7 @@ export const runCategoryFixtures = ({
   });
 };
 
-/** Upstream uap-core fixtures only — run via `pnpm test:uap-core`. */
+/** Upstream uap-core fixtures only — run via `pnpm exec vitest run test/uap-core.fixtures.test.ts`. */
 export const runUapCoreFixtures = ({
   name,
   dir,
@@ -108,7 +109,7 @@ type ExtensionFixturesOptions = {
   name: string;
   file: string;
   extensions: ExtensionPack[];
-  slice: keyof typeof EXTENSION_SLICE_KEYS;
+  slice: KeyAsString<typeof EXTENSION_SLICE_KEYS>;
 };
 
 export const runExtensionFixtures = ({

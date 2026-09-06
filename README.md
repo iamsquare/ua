@@ -122,7 +122,6 @@ CI publishes public releases to npm from `master`. See [`.changeset/README.md`](
 | -------------------- | ------------------------------------------------------------------------------ |
 | `pnpm build`         | ESM + CJS dual build via tsdown                                                |
 | `pnpm test`          | Vitest suite (main fixtures + user-agents smoke; excludes uap-core)            |
-| `pnpm test:uap-core` | Upstream uap-core fixture suite (opt-in while coverage is filled in)           |
 | `pnpm typecheck`     | `tsc --noEmit`                                                                 |
 | `pnpm lint`          | ESLint + Prettier autofix                                                      |
 | `pnpm lint:check`    | ESLint without writing fixes                                                   |
@@ -137,7 +136,7 @@ CI publishes public releases to npm from `master`. See [`.changeset/README.md`](
 | Suite                                                                   | What it covers                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Fixture tests (`*.fixtures.test.ts`, Client Hints, extensions, helpers) | Curated UA / header cases. Expected browser, OS, device, engine, CPU slices. Excludes `uap-core.json`.                                                                                                                                                               |
-| [`test/uap-core.fixtures.test.ts`](./test/uap-core.fixtures.test.ts)    | Upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures. **Excluded** from default `pnpm test`. Run: `pnpm test:uap-core`                                                                                                                                |
+| [`test/uap-core.fixtures.test.ts`](./test/uap-core.fixtures.test.ts)    | Upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures. **Excluded** from default `pnpm test`. Run explicitly: `pnpm exec vitest run test/uap-core.fixtures.test.ts`                                                                                    |
 | [`test/user-agents-smoke.test.ts`](./test/user-agents-smoke.test.ts)    | Property test over ~100k live samples from [`user-agents`](https://github.com/intoli/user-agents). Soft oracle: `user-agents` `deviceCategory` vs `device.type` via [`test/oracles/user-agents.ts`](./test/oracles/user-agents.ts). Uses a 60s timeout for slower CI |
 | [`test/redos.test.ts`](./test/redos.test.ts)                            | ReDoS / timing guards (random UA strings + oversized Client Hints). **Excluded** from default `pnpm test`. Run explicitly: `pnpm exec vitest run test/redos.test.ts`                                                                                                 |
 

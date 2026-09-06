@@ -21,12 +21,12 @@ import {
   split,
   values,
 } from 'remeda';
-import type { ValueOf } from 'type-fest';
+import type { KeyAsString, ValueOf } from 'type-fest';
 
 import { extensions } from '../dist/esm/extensions.js';
 import { parseUA } from '../dist/esm/index.js';
 
-type ExtensionName = keyof typeof extensions;
+type ExtensionName = KeyAsString<typeof extensions>;
 type ExtensionPack = ValueOf<typeof extensions>;
 
 const EXTENSION_NAMES = keys(extensions);
