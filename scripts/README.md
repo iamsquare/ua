@@ -2,7 +2,15 @@
 
 ## `sync:uap-core`
 
-Appends missing [uap-core](https://github.com/ua-parser/uap-core) test cases into local fixtures. Existing cases are never rewritten. Use this for TDD: new expects come from upstream, then fix parser rules (or expects) until tests pass.
+Downloads [uap-core](https://github.com/ua-parser/uap-core) test cases and **always overwrites** the local `uap-core.json` fixtures with upstream expects.
+
+Those fixtures are **not** part of `pnpm test`. Run them separately while filling in regex coverage:
+
+```bash
+pnpm test:uap-core
+```
+
+Benchmark accuracy also reports main-suite and uap-core scores side by side (`pnpm --dir benchmarks bench`).
 
 ```bash
 pnpm sync:uap-core
@@ -22,7 +30,7 @@ UAP_CORE_REF=v0.18.0 pnpm sync:uap-core
 | `tests/test_os.yaml`     | `test/fixtures/ua/os/uap-core.json`      |
 | `tests/test_device.yaml` | `test/fixtures/ua/device/uap-core.json`  |
 
-Missing = UA string not already present. Mapping:
+Mapping:
 
 - **browser**: `family` → `name`, joined version parts → `version` / `major`. Empty object `{}` when family is `Other`
 - **os**: same without `major`
@@ -33,7 +41,7 @@ Does not touch `src/rules/` or `regexes.yaml`.
 ### Output
 
 ```
-browser: fetched=N present=N appended=N
-os: fetched=N present=N appended=N
-device: fetched=N present=N appended=N
+browser: fetched=N written=N
+os: fetched=N written=N
+device: fetched=N written=N
 ```

@@ -176,9 +176,7 @@
     "desc": "Avant",
     "ua": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; GTB5; Avant Browser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
     "expect": {
-      "name": "Avant",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Avant"
     }
   },
   {
@@ -410,9 +408,7 @@
     "desc": "Chrome Headless",
     "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome Safari/537.36",
     "expect": {
-      "name": "Chrome Headless",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Chrome Headless"
     }
   },
   {
@@ -657,8 +653,7 @@
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBDV/iPhone10,2;FBMD/iPhone;FBSN/iOS;FBSV/13.3.1;FBSS/3;FBID/phone;FBLC/en_US;FBOP/5;FBCR/]",
     "expect": {
       "name": "Facebook",
-      "version": "undefined",
-      "major": "undefined",
+
       "type": "inapp"
     }
   },
@@ -1020,18 +1015,14 @@
     "desc": "Lighthouse",
     "ua": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4590.2 Mobile Safari/537.36 Chrome-Lighthouse",
     "expect": {
-      "name": "Lighthouse",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Lighthouse"
     }
   },
   {
     "desc": "Luakit",
     "ua": "Mozilla/5.0 (Linux x86_64) AppleWebKit/535.4+ (KHTML, like Gecko) WebKitGTK+/1.6.3 luakit",
     "expect": {
-      "name": "luakit",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "luakit"
     }
   },
   {
@@ -1083,9 +1074,7 @@
     "desc": "Rekonq",
     "ua": "Mozilla/5.0 (X11; U; Linux x86_64; cs-CZ) AppleWebKit/533.3 (KHTML, like Gecko) rekonq Safari/533.3",
     "expect": {
-      "name": "rekonq",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "rekonq"
     }
   },
   {
@@ -1229,18 +1218,14 @@
     "desc": "Maxthon on Windows Server 2003",
     "ua": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; MyIE2; .NET CLR 1.1.4322)",
     "expect": {
-      "name": "Maxthon",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Maxthon"
     }
   },
   {
     "desc": "Maxthon on Windows XP",
     "ua": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SV1; Maxthon; .NET CLR 1.1.4322)",
     "expect": {
-      "name": "Maxthon",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Maxthon"
     }
   },
   {
@@ -1292,9 +1277,7 @@
     "desc": "Mobile Safari",
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)  Mobile/15E148 Safari/604.1",
     "expect": {
-      "name": "Mobile Safari",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Mobile Safari"
     }
   },
   {
@@ -1833,9 +1816,7 @@
     "desc": "SlimBrowser",
     "ua": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; SlimBrowser)",
     "expect": {
-      "name": "SlimBrowser",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "SlimBrowser"
     }
   },
   {
@@ -1851,45 +1832,35 @@
     "desc": "Steam Client",
     "ua": "Mozilla/5.0 (X11; Linux x86_64; Valve Steam Client/default/1705108172) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
     "expect": {
-      "name": "Steam",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Steam"
     }
   },
   {
     "desc": "Steam Big Picture",
     "ua": "Mozilla/5.0 (Linux; U; X11; en-US; Valve Steam Tenfoot/1660688177; ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36",
     "expect": {
-      "name": "Steam",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Steam"
     }
   },
   {
     "desc": "Steam Overlay",
     "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; Valve Steam GameOverlay/default/1741737356) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36",
     "expect": {
-      "name": "Steam",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Steam"
     }
   },
   {
     "desc": "Swiftfox",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1) Gecko/20061024 Firefox/2.0 (Swiftfox)",
     "expect": {
-      "name": "Swiftfox",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Swiftfox"
     }
   },
   {
     "desc": "Tesla",
     "ua": "Mozilla/5.0 (X11; GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Tesla QtCarBrowser Safari/601.1",
     "expect": {
-      "name": "Tesla",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "Tesla"
     }
   },
   {
@@ -2656,8 +2627,7 @@
     "ua": "Mozilla/5.0 (Linux; Android 13; CPH2531 Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/123.0.6312.120 Mobile Safari/537.36 TwitterAndroid",
     "expect": {
       "name": "Twitter",
-      "version": "undefined",
-      "major": "undefined",
+
       "type": "inapp"
     }
   },

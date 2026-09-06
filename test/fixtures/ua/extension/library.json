@@ -220,7 +220,7 @@
     "ua": "phpcrawl",
     "expect": {
       "name": "phpcrawl",
-      "version": "undefined",
+
       "type": "library"
     }
   },
@@ -310,7 +310,7 @@
     "ua": "undici",
     "expect": {
       "name": "undici",
-      "version": "undefined",
+
       "type": "library"
     }
   }

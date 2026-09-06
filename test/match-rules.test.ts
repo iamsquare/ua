@@ -8,20 +8,20 @@ import type { Rule } from '@/types';
 describe('matchRules', () => {
   it('matches first rule and assigns captures and literals', () => {
     const rules = [
-      {
-        patterns: [/chrome\/([\d.]+)/i],
-        assign: [
+      [
+        [/chrome\/([\d.]+)/i],
+        [
           { type: AssignKind.Capture, field: 'version' },
           { type: AssignKind.Literal, field: 'name', value: 'Chrome' },
         ],
-      },
-      {
-        patterns: [/firefox\/([\d.]+)/i],
-        assign: [
+      ],
+      [
+        [/firefox\/([\d.]+)/i],
+        [
           { type: AssignKind.Capture, field: 'version' },
           { type: AssignKind.Literal, field: 'name', value: 'Firefox' },
         ],
-      },
+      ],
     ] satisfies Rule[];
 
     expect(matchRules('Mozilla Chrome/120.0 Safari', rules)).toEqual({
@@ -32,9 +32,9 @@ describe('matchRules', () => {
 
   it('applies replace transforms', () => {
     const rules = [
-      {
-        patterns: [/(comodo_dragon)\/([\w.]+)/i],
-        assign: [
+      [
+        [/(comodo_dragon)\/([\w.]+)/i],
+        [
           {
             type: AssignKind.Replace,
             field: 'name',
@@ -42,12 +42,29 @@ describe('matchRules', () => {
           },
           { type: AssignKind.Capture, field: 'version' },
         ],
-      },
+      ],
     ] satisfies Rule[];
 
     expect(matchRules('comodo_dragon/1.2', rules)).toEqual({
       name: 'comodo dragon',
       version: '1.2',
+    });
+  });
+
+  it('lets Literal skip a capture slot so the next assign reads the following group', () => {
+    const rules = [
+      [
+        [/(chrome)\/([\d.]+)/i],
+        [
+          { type: AssignKind.Literal, field: 'name', value: 'Chrome WebView' },
+          { type: AssignKind.Capture, field: 'version' },
+        ],
+      ],
+    ] satisfies Rule[];
+
+    expect(matchRules('; wv). chrome/43.0', rules)).toEqual({
+      name: 'Chrome WebView',
+      version: '43.0',
     });
   });
 });

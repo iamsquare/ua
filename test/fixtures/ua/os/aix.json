@@ -3,16 +3,14 @@
     "desc": "AIX",
     "ua": "Mozilla/5.0 (X11; U; AIX 000138384C00; en-US; rv:1.0.1) Gecko/20030213 Netscape/7.0",
     "expect": {
-      "name": "AIX",
-      "version": "undefined"
+      "name": "AIX"
     }
   },
   {
     "desc": "AIX",
     "ua": "Mozilla/5.0 (AIX; SPARC64; smart-thumbtack; Mosaic/2.7) Gecko/20100101 Mosaic/2.7",
     "expect": {
-      "name": "AIX",
-      "version": "undefined"
+      "name": "AIX"
     }
   },
   {

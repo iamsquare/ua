@@ -61,29 +61,24 @@ const resolveAssign = (assign: Assign, match: RegExpExecArray, captureIndex: num
     case AssignKind.Map: {
       if (isNullish(captured)) return { field: assign.field, value: undefined, nextIndex };
 
-      return {
-        field: assign.field,
-        value: mapString(captured, assign.map),
-        nextIndex,
-      };
+      return { field: assign.field, value: mapString(captured, assign.map), nextIndex };
     }
 
     case AssignKind.ReplaceMap: {
       if (isNullish(captured)) return { field: assign.field, value: undefined, nextIndex };
 
-      const [searchValue, replaceValue] = assign.replace;
-      const replaced = captured.replace(searchValue, replaceValue);
+      const [search, replacement] = assign.replace;
 
       return {
         field: assign.field,
-        value: mapString(replaced, assign.map),
+        value: mapString(captured.replace(search, replacement), assign.map),
         nextIndex,
       };
     }
 
     case AssignKind.Replace: {
-      const [searchValue, replaceValue] = assign.replace;
-      const replaced = present ? present.replace(searchValue, replaceValue) : undefined;
+      const [search, replacement] = assign.replace;
+      const replaced = present ? present.replace(search, replacement) : undefined;
 
       return {
         field: assign.field,
@@ -102,18 +97,17 @@ const resolveAssign = (assign: Assign, match: RegExpExecArray, captureIndex: num
 };
 
 export const matchRules = (ua: string, rules: Rule[]) => {
-  for (const rule of rules) {
-    for (const pattern of rule.patterns) {
+  for (const [patterns, assign] of rules) {
+    for (const pattern of patterns) {
       const match = pattern.exec(ua);
 
       if (isNullish(match)) continue;
 
       const result: Record<string, string | undefined> = {};
-
       let captureIndex = 1;
 
-      for (const assign of rule.assign) {
-        const resolved = resolveAssign(assign, match, captureIndex);
+      for (const item of assign) {
+        const resolved = resolveAssign(item, match, captureIndex);
 
         result[resolved.field] = resolved.value;
         captureIndex = resolved.nextIndex;
@@ -124,7 +118,7 @@ export const matchRules = (ua: string, rules: Rule[]) => {
   }
 };
 
-/** Desktop shells that usually have no device. Skipped unless DEVICE_UA_SIGNAL matches. */
+/** Desktop shells that usually have no device. Skipped unless DEVICE_UA_HINT matches. */
 const DEVICE_DESKTOP_SHELL = /Windows NT|\bWin64\b|\bWOW64\b|X11;|Linux x86_64|Linux i686/i;
 
 /** Device signals that override a desktop-shell fast miss. */

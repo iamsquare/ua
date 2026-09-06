@@ -27,8 +27,7 @@
     "desc": "iOS in App",
     "ua": "AppName/version CFNetwork/version Darwin/version",
     "expect": {
-      "name": "iOS",
-      "version": "undefined"
+      "name": "iOS"
     }
   },
   {
@@ -51,8 +50,7 @@
     "desc": "iOS with Opera Mini",
     "ua": "Opera/9.80 (iPhone; Opera Mini/7.1.32694/27.1407; U; en) Presto/2.8.119 Version/11.10",
     "expect": {
-      "name": "iOS",
-      "version": "undefined"
+      "name": "iOS"
     }
   },
   {

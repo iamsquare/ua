@@ -100,6 +100,7 @@
     "build": "tsdown",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:uap-core": "vitest run --config vitest.uap-core.config.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --fix && pnpm --dir docs lint:fix && pnpm --dir eslintConfig lint:fix && pnpm --dir prettierConfig lint:fix",
     "lint:check": "eslint && pnpm --dir docs lint && pnpm --dir eslintConfig lint && pnpm --dir prettierConfig lint",

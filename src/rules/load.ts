@@ -28,10 +28,7 @@ export type AuthoredAssign =
       ifFalse: string;
     };
 
-export type AuthoredRule = {
-  patterns: RegExp[];
-  assign: AuthoredAssign[];
-};
+export type AuthoredRule = [patterns: RegExp[], assign: AuthoredAssign[]];
 
 export type AuthoredCategory = AuthoredRule[];
 
@@ -57,11 +54,7 @@ const toAssign = (item: AuthoredAssign): Assign => {
             replace: item.replace,
             transform: transforms[item.transform],
           }
-        : {
-            type: AssignKind.Replace,
-            field: item.field,
-            replace: item.replace,
-          };
+        : { type: AssignKind.Replace, field: item.field, replace: item.replace };
     case AssignKind.Map:
       return { type: AssignKind.Map, field: item.field, map: item.map };
     case AssignKind.ReplaceMap:
@@ -83,7 +76,4 @@ const toAssign = (item: AuthoredAssign): Assign => {
 };
 
 export const loadRules = (authored: AuthoredCategory): Rule[] =>
-  map(authored, (rule) => ({
-    patterns: rule.patterns,
-    assign: map(rule.assign, toAssign),
-  }));
+  map(authored, ([patterns, assign]) => [patterns, map(assign, toAssign)] as const);

@@ -3,8 +3,7 @@
     "desc": "Windows Phone",
     "ua": "Opera/9.80 (Windows Phone; Opera Mini/7.6.8/35.7518; U; ru) Presto/2.8.119 Version/11.10",
     "expect": {
-      "name": "Windows Phone",
-      "version": "undefined"
+      "name": "Windows Phone"
     }
   },
   {

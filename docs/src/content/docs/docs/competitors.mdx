@@ -1,17 +1,19 @@
 ---
 title: Competitors
-description: Accuracy, speed, and size versus other User-Agent parsers
+description: Accuracy, speed, size, and memory versus other User-Agent parsers
 ---
 
 import { CompetitorsTables } from '@/components/CompetitorsTables';
 
-How `@iamsquare/ua` compares to other User-Agent parsers on this repo's fixture suite.
+How `@iamsquare/ua` compares to other User-Agent parsers on this repo's fixture suites.
 
 ## How to read this
 
-- **Accuracy** is string equality against fixture `expect` fields. Those expects are written for `@iamsquare/ua`, so other libraries can score lower on naming differences even when they are mostly right.
-- **Speed** is mean throughput from [tinybench](https://github.com/tinylibs/tinybench) (sync single-UA parses over the fixture UA list), each library in its own Node process.
+- **Accuracy** is string equality against the curated fixture suite under `test/fixtures/ua` (excluding `uap-core.json`). Those expects are written for `@iamsquare/ua`, so other libraries can score lower on naming differences even when they are mostly right.
+- **vs uap-core accuracy** is the same check against upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures (`uap-core.json`). That suite is tracked separately while regex coverage is filled in (`pnpm test:uap-core`).
+- **Speed** is mean throughput from [tinybench](https://github.com/tinylibs/tinybench) (sync single-UA parses over the main fixture UA list), each library in its own Node process.
 - **Size** is an esbuild bundle of each package entry (raw and gzip).
+- **Memory** is the memory footprint after loading one adapter, then retained heap after parsing all unique main-suite fixture UAs once.
 
 Refresh the snapshot locally (not in CI):
 
@@ -32,6 +34,10 @@ Libraries compared: [`ua-parser-js`](https://github.com/faisalman/ua-parser-js),
 
 <CompetitorsTables section="accuracy" />
 
+## vs uap-core accuracy by category
+
+<CompetitorsTables section="uap-core-accuracy" />
+
 ## Speed
 
 <CompetitorsTables section="speed" />
@@ -39,3 +45,15 @@ Libraries compared: [`ua-parser-js`](https://github.com/faisalman/ua-parser-js),
 ## Size
 
 <CompetitorsTables section="size" />
+
+## Memory
+
+:::note[What the columns mean]
+Each library runs in a fresh Node process with `--expose-gc`. Values are heap deltas (`process.memoryUsage().heapUsed`), not absolute RSS.
+
+- **Import heap** — Extra heap after dynamically loading only that library’s adapter (rules, regexes, module code). Measured before fixture data is loaded. This is the primary “memory footprint” shown in the summary table.
+- **Parse heap** — Extra heap after parsing every unique fixture UA once and retaining the result objects, relative to the post-fixture baseline. Captures retained allocation cost of parse output (and any library-side caching), not transient GC noise from a single parse.
+- **UAs** — How many unique user-agent strings were parsed in that pass (same set used for the speed bench).
+:::
+
+<CompetitorsTables section="memory" />

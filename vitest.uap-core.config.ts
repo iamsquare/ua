@@ -5,8 +5,7 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   test: {
-    include: ['test/**/*.test.ts'],
-    exclude: ['test/redos.test.ts', 'test/uap-core.fixtures.test.ts'],
+    include: ['test/uap-core.fixtures.test.ts'],
     environment: 'node',
   },
 });

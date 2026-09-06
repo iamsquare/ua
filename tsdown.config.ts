@@ -31,6 +31,7 @@ export default defineConfig([
       entry: { [name]: file },
       format: 'cjs' as const,
       outDir: 'dist/cjs',
+      minify: true,
       clean: false,
     })),
   ),
@@ -44,6 +45,7 @@ export default defineConfig([
     outDir: '.bin',
     clean: ['.bin'],
     fixedExtension: false,
+    minify: true,
     banner: { js: '#!/usr/bin/env node' },
     deps: {
       neverBundle: ['commander', 'remeda', 'consola', 'chalk', /(?:^|[\\/])dist[\\/]/],

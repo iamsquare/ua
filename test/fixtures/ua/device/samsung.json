@@ -292,7 +292,7 @@
     "ua": "Mozilla/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.0 TV Safari/538.1",
     "expect": {
       "vendor": "Samsung",
-      "model": "undefined",
+
       "type": "smarttv"
     }
   },
@@ -301,7 +301,7 @@
     "ua": "Mozilla/5.0 (SMART-TV; Linux; Tizen 8.0) AppleWebKit/537.36 (KHTML, like Gecko) Samsung Browser/7.0 Chrome/108.0.5359.1 TV Safari/537.36",
     "expect": {
       "vendor": "Samsung",
-      "model": "undefined",
+
       "type": "smarttv"
     }
   },

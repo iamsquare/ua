@@ -3,8 +3,7 @@
     "desc": "Gentoo",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.16) Gecko/20080716 (Gentoo) Galeon/2.0.6",
     "expect": {
-      "name": "Gentoo",
-      "version": "undefined"
+      "name": "Gentoo"
     }
   },
   {
@@ -19,8 +18,7 @@
     "desc": "Gentoo",
     "ua": "Xombrero/1.6.4 (Linux amd64; en; Gentoo)",
     "expect": {
-      "name": "Gentoo",
-      "version": "undefined"
+      "name": "Gentoo"
     }
   },
   {

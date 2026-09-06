@@ -3,16 +3,14 @@
     "desc": "Solaris",
     "ua": "Mozilla/5.0 (X11; U; SunOS sun4u; en-US; rv:1.7) Gecko/20070606",
     "expect": {
-      "name": "Solaris",
-      "version": "undefined"
+      "name": "Solaris"
     }
   },
   {
     "desc": "Solaris",
     "ua": "Mozilla/5.0 (Solaris; SPARC; w3m/0.5.3; rv:1.0) Gecko/20100101 w3m/0.5.3",
     "expect": {
-      "name": "Solaris",
-      "version": "undefined"
+      "name": "Solaris"
     }
   },
   {

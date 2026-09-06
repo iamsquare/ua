@@ -135,14 +135,11 @@ export type Assign =
     };
 
 /**
- * A matching rule: one or more regex patterns plus field assignments for captures.
+ * A matching rule: patterns plus field assignments.
  *
  * Used by extension packs and the low-level {@link matchRules} helper.
  */
-export type Rule = {
-  patterns: RegExp[];
-  assign: Assign[];
-};
+export type Rule = [patterns: RegExp[], assign: Assign[]];
 
 /** @internal */
 export type StringMap = Record<string, string | string[] | undefined>;

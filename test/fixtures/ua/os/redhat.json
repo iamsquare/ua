@@ -19,16 +19,14 @@
     "desc": "RedHat",
     "ua": "iTunes/4.7.1 (Linux; N; Red Hat; x86_64-linux; EN; utf8) SqueezeCenter, Squeezebox Server, Logitech Media Server/7.9.1/1522157629",
     "expect": {
-      "name": "Red Hat",
-      "version": "undefined"
+      "name": "Red Hat"
     }
   },
   {
     "desc": "RedHat",
     "ua": "curl/7.20.0 (x86_64-redhat-linux-gnu) libcurl/7.20.0 OpenSSL/0.9.8b zlib/1.2.3 libidn/0.6.5",
     "expect": {
-      "name": "redhat",
-      "version": "undefined"
+      "name": "redhat"
     }
   }
 ]

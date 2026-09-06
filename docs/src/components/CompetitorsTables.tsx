@@ -9,13 +9,16 @@ type CategoryAccuracy = {
   percent: number;
 };
 
+type AccuracyBlock = {
+  percent: number;
+  byCategory: CategoryAccuracy[];
+};
+
 type LibraryReport = {
   id: string;
   label: string;
-  accuracy: {
-    percent: number;
-    byCategory: CategoryAccuracy[];
-  };
+  accuracy: AccuracyBlock;
+  uapCoreAccuracy?: AccuracyBlock;
   speed: {
     totalMs: number;
     opsPerSec: number;
@@ -26,6 +29,11 @@ type LibraryReport = {
     rawBytes: number;
     gzipBytes: number;
   };
+  memory: {
+    importHeapBytes: number;
+    parseHeapBytes: number;
+    uaCount: number;
+  };
 };
 
 type BenchmarkReport = {
@@ -33,12 +41,13 @@ type BenchmarkReport = {
     generatedAt: string;
     node: string;
     fixtureCases: number;
+    uapCoreFixtureCases?: number;
     uniqueUserAgents: number;
   };
   libraries: LibraryReport[];
 };
 
-type Section = 'meta' | 'summary' | 'accuracy' | 'speed' | 'size';
+type Section = 'meta' | 'summary' | 'accuracy' | 'uap-core-accuracy' | 'speed' | 'size' | 'memory';
 
 const report = data as BenchmarkReport;
 
@@ -88,49 +97,68 @@ const Table = ({ headers, rows }: { headers: string[]; rows: string[][] }) => (
   </div>
 );
 
-export const CompetitorsTables = ({ section }: { section: Section }) => {
-  const libraries = sortBy(report.libraries, [(row) => row.accuracy.percent, 'desc']);
-  const categoryRows = first(libraries)?.accuracy.byCategory ?? [];
+const accuracyCategoryTable = (pick: (row: LibraryReport) => AccuracyBlock | undefined) => {
+  const libraries = sortBy(report.libraries, [(row) => pick(row)?.percent ?? 0, 'desc']);
+  const categoryRows = pick(first(libraries)!)?.byCategory ?? [];
   const categories = map(categoryRows, (row) => row.category);
   const categoryHeaders = map(
     categoryRows,
     (row) => `${row.category} (${row.total.toLocaleString('en-US')})`,
   );
 
+  return (
+    <Table
+      headers={concat(['Library'], categoryHeaders)}
+      rows={map(libraries, (row) =>
+        concat(
+          [row.label],
+          map(categories, (category) => {
+            const match = pipe(
+              pick(row)?.byCategory ?? [],
+              filter((item) => item.category === category),
+              first(),
+            );
+
+            return formatPercent(match?.percent ?? 0);
+          }),
+        ),
+      )}
+    />
+  );
+};
+
+export const CompetitorsTables = ({ section }: { section: Section }) => {
+  const libraries = sortBy(report.libraries, [(row) => row.accuracy.percent, 'desc']);
+
   if (section === 'summary') {
     return (
       <Table
-        headers={['Library', 'Accuracy', 'Speed', 'Size (gzip)']}
+        headers={[
+          'Library',
+          'Accuracy',
+          'vs uap-core accuracy',
+          'Speed',
+          'Size (gzip)',
+          'Memory (import)',
+        ]}
         rows={map(libraries, (row) => [
           row.label,
           formatPercent(row.accuracy.percent),
+          row.uapCoreAccuracy ? formatPercent(row.uapCoreAccuracy.percent) : '—',
           formatOps(row.speed.opsPerSec),
           formatBytes(row.size.gzipBytes),
+          formatBytes(row.memory.importHeapBytes),
         ])}
       />
     );
   }
 
   if (section === 'accuracy') {
-    return (
-      <Table
-        headers={concat(['Library'], categoryHeaders)}
-        rows={map(libraries, (row) =>
-          concat(
-            [row.label],
-            map(categories, (category) => {
-              const match = pipe(
-                row.accuracy.byCategory,
-                filter((item) => item.category === category),
-                first(),
-              );
+    return accuracyCategoryTable((row) => row.accuracy);
+  }
 
-              return formatPercent(match?.percent ?? 0);
-            }),
-          ),
-        )}
-      />
-    );
+  if (section === 'uap-core-accuracy') {
+    return accuracyCategoryTable((row) => row.uapCoreAccuracy);
   }
 
   if (section === 'speed') {
@@ -148,13 +176,27 @@ export const CompetitorsTables = ({ section }: { section: Section }) => {
     );
   }
 
+  if (section === 'size') {
+    return (
+      <Table
+        headers={['Library', 'Raw', 'Gzip']}
+        rows={map(libraries, (row) => [
+          row.label,
+          formatBytes(row.size.rawBytes),
+          formatBytes(row.size.gzipBytes),
+        ])}
+      />
+    );
+  }
+
   return (
     <Table
-      headers={['Library', 'Raw', 'Gzip']}
+      headers={['Library', 'Import heap', 'Parse heap', 'UAs']}
       rows={map(libraries, (row) => [
         row.label,
-        formatBytes(row.size.rawBytes),
-        formatBytes(row.size.gzipBytes),
+        formatBytes(row.memory.importHeapBytes),
+        formatBytes(row.memory.parseHeapBytes),
+        String(row.memory.uaCount),
       ])}
     />
   );

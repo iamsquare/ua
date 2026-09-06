@@ -3,9 +3,9 @@ import { AssignKind } from '@/rules/kinds';
 import type { AuthoredCategory } from '@/rules/load';
 
 export const osRulesData = [
-  {
-    patterns: [/(windows nt) (6\.[23]); arm/i],
-    assign: [
+  [
+    [/(windows nt) (6\.[23]); arm/i],
+    [
       { type: AssignKind.Replace, field: 'name', replace: [/N/, 'R'] as const },
       {
         type: AssignKind.Map,
@@ -13,20 +13,20 @@ export const osRulesData = [
         map: windowsVersionMap,
       },
     ],
-  },
-  {
-    patterns: [
+  ],
+  [
+    [
       /(windows (?:phone|mobile|iot))(?: os)?[/ ]?([\d.]*( se)?)/i,
       /(windows)[/ ](1[01]|2000|3\.1|7|8(\.1)?|9[58]|me|server 20\d\d( r2)?|vista|xp)/i,
     ],
-    assign: [
+    [
       { type: AssignKind.Capture, field: 'name' },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
-  {
-    patterns: [/windows nt ?([\d.)]*)(?!.+xbox)/i, /\bwin(?=3| ?9|n)(?:nt| 9x )?([\d.;]*)/i],
-    assign: [
+  ],
+  [
+    [/windows nt ?([\d.)]*)(?!.+xbox)/i, /\bwin(?=3| ?9|n)(?:nt| 9x )?([\d.;]*)/i],
+    [
       {
         type: AssignKind.ReplaceMap,
         field: 'version',
@@ -35,78 +35,78 @@ export const osRulesData = [
       },
       { type: AssignKind.Literal, field: 'name', value: 'Windows' },
     ],
-  },
-  {
-    patterns: [/(windows ce)\/?([\d.]*)/i],
-    assign: [
+  ],
+  [
+    [/(windows ce)\/?([\d.]*)/i],
+    [
       { type: AssignKind.Capture, field: 'name' },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
-  {
-    patterns: [
+  ],
+  [
+    [
       /[adehimnop]{4,7}\b(?:.*os ([\w]+) like mac|; opera)/i,
       /(?:ios;fbsv|ios(?=.+ip(?:ad|hone)|.+apple ?tv)|ip(?:ad|hone)(?: |.+i(?:pad)?)os|apple ?tv.+ios)[/ ]([\w.]+)/i,
       /\btvos ?([\w.]+)/i,
       /cfnetwork\/.+darwin/i,
     ],
-    assign: [
+    [
       { type: AssignKind.Replace, field: 'version', replace: [/_/g, '.'] as const },
       { type: AssignKind.Literal, field: 'name', value: 'iOS' },
     ],
-  },
-  {
-    patterns: [/(mac os x) ?([\w. ]*)/i, /(macintosh|mac_powerpc\b)(?!.+(haiku|morphos))/i],
-    assign: [
+  ],
+  [
+    [/(mac os x) ?([\w. ]*)/i, /(macintosh|mac_powerpc\b)(?!.+(haiku|morphos))/i],
+    [
       { type: AssignKind.Literal, field: 'name', value: 'macOS' },
       { type: AssignKind.Replace, field: 'version', replace: [/_/g, '.'] as const },
     ],
-  },
-  {
-    patterns: [/android ([\d.]+).*crkey/i],
-    assign: [
+  ],
+  [
+    [/android ([\d.]+).*crkey/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Chromecast Android' },
     ],
-  },
-  {
-    patterns: [/fuchsia.*crkey\/([\d.]+)/i],
-    assign: [
+  ],
+  [
+    [/fuchsia.*crkey\/([\d.]+)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Chromecast Fuchsia' },
     ],
-  },
-  {
-    patterns: [/crkey\/([\d.]+).*devicetype\/smartspeaker/i],
-    assign: [
+  ],
+  [
+    [/crkey\/([\d.]+).*devicetype\/smartspeaker/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Chromecast SmartSpeaker' },
     ],
-  },
-  {
-    patterns: [/linux.*crkey\/([\d.]+)/i],
-    assign: [
+  ],
+  [
+    [/linux.*crkey\/([\d.]+)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Chromecast Linux' },
     ],
-  },
-  {
-    patterns: [/crkey\/([\d.]+)/i],
-    assign: [
+  ],
+  [
+    [/crkey\/([\d.]+)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Chromecast' },
     ],
-  },
-  {
-    patterns: [/droid ([\w.]+)\b.+(android[- ]x86)/i],
-    assign: [
+  ],
+  [
+    [/droid ([\w.]+)\b.+(android[- ]x86)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Capture, field: 'name' },
     ],
-  },
-  {
-    patterns: [/(ubuntu) ([\w.]+) like android/i],
-    assign: [
+  ],
+  [
+    [/(ubuntu) ([\w.]+) like android/i],
+    [
       {
         type: AssignKind.Replace,
         field: 'name',
@@ -114,53 +114,50 @@ export const osRulesData = [
       },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
-  {
-    patterns: [
+  ],
+  [
+    [
       /(harmonyos)[/ ]?([\d.]*)/i,
       /(android|bada|blackberry|kaios|maemo|meego|openharmony|qnx|rim tablet os|sailfish|series40|symbian|tizen)\w*[-/.; ]?([\d.]*)/i,
     ],
-    assign: [
+    [
       { type: AssignKind.Capture, field: 'name' },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
-  {
-    patterns: [/\(bb(10);/i],
-    assign: [
+  ],
+  [
+    [/\(bb(10);/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'BlackBerry' },
     ],
-  },
-  {
-    patterns: [/(?:symbian ?os|symbos|s60(?=;)|series ?60)[-/ ]?([\w.]*)/i],
-    assign: [
+  ],
+  [
+    [/(?:symbian ?os|symbos|s60(?=;)|series ?60)[-/ ]?([\w.]*)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Symbian' },
     ],
-  },
-  {
-    patterns: [
+  ],
+  [
+    [
       /mozilla\/[\d.]+ \((?:mobile[;\w ]*|tablet|tv|[^)]*(?:viera|lg(?:l25|-d300)|alcatel ?o.+|y300-f1)); rv:([\w.]+)\).+gecko\//i,
     ],
-    assign: [
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Firefox OS' },
     ],
-  },
-  {
-    patterns: [
-      /\b(?:hp)?wos(?:browser)?\/([\w.]+)/i,
-      /webos(?:[ /]?|\.tv-20(?=2[2-9]))(\d[\d.]*)/i,
-    ],
-    assign: [
+  ],
+  [
+    [/\b(?:hp)?wos(?:browser)?\/([\w.]+)/i, /webos(?:[ /]?|\.tv-20(?=2[2-9]))(\d[\d.]*)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'webOS' },
     ],
-  },
-  {
-    patterns: [/web0s;.+?(?:chr[o0]me|safari)\/(\d+)/i],
-    assign: [
+  ],
+  [
+    [/web0s;.+?(?:chr[o0]me|safari)\/(\d+)/i],
+    [
       {
         type: AssignKind.Map,
         field: 'version',
@@ -180,30 +177,30 @@ export const osRulesData = [
       },
       { type: AssignKind.Literal, field: 'name', value: 'webOS' },
     ],
-  },
-  {
-    patterns: [/watch(?: ?os[,/ ]|\d,\d\/)([\d.]+)/i],
-    assign: [
+  ],
+  [
+    [/watch(?: ?os[,/ ]|\d,\d\/)([\d.]+)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'watchOS' },
     ],
-  },
-  {
-    patterns: [/cros [\w]+(?:\)| ([\w.]+)\b)/i],
-    assign: [
+  ],
+  [
+    [/cros [\w]+(?:\)| ([\w.]+)\b)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Chrome OS' },
     ],
-  },
-  {
-    patterns: [/kepler ([\w.]+); (aft|aeo)/i],
-    assign: [
+  ],
+  [
+    [/kepler ([\w.]+); (aft|aeo)/i],
+    [
       { type: AssignKind.Capture, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Vega OS' },
     ],
-  },
-  {
-    patterns: [
+  ],
+  [
+    [
       /(netrange)mmh/i,
       /(nettv)\/(\d+\.[\w.]+)/i,
       /(nintendo|playstation) (\w+)/i,
@@ -220,23 +217,23 @@ export const osRulesData = [
       /\b([-frentopcghs]{0,5}bsd|dragonfly)[/ ]?(?!amd|[ix346]{1,2}86)([\w.]*)/i,
       /(haiku) ?(r\d)?/i,
     ],
-    assign: [
+    [
       { type: AssignKind.Capture, field: 'name' },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
-  {
-    patterns: [/(sunos) ?([\d.]*)/i],
-    assign: [
+  ],
+  [
+    [/(sunos) ?([\d.]*)/i],
+    [
       { type: AssignKind.Literal, field: 'name', value: 'Solaris' },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
-  {
-    patterns: [/\b(beos|os\/2|amigaos|openvms|hp-ux|serenityos)/i, /(unix) ?([\w.]*)/i],
-    assign: [
+  ],
+  [
+    [/\b(beos|os\/2|amigaos|openvms|hp-ux|serenityos)/i, /(unix) ?([\w.]*)/i],
+    [
       { type: AssignKind.Capture, field: 'name' },
       { type: AssignKind.Capture, field: 'version' },
     ],
-  },
+  ],
 ] as const satisfies AuthoredCategory;

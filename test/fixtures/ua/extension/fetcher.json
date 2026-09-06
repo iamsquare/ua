@@ -31,7 +31,7 @@
     "ua": "Better Uptime Bot Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",
     "expect": {
       "name": "Better Uptime Bot",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -94,7 +94,7 @@
     "ua": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4590.2 Mobile Safari/537.36 Chrome-Lighthouse",
     "expect": {
       "name": "Lighthouse",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -166,7 +166,7 @@
     "ua": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Gemini-Deep-Research; +https://gemini.google/overview/deep-research/) Chrome/135.0.0.0 Safari/537.36",
     "expect": {
       "name": "Gemini-Deep-Research",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -175,7 +175,7 @@
     "ua": "Mozilla/5.0 (compatible; GoogleDocs; apps-spreadsheets; +http://docs.google.com)",
     "expect": {
       "name": "GoogleDocs",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -184,7 +184,7 @@
     "ua": "FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)",
     "expect": {
       "name": "FeedFetcher-Google",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -193,7 +193,7 @@
     "ua": "Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)",
     "expect": {
       "name": "GoogleImageProxy",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -202,7 +202,7 @@
     "ua": "Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)",
     "expect": {
       "name": "Google-Read-Aloud",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -211,7 +211,7 @@
     "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)",
     "expect": {
       "name": "Google-Read-Aloud",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -220,7 +220,7 @@
     "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/) ",
     "expect": {
       "name": "Google-PageRenderer",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -229,7 +229,7 @@
     "ua": "GoogleProducer; (+https://developers.google.com/search/docs/crawling-indexing/google-producer)",
     "expect": {
       "name": "GoogleProducer",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -274,7 +274,7 @@
     "ua": "Mozilla/5.0 (compatible; KeybaseBot; +https://keybase.io)",
     "expect": {
       "name": "KeybaseBot",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -391,7 +391,7 @@
     "ua": "Snap URL Preview Service; bot; snapchat; https://developers.snap.com/robots  ",
     "expect": {
       "name": "Snap URL Preview",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -409,7 +409,7 @@
     "ua": "TelegramBot (like TwitterBot)",
     "expect": {
       "name": "TelegramBot",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -445,7 +445,7 @@
     "ua": "vercel-favicon-bot",
     "expect": {
       "name": "vercel-favicon-bot",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -454,7 +454,7 @@
     "ua": "vercel-screenshot-bot",
     "expect": {
       "name": "vercel-screenshot-bot",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -463,7 +463,7 @@
     "ua": "Vercelbot (+https://vercel.com)",
     "expect": {
       "name": "Vercelbot",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -472,7 +472,7 @@
     "ua": "vercelflags",
     "expect": {
       "name": "vercelflags",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -481,7 +481,7 @@
     "ua": "verceltracing",
     "expect": {
       "name": "verceltracing",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -490,7 +490,7 @@
     "ua": "AppEngine-Google; (+http://code.google.com/appengine; appid: s~virustotalcloud)",
     "expect": {
       "name": "virustotal",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -580,7 +580,7 @@
     "ua": "Mozilla/5.0 (compatible; YandexSitelinks; Dyatel; +http://yandex.com/bots)",
     "expect": {
       "name": "YandexSitelinks",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },
@@ -589,7 +589,7 @@
     "ua": "Mozilla/5.0 (compatible; YandexUserproxy; robot; +http://yandex.com/bots)",
     "expect": {
       "name": "YandexUserproxy",
-      "version": "undefined",
+
       "type": "fetcher"
     }
   },

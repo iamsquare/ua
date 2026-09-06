@@ -1,9 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-09-06T05:30:56.308Z",
+    "generatedAt": "2026-09-06T17:22:35.997Z",
     "node": "v24.16.0",
-    "fixtureCases": 19824,
-    "uniqueUserAgents": 19306
+    "fixtureCases": 1611,
+    "uapCoreFixtureCases": 18213,
+    "uniqueUserAgents": 1526
   },
   "libraries": [
     {
@@ -12,26 +13,26 @@
       "accuracy": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
-        "passed": 19824,
-        "total": 19824,
+        "passed": 1611,
+        "total": 1611,
         "percent": 100,
         "byCategory": [
           {
             "category": "browser",
-            "passed": 1899,
-            "total": 1899,
+            "passed": 298,
+            "total": 298,
             "percent": 100
           },
           {
             "category": "os",
-            "passed": 753,
-            "total": 753,
+            "passed": 270,
+            "total": 270,
             "percent": 100
           },
           {
             "category": "device",
-            "passed": 17111,
-            "total": 17111,
+            "passed": 982,
+            "total": 982,
             "percent": 100
           },
           {
@@ -48,19 +49,53 @@
           }
         ]
       },
+      "uapCoreAccuracy": {
+        "id": "@iamsquare/ua",
+        "label": "@iamsquare/ua",
+        "passed": 6831,
+        "total": 18213,
+        "percent": 37.50617690660517,
+        "byCategory": [
+          {
+            "category": "browser",
+            "passed": 125,
+            "total": 1601,
+            "percent": 7.807620237351655
+          },
+          {
+            "category": "os",
+            "passed": 211,
+            "total": 483,
+            "percent": 43.68530020703933
+          },
+          {
+            "category": "device",
+            "passed": 6495,
+            "total": 16129,
+            "percent": 40.26908053816108
+          }
+        ]
+      },
       "speed": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
-        "totalMs": 2000.0012810000358,
-        "opsPerSec": 85832.23541374362,
-        "iterations": 121772,
-        "uaCount": 19306
+        "totalMs": 2000.0094549999799,
+        "opsPerSec": 79547.0077259146,
+        "iterations": 125184,
+        "uaCount": 1526
       },
       "size": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
         "rawBytes": 93898,
         "gzipBytes": 17279
+      },
+      "memory": {
+        "id": "@iamsquare/ua",
+        "label": "@iamsquare/ua",
+        "importHeapBytes": 783768,
+        "parseHeapBytes": 1976480,
+        "uaCount": 1526
       }
     },
     {
@@ -69,27 +104,27 @@
       "accuracy": {
         "id": "ua-parser-js",
         "label": "ua-parser-js",
-        "passed": 19761,
-        "total": 19824,
-        "percent": 99.6822033898305,
+        "passed": 1574,
+        "total": 1611,
+        "percent": 97.70328988206083,
         "byCategory": [
           {
             "category": "browser",
-            "passed": 1855,
-            "total": 1899,
-            "percent": 97.68299104791996
+            "passed": 263,
+            "total": 298,
+            "percent": 88.25503355704699
           },
           {
             "category": "os",
-            "passed": 753,
-            "total": 753,
+            "passed": 270,
+            "total": 270,
             "percent": 100
           },
           {
             "category": "device",
-            "passed": 17092,
-            "total": 17111,
-            "percent": 99.88896031792414
+            "passed": 980,
+            "total": 982,
+            "percent": 99.79633401221996
           },
           {
             "category": "cpu",
@@ -105,19 +140,53 @@
           }
         ]
       },
+      "uapCoreAccuracy": {
+        "id": "ua-parser-js",
+        "label": "ua-parser-js",
+        "passed": 6828,
+        "total": 18213,
+        "percent": 37.48970515565805,
+        "byCategory": [
+          {
+            "category": "browser",
+            "passed": 125,
+            "total": 1601,
+            "percent": 7.807620237351655
+          },
+          {
+            "category": "os",
+            "passed": 211,
+            "total": 483,
+            "percent": 43.68530020703933
+          },
+          {
+            "category": "device",
+            "passed": 6492,
+            "total": 16129,
+            "percent": 40.250480500961
+          }
+        ]
+      },
       "speed": {
         "id": "ua-parser-js",
         "label": "ua-parser-js",
-        "totalMs": 2000.0020310000577,
-        "opsPerSec": 30220.67826866131,
-        "iterations": 53170,
-        "uaCount": 19306
+        "totalMs": 2000.0208969999862,
+        "opsPerSec": 29511.901119252256,
+        "iterations": 53328,
+        "uaCount": 1526
       },
       "size": {
         "id": "ua-parser-js",
         "label": "ua-parser-js",
         "rawBytes": 56508,
         "gzipBytes": 17785
+      },
+      "memory": {
+        "id": "ua-parser-js",
+        "label": "ua-parser-js",
+        "importHeapBytes": 342400,
+        "parseHeapBytes": 1899472,
+        "uaCount": 1526
       }
     },
     {
@@ -126,27 +195,27 @@
       "accuracy": {
         "id": "my-ua-parser",
         "label": "my-ua-parser",
-        "passed": 18053,
-        "total": 19824,
-        "percent": 91.06638418079096,
+        "passed": 926,
+        "total": 1611,
+        "percent": 57.47982619490999,
         "byCategory": [
           {
             "category": "browser",
-            "passed": 1689,
-            "total": 1899,
-            "percent": 88.94154818325435
+            "passed": 191,
+            "total": 298,
+            "percent": 64.09395973154362
           },
           {
             "category": "os",
-            "passed": 590,
-            "total": 753,
-            "percent": 78.35325365205843
+            "passed": 181,
+            "total": 270,
+            "percent": 67.03703703703704
           },
           {
             "category": "device",
-            "passed": 15723,
-            "total": 17111,
-            "percent": 91.88825901466893
+            "passed": 503,
+            "total": 982,
+            "percent": 51.22199592668024
           },
           {
             "category": "cpu",
@@ -162,19 +231,53 @@
           }
         ]
       },
+      "uapCoreAccuracy": {
+        "id": "my-ua-parser",
+        "label": "my-ua-parser",
+        "passed": 7722,
+        "total": 18213,
+        "percent": 42.398286937901496,
+        "byCategory": [
+          {
+            "category": "browser",
+            "passed": 115,
+            "total": 1601,
+            "percent": 7.1830106183635225
+          },
+          {
+            "category": "os",
+            "passed": 200,
+            "total": 483,
+            "percent": 41.40786749482402
+          },
+          {
+            "category": "device",
+            "passed": 7407,
+            "total": 16129,
+            "percent": 45.923491846983694
+          }
+        ]
+      },
       "speed": {
         "id": "my-ua-parser",
         "label": "my-ua-parser",
-        "totalMs": 2000.0025610000598,
-        "opsPerSec": 119361.98334487608,
-        "iterations": 160130,
-        "uaCount": 19306
+        "totalMs": 2000.0024980000999,
+        "opsPerSec": 86737.87044070648,
+        "iterations": 138913,
+        "uaCount": 1526
       },
       "size": {
         "id": "my-ua-parser",
         "label": "my-ua-parser",
         "rawBytes": 38649,
         "gzipBytes": 11272
+      },
+      "memory": {
+        "id": "my-ua-parser",
+        "label": "my-ua-parser",
+        "importHeapBytes": 488496,
+        "parseHeapBytes": 1449768,
+        "uaCount": 1526
       }
     },
     {
@@ -183,27 +286,27 @@
       "accuracy": {
         "id": "bowser",
         "label": "bowser",
-        "passed": 3625,
-        "total": 19824,
-        "percent": 18.28591606133979,
+        "passed": 68,
+        "total": 1611,
+        "percent": 4.2209807572936064,
         "byCategory": [
           {
             "category": "browser",
-            "passed": 989,
-            "total": 1899,
-            "percent": 52.08004212743549
+            "passed": 1,
+            "total": 298,
+            "percent": 0.33557046979865773
           },
           {
             "category": "os",
-            "passed": 242,
-            "total": 753,
-            "percent": 32.13811420982736
+            "passed": 27,
+            "total": 270,
+            "percent": 10
           },
           {
             "category": "device",
-            "passed": 2388,
-            "total": 17111,
-            "percent": 13.955934778797266
+            "passed": 34,
+            "total": 982,
+            "percent": 3.462321792260693
           },
           {
             "category": "cpu",
@@ -219,19 +322,53 @@
           }
         ]
       },
+      "uapCoreAccuracy": {
+        "id": "bowser",
+        "label": "bowser",
+        "passed": 202,
+        "total": 18213,
+        "percent": 1.1090978971064624,
+        "byCategory": [
+          {
+            "category": "browser",
+            "passed": 12,
+            "total": 1601,
+            "percent": 0.749531542785759
+          },
+          {
+            "category": "os",
+            "passed": 121,
+            "total": 483,
+            "percent": 25.051759834368532
+          },
+          {
+            "category": "device",
+            "passed": 69,
+            "total": 16129,
+            "percent": 0.4278008556017112
+          }
+        ]
+      },
       "speed": {
         "id": "bowser",
         "label": "bowser",
-        "totalMs": 2000.0028429999652,
-        "opsPerSec": 157073.04238803202,
-        "iterations": 269961,
-        "uaCount": 19306
+        "totalMs": 2000.0041399999768,
+        "opsPerSec": 132085.49150399538,
+        "iterations": 241553,
+        "uaCount": 1526
       },
       "size": {
         "id": "bowser",
         "label": "bowser",
         "rawBytes": 49190,
         "gzipBytes": 8402
+      },
+      "memory": {
+        "id": "bowser",
+        "label": "bowser",
+        "importHeapBytes": 410360,
+        "parseHeapBytes": 726672,
+        "uaCount": 1526
       }
     },
     {
@@ -240,27 +377,27 @@
       "accuracy": {
         "id": "platform",
         "label": "platform",
-        "passed": 3377,
-        "total": 19824,
-        "percent": 17.034907183212265,
+        "passed": 52,
+        "total": 1611,
+        "percent": 3.2278088144009933,
         "byCategory": [
           {
             "category": "browser",
-            "passed": 990,
-            "total": 1899,
-            "percent": 52.13270142180095
+            "passed": 3,
+            "total": 298,
+            "percent": 1.006711409395973
           },
           {
             "category": "os",
-            "passed": 261,
-            "total": 753,
-            "percent": 34.66135458167331
+            "passed": 46,
+            "total": 270,
+            "percent": 17.037037037037038
           },
           {
             "category": "device",
-            "passed": 2126,
-            "total": 17111,
-            "percent": 12.424756004909122
+            "passed": 3,
+            "total": 982,
+            "percent": 0.30549898167006106
           },
           {
             "category": "cpu",
@@ -276,19 +413,53 @@
           }
         ]
       },
+      "uapCoreAccuracy": {
+        "id": "platform",
+        "label": "platform",
+        "passed": 374,
+        "total": 18213,
+        "percent": 2.053478284741668,
+        "byCategory": [
+          {
+            "category": "browser",
+            "passed": 6,
+            "total": 1601,
+            "percent": 0.3747657713928795
+          },
+          {
+            "category": "os",
+            "passed": 153,
+            "total": 483,
+            "percent": 31.67701863354037
+          },
+          {
+            "category": "device",
+            "passed": 215,
+            "total": 16129,
+            "percent": 1.333002666005332
+          }
+        ]
+      },
       "speed": {
         "id": "platform",
         "label": "platform",
-        "totalMs": 2000.0293230000207,
-        "opsPerSec": 19599.86401383878,
-        "iterations": 38273,
-        "uaCount": 19306
+        "totalMs": 2000.0258670000098,
+        "opsPerSec": 20045.332977806815,
+        "iterations": 38970,
+        "uaCount": 1526
       },
       "size": {
         "id": "platform",
         "label": "platform",
         "rawBytes": 28135,
         "gzipBytes": 7893
+      },
+      "memory": {
+        "id": "platform",
+        "label": "platform",
+        "importHeapBytes": 345120,
+        "parseHeapBytes": 604176,
+        "uaCount": 1526
       }
     },
     {
@@ -297,27 +468,27 @@
       "accuracy": {
         "id": "detect-browser",
         "label": "detect-browser",
-        "passed": 3214,
-        "total": 19824,
-        "percent": 16.21267150928168,
+        "passed": 8,
+        "total": 1611,
+        "percent": 0.4965859714463066,
         "byCategory": [
           {
             "category": "browser",
-            "passed": 988,
-            "total": 1899,
-            "percent": 52.027382833070035
+            "passed": 0,
+            "total": 298,
+            "percent": 0
           },
           {
             "category": "os",
-            "passed": 100,
-            "total": 753,
-            "percent": 13.280212483399733
+            "passed": 5,
+            "total": 270,
+            "percent": 1.8518518518518516
           },
           {
             "category": "device",
-            "passed": 2126,
-            "total": 17111,
-            "percent": 12.424756004909122
+            "passed": 3,
+            "total": 982,
+            "percent": 0.30549898167006106
           },
           {
             "category": "cpu",
@@ -333,19 +504,53 @@
           }
         ]
       },
+      "uapCoreAccuracy": {
+        "id": "detect-browser",
+        "label": "detect-browser",
+        "passed": 52,
+        "total": 18213,
+        "percent": 0.28551034975017847,
+        "byCategory": [
+          {
+            "category": "browser",
+            "passed": 3,
+            "total": 1601,
+            "percent": 0.18738288569643974
+          },
+          {
+            "category": "os",
+            "passed": 38,
+            "total": 483,
+            "percent": 7.867494824016563
+          },
+          {
+            "category": "device",
+            "passed": 11,
+            "total": 16129,
+            "percent": 0.06820013640027281
+          }
+        ]
+      },
       "speed": {
         "id": "detect-browser",
         "label": "detect-browser",
-        "totalMs": 2000.0010579998866,
-        "opsPerSec": 884892.4574482053,
-        "iterations": 1381060,
-        "uaCount": 19306
+        "totalMs": 2000.000688000052,
+        "opsPerSec": 784918.6123353173,
+        "iterations": 1376610,
+        "uaCount": 1526
       },
       "size": {
         "id": "detect-browser",
         "label": "detect-browser",
         "rawBytes": 7590,
         "gzipBytes": 2459
+      },
+      "memory": {
+        "id": "detect-browser",
+        "label": "detect-browser",
+        "importHeapBytes": 180608,
+        "parseHeapBytes": 86760,
+        "uaCount": 1526
       }
     }
   ]

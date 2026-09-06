@@ -1,6 +1,6 @@
 # Benchmarks
 
-Compare `@iamsquare/ua` against other User-Agent parsers on fixture accuracy, speed, and bundle size.
+Compare `@iamsquare/ua` against other User-Agent parsers on fixture accuracy, speed, bundle size, and memory footprint.
 
 Not part of the root test, build, lint, or CI pipelines.
 
@@ -26,13 +26,15 @@ Writes:
 
 ## Metrics
 
-| Metric   | Meaning                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------- |
-| Accuracy | Share of fixture expect keys matched (string equality) against `test/fixtures/ua`                                 |
-| Speed    | Ops/s from [tinybench](https://github.com/tinylibs/tinybench) in a fresh Node process per library (sync UA parse) |
-| Size     | esbuild bundle of the package entry, raw and gzip                                                                 |
+| Metric               | Meaning                                                                                                              |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Accuracy             | Share of curated fixture expect keys matched (string equality) against `test/fixtures/ua` (excludes `uap-core.json`) |
+| vs uap-core accuracy | Same check against upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures (`uap-core.json`)             |
+| Speed                | Ops/s from [tinybench](https://github.com/tinylibs/tinybench) in a fresh Node process per library (sync UA parse)    |
+| Size                 | esbuild bundle of the package entry, raw and gzip                                                                    |
+| Memory               | Heap delta in a fresh Node process (`--expose-gc`): import footprint, then retained parse of all unique UAs          |
 
-Fixture expects are authored for `@iamsquare/ua`. Other libraries can fail on naming differences even when broadly correct.
+Curated fixture expects are authored for `@iamsquare/ua`. Other libraries can fail on naming differences even when broadly correct.
 
 ## Competitors
 

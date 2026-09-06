@@ -39,7 +39,6 @@
     "desc": "LG Stylo 4",
     "ua": "Mozilla/5.0 (Linux; Android 10; LM-Q710(FGN)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.5563.57 Mobile Safari/537.36",
     "expect": {
-      "vendor": "undefined",
       "model": "LM-Q710(FGN)",
       "type": "mobile"
     }
@@ -121,7 +120,7 @@
     "ua": "Mozilla/5.0 (DirectFB; U; Linux mips; en) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) LG Browser (; LG NetCast.TV-2011)",
     "expect": {
       "vendor": "LG",
-      "model": "undefined",
+
       "type": "smarttv"
     }
   },
@@ -130,7 +129,7 @@
     "ua": "Mozilla/5.0 (Linux; NetCast; U) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/53.0.2785 34 Safari/537.31 SmartTV/8.5",
     "expect": {
       "vendor": "LG",
-      "model": "undefined",
+
       "type": "smarttv"
     }
   },
@@ -166,7 +165,7 @@
     "ua": "Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; LG Android TV Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
     "expect": {
       "vendor": "LG",
-      "model": "undefined",
+
       "type": "smarttv"
     }
   },

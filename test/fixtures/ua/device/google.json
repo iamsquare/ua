@@ -598,8 +598,7 @@
     "ua": "Mozilla/5.0 (Linux; Android 9; Google Pixelbook) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36",
     "expect": {
       "vendor": "Google",
-      "model": "Pixelbook",
-      "type": "undefined"
+      "model": "Pixelbook"
     }
   },
   {
@@ -607,8 +606,7 @@
     "ua": "Mozilla/5.0 (Linux; Android 9; Google Pixelbook Go) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/62.3.3146.57763",
     "expect": {
       "vendor": "Google",
-      "model": "Pixelbook Go",
-      "type": "undefined"
+      "model": "Pixelbook Go"
     }
   }
 ]

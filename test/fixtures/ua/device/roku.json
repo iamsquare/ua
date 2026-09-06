@@ -4,7 +4,6 @@
     "ua": "Mozilla/5.0 (Roku) AppleWebKit/537.36 (KHTML, like Gecko) Web/1.1 Safari/537.36",
     "expect": {
       "vendor": "Roku",
-      "model": "",
       "type": "smarttv"
     }
   },

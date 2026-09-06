@@ -11,16 +11,14 @@
     "desc": "Windows Mobile",
     "ua": "Opera/9.80 (Windows Mobile; WCE; Opera Mobi/WMD-50433; U; en) Presto/2.4.13 Version/10.00",
     "expect": {
-      "name": "Windows Mobile",
-      "version": "undefined"
+      "name": "Windows Mobile"
     }
   },
   {
     "desc": "Windows Mobile",
     "ua": "Opera/9.7 (Windows Mobile; PPC; Opera Mobi/35166; U; en) Presto/2.2.1",
     "expect": {
-      "name": "Windows Mobile",
-      "version": "undefined"
+      "name": "Windows Mobile"
     }
   },
   {

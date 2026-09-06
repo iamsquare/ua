@@ -27,10 +27,14 @@ export type FixtureCase = {
 
 export const fixturesRoot = join(import.meta.dirname, '../fixtures/ua');
 
-export const readJsonDir = (dir: string): FixtureCase[] =>
+/** Upstream uap-core fixture filename — excluded from the main suite. */
+export const UAP_CORE_FILE = 'uap-core.json';
+
+export const readJsonDir = (dir: string, options: { exclude?: string[] } = {}): FixtureCase[] =>
   pipe(
     readdirSync(dir),
     filter(endsWith('.json')),
+    filter((name) => !options.exclude?.includes(name)),
     map((name): FixtureCase[] => JSON.parse(readFileSync(join(dir, name), 'utf8'))),
     flat(),
   );
@@ -70,8 +74,27 @@ export const runCategoryFixtures = ({
   parse: (ua: string) => Record<string, string | undefined>;
 }) => {
   describe(`${name} fixtures`, () => {
-    it.each(withTestName(readJsonDir(dir)))('$testName', ({ ua, expect: expected }) =>
-      assertExpect(parse(ua), expected),
+    it.each(withTestName(readJsonDir(dir, { exclude: [UAP_CORE_FILE] })))(
+      '$testName',
+      ({ ua, expect: expected }) => assertExpect(parse(ua), expected),
+    );
+  });
+};
+
+/** Upstream uap-core fixtures only — run via `pnpm test:uap-core`. */
+export const runUapCoreFixtures = ({
+  name,
+  dir,
+  parse,
+}: {
+  name: string;
+  dir: string;
+  parse: (ua: string) => Record<string, string | undefined>;
+}) => {
+  describe(`uap-core ${name} fixtures`, () => {
+    it.each(withTestName(readJsonFile(join(dir, UAP_CORE_FILE))))(
+      '$testName',
+      ({ ua, expect: expected }) => assertExpect(parse(ua), expected),
     );
   });
 };

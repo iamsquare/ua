@@ -118,16 +118,17 @@ CI publishes public releases to npm from `master`. See [`.changeset/README.md`](
 
 ## Scripts
 
-| Command              | Description                                                         |
-| -------------------- | ------------------------------------------------------------------- |
-| `pnpm build`         | ESM + CJS dual build via tsdown                                     |
-| `pnpm test`          | Vitest suite (fixtures + user-agents smoke)                         |
-| `pnpm typecheck`     | `tsc --noEmit`                                                      |
-| `pnpm lint`          | ESLint + Prettier autofix                                           |
-| `pnpm lint:check`    | ESLint without writing fixes                                        |
-| `pnpm format`        | Prettier write across the repo                                      |
-| `pnpm sync:uap-core` | Append missing uap-core test fixtures ([docs](./scripts/README.md)) |
-| `pnpm changeset`     | Add a Changeset for the next release                                |
+| Command              | Description                                                                    |
+| -------------------- | ------------------------------------------------------------------------------ |
+| `pnpm build`         | ESM + CJS dual build via tsdown                                                |
+| `pnpm test`          | Vitest suite (main fixtures + user-agents smoke; excludes uap-core)            |
+| `pnpm test:uap-core` | Upstream uap-core fixture suite (opt-in while coverage is filled in)           |
+| `pnpm typecheck`     | `tsc --noEmit`                                                                 |
+| `pnpm lint`          | ESLint + Prettier autofix                                                      |
+| `pnpm lint:check`    | ESLint without writing fixes                                                   |
+| `pnpm format`        | Prettier write across the repo                                                 |
+| `pnpm sync:uap-core` | Overwrite `uap-core.json` fixtures from upstream ([docs](./scripts/README.md)) |
+| `pnpm changeset`     | Add a Changeset for the next release                                           |
 
 ## Testing
 
@@ -135,13 +136,14 @@ CI publishes public releases to npm from `master`. See [`.changeset/README.md`](
 
 | Suite                                                                   | What it covers                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Fixture tests (`*.fixtures.test.ts`, Client Hints, extensions, helpers) | Known UA / header cases from [uap-core](https://github.com/ua-parser/uap-core) and other parsers. Expected browser, OS, device, engine, CPU slices                                                                                                                   |
+| Fixture tests (`*.fixtures.test.ts`, Client Hints, extensions, helpers) | Curated UA / header cases. Expected browser, OS, device, engine, CPU slices. Excludes `uap-core.json`.                                                                                                                                                               |
+| [`test/uap-core.fixtures.test.ts`](./test/uap-core.fixtures.test.ts)    | Upstream [uap-core](https://github.com/ua-parser/uap-core) fixtures. **Excluded** from default `pnpm test`. Run: `pnpm test:uap-core`                                                                                                                                |
 | [`test/user-agents-smoke.test.ts`](./test/user-agents-smoke.test.ts)    | Property test over ~100k live samples from [`user-agents`](https://github.com/intoli/user-agents). Soft oracle: `user-agents` `deviceCategory` vs `device.type` via [`test/oracles/user-agents.ts`](./test/oracles/user-agents.ts). Uses a 60s timeout for slower CI |
 | [`test/redos.test.ts`](./test/redos.test.ts)                            | ReDoS / timing guards (random UA strings + oversized Client Hints). **Excluded** from default `pnpm test`. Run explicitly: `pnpm exec vitest run test/redos.test.ts`                                                                                                 |
 
 `user-agents` corpus is browser traffic only. Bot coverage stays in fixtures and [`test/bots.test.ts`](./test/bots.test.ts).
 
-To pull new upstream fixture cases without overwriting local expects, run `pnpm sync:uap-core` (see [`scripts/README.md`](./scripts/README.md)).
+To refresh upstream uap-core expects (overwrite `uap-core.json` only), run `pnpm sync:uap-core` (see [`scripts/README.md`](./scripts/README.md)).
 
 ## Contributors
 

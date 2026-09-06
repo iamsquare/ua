@@ -27,8 +27,7 @@
     "desc": "Opera Mini on S60",
     "ua": "Opera/9.80 (Series 60; Opera Mini/7.1.32444/191.361; U; de) Presto/2.12.423 Version/12.16",
     "expect": {
-      "name": "Symbian",
-      "version": "undefined"
+      "name": "Symbian"
     }
   },
   {
@@ -51,8 +50,7 @@
     "desc": "Nokia 808 PureView",
     "ua": "Mozilla/5.0 (Symbian; U; Nokia808 PureView; en-GB) AppleWebKit/534.3 (KHTML, like Gecko) Version/3.0 Mobile/1A543a Mobile Safari/534.3",
     "expect": {
-      "name": "Symbian",
-      "version": "undefined"
+      "name": "Symbian"
     }
   }
 ]

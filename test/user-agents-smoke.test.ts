@@ -16,8 +16,8 @@ const gen = new UserAgent();
 
 const realUaArb = fc.noShrink(fc.noBias(fc.integer()).map(() => toFingerprint(gen.random())));
 
-describe('Oracle real-UA deviceCategory', () => {
-  it('parseUA device.type agrees with Oracle deviceCategory', { timeout: 60_000 }, () => {
+describe('Smoke real-UA deviceCategory', () => {
+  it('parseUA device.type agrees with deviceCategory', { timeout: 60_000 }, () => {
     fc.assert(
       fc.property(realUaArb, (fp) => {
         const ua = toInput(fp);

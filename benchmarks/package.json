@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "version": "1.0.0",
-  "description": "Accuracy, speed, and size benchmarks for @iamsquare/ua",
+  "description": "Accuracy, speed, size, and memory benchmarks for @iamsquare/ua",
   "scripts": {
     "bench": "JITI_TSCONFIG_PATHS=1 jiti src/index.ts"
   },

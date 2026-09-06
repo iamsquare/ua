@@ -3,7 +3,7 @@
     "desc": "uap-core: WatchOS 5.1.3",
     "ua": "atc/1.0 watchOS/5.1.3 model/Watch3,4 hwp/t8004 build/16S535 (6; dt:156)",
     "expect": {
-      "name": "watchOS",
+      "name": "WatchOS",
       "version": "5.1.3"
     }
   },
@@ -11,7 +11,7 @@
     "desc": "uap-core: WatchOS 5.2",
     "ua": "atc/1.0 watchOS/5.2 model/Watch4,4 hwp/t8006 build/16T225 (6; dt:193)",
     "expect": {
-      "name": "watchOS",
+      "name": "WatchOS",
       "version": "5.2"
     }
   },
@@ -19,7 +19,7 @@
     "desc": "uap-core: WatchOS 5.1.1",
     "ua": "(null)/(null) watchOS/5.1.1 model/Watch3,3 hwp/t8004 build/16R600 (6; dt:155)",
     "expect": {
-      "name": "watchOS",
+      "name": "WatchOS",
       "version": "5.1.1"
     }
   },
@@ -27,7 +27,7 @@
     "desc": "uap-core: WatchOS 3.2.2",
     "ua": "BBCNewsUKWatchApp/4.3.0 (Watch1,2; watchOS 3.2.2)",
     "expect": {
-      "name": "watchOS",
+      "name": "WatchOS",
       "version": "3.2.2"
     }
   },
@@ -35,36 +35,35 @@
     "desc": "uap-core: Android",
     "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/26.2.0.0.10 SamsungBrowser/4.0 Chrome/110.0.5481.192 VR Safari/537.36",
     "expect": {
-      "name": "Linux"
+      "name": "Android"
     }
   },
   {
     "desc": "uap-core: Android",
     "ua": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true",
     "expect": {
-      "name": "macOS",
-      "version": "10.6.3"
+      "name": "Android"
     }
   },
   {
     "desc": "uap-core: Android",
     "ua": "Mozilla/5.0 (Linux; U; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.0 Safari/535.19 Silk-Accelerated=false",
     "expect": {
-      "name": "Linux"
+      "name": "Android"
     }
   },
   {
     "desc": "uap-core: Android",
     "ua": "Mozilla/5.0 (Linux; U; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.2 Safari/535.19 Silk-Accelerated=true",
     "expect": {
-      "name": "Linux"
+      "name": "Android"
     }
   },
   {
     "desc": "uap-core: Android",
     "ua": "Mozilla/5.0 (Linux; U; en-us; KFOT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.1 Safari/535.19 Silk-Accelerated=true",
     "expect": {
-      "name": "Linux"
+      "name": "Android"
     }
   },
   {
@@ -215,99 +214,114 @@
     "desc": "uap-core: BlackBerry OS 10.0.9",
     "ua": "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.3+ (KHTML, like Gecko) Version/10.0.9.388 Mobile Safari/537.3+",
     "expect": {
-      "name": "BlackBerry",
-      "version": "10"
+      "name": "BlackBerry OS",
+      "version": "10.0.9"
     }
   },
   {
     "desc": "uap-core: BlackBerry OS 6.0.0.141",
     "ua": "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-GB) AppleWebKit/534.1+ (KHTML, like Gecko) Version/6.0.0.141 Mobile Safari/534.1+",
     "expect": {
-      "name": "BlackBerry"
+      "name": "BlackBerry OS",
+      "version": "6.0.0.141"
     }
   },
   {
     "desc": "uap-core: BlackBerry OS 6.0.0.91",
     "ua": "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-US) AppleWebKit/534.1  (KHTML, like Gecko) Version/6.0.0.91 Mobile Safari/534.1 ",
     "expect": {
-      "name": "BlackBerry"
+      "name": "BlackBerry OS",
+      "version": "6.0.0.91"
     }
   },
   {
     "desc": "uap-core: BlackBerry OS",
     "ua": "Opera/9.80 (BlackBerry; Opera Mini/7.0.31437/28.3030; U; en) Presto/2.8.119 Version/11.10",
     "expect": {
-      "name": "BlackBerry"
+      "name": "BlackBerry OS"
     }
   },
   {
     "desc": "uap-core: BlackBerry Tablet OS 1.0.0",
     "ua": "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/0.0.1 Safari/534.8+",
     "expect": {
-      "name": "RIM Tablet OS",
+      "name": "BlackBerry Tablet OS",
       "version": "1.0.0"
     }
   },
   {
     "desc": "uap-core: BREW",
     "ua": "Opera/9.80 (BREW; Opera Mini/5.1.191/27.2202; U; en) Presto/2.8.119 240X400 LG VN271",
-    "expect": {}
+    "expect": {
+      "name": "BREW"
+    }
   },
   {
     "desc": "uap-core: BREW 3.1.5",
     "ua": "Mozilla/4.0 (BREW 3.1.5; U; en-us; Sanyo; NetFront/3.5.1/AMB) Boost SCP3810",
-    "expect": {}
+    "expect": {
+      "name": "BREW",
+      "version": "3.1.5"
+    }
   },
   {
     "desc": "uap-core: BREW 3.1.5",
     "ua": "NetFront/3.5.1 (BREW 3.1.5; U; en-us; LG; NetFront/3.5.1/WAP) Sprint LN240 MMP/2.0 Profile/MIDP-2.1 Configuration/CLDC-1.1",
-    "expect": {}
+    "expect": {
+      "name": "BREW",
+      "version": "3.1.5"
+    }
   },
   {
     "desc": "uap-core: Brew MP 1.0.2",
     "ua": "Mozilla/4.0 (Brew MP 1.0.2; U; en-us; Sanyo; NetFront/3.5.1/AMB) Sprint E4100",
-    "expect": {}
+    "expect": {
+      "name": "Brew MP",
+      "version": "1.0.2"
+    }
   },
   {
     "desc": "uap-core: Brew MP 1.0.4",
     "ua": "NetFront/4.2 (BMP 1.0.4; U; en-us; LG; NetFront/4.2/AMB) Boost LG272 MMP/2.0 Profile/MIDP-2.1 Configuration/CLDC-1.1",
-    "expect": {}
+    "expect": {
+      "name": "Brew MP",
+      "version": "1.0.4"
+    }
   },
   {
     "desc": "uap-core: Brew MP 1.0.2",
     "ua": "PantechP6010/JNUS11072011 BMP/1.0.2 DeviceId/141020 NetFront/4.1 OMC/1.5.3 Profile/MIDP-2.1 Configuration/CLDC-1.1",
-    "expect": {}
+    "expect": {
+      "name": "Brew MP",
+      "version": "1.0.2"
+    }
   },
   {
     "desc": "uap-core: BSD",
     "ua": "Mozilla/5.0 (X11; U; BSD Four; en-US) AppleWebKit/533.3 (KHTML, like Gecko) rekonq Safari/533.3",
     "expect": {
-      "name": "BSD",
-      "version": "Four"
+      "name": "BSD"
     }
   },
   {
     "desc": "uap-core: Debian",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1.16) Gecko/20110302 Conkeror/0.9.2 (Debian-0.9.2+git100804-1)",
     "expect": {
-      "name": "Debian",
-      "version": "0.9.2"
+      "name": "Debian"
     }
   },
   {
     "desc": "uap-core: Firefox OS",
     "ua": "Mozilla/5.0 (Mobile; rv:15.0) Gecko/15.0 Firefox/15.0",
     "expect": {
-      "name": "Firefox OS",
-      "version": "15.0"
+      "name": "Firefox OS"
     }
   },
   {
     "desc": "uap-core: Firefox OS",
     "ua": "Mozilla/5.0 (Tablet; rv:29.0) Gecko/29.0 Firefox/29.0",
     "expect": {
-      "name": "Firefox OS",
-      "version": "29.0"
+      "name": "Firefox OS"
     }
   },
   {
@@ -322,7 +336,7 @@
     "desc": "uap-core: KaiOS 2.5.1",
     "ua": "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5.1",
     "expect": {
-      "name": "KAIOS",
+      "name": "KaiOS",
       "version": "2.5.1"
     }
   },
@@ -330,7 +344,7 @@
     "desc": "uap-core: KaiOS 3.0",
     "ua": "Mozilla/5.0 (Mobile; rv:68.0) KAIOS/3.0",
     "expect": {
-      "name": "KAIOS",
+      "name": "KaiOS",
       "version": "3.0"
     }
   },
@@ -378,23 +392,24 @@
     "desc": "uap-core: Kindle 1.0",
     "ua": "Mozilla/4.0 (compatible; Linux 2.6.10) NetFront/3.3 Kindle/1.0 (screen 600x800)",
     "expect": {
-      "name": "Linux",
-      "version": "2.6.10"
+      "name": "Kindle",
+      "version": "1.0"
     }
   },
   {
     "desc": "uap-core: Kindle 1.0",
     "ua": "Mozilla/4.0 (compatible; Linux 2.6.10) NetFront/3.3 Kindle/1.0 (screen 600x800)",
     "expect": {
-      "name": "Linux",
-      "version": "2.6.10"
+      "name": "Kindle",
+      "version": "1.0"
     }
   },
   {
     "desc": "uap-core: Kindle 3.0",
     "ua": "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)",
     "expect": {
-      "name": "Linux"
+      "name": "Kindle",
+      "version": "3.0"
     }
   },
   {
@@ -415,7 +430,8 @@
     "desc": "uap-core: Linux 2.6",
     "ua": "python-requests/0.14 CPython/2.6 Linux/2.6-43-server",
     "expect": {
-      "name": "Linux"
+      "name": "Linux",
+      "version": "2.6"
     }
   },
   {
@@ -443,8 +459,7 @@
     "desc": "uap-core: Linux",
     "ua": "Mozilla/5.0 (X11; Linux i686 (x86_64); rv:2.0b4) Gecko/20100818 Firefox/4.0b4",
     "expect": {
-      "name": "Linux",
-      "version": "i686"
+      "name": "Linux"
     }
   },
   {
@@ -465,14 +480,14 @@
     "desc": "uap-core: Mac OS X",
     "ua": "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/418.8 (KHTML, like Gecko) Safari/419.3",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS X"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.5.7",
     "ua": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/530.17 Skyfire/2.0",
     "expect": {
-      "name": "macOS",
+      "name": "Mac OS X",
       "version": "10.5.7"
     }
   },
@@ -480,7 +495,7 @@
     "desc": "uap-core: Mac OS X 10.6.5",
     "ua": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; en-us) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5",
     "expect": {
-      "name": "macOS",
+      "name": "Mac OS X",
       "version": "10.6.5"
     }
   },
@@ -488,15 +503,15 @@
     "desc": "uap-core: Mac OS",
     "ua": "Mozilla/4.0 (compatible; MSIE 5.17; Mac_PowerPC)",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.12.6",
     "ua": "MacOutlook/16.12.0.180401 (Intelx64 Mac OS X Version 10.12.6 (build 16G29))",
     "expect": {
-      "name": "macOS",
-      "version": "Version 10.12.6 "
+      "name": "Mac OS X",
+      "version": "10.12.6"
     }
   },
   {
@@ -510,14 +525,14 @@
     "desc": "uap-core: Nokia Series 40",
     "ua": "Mozilla/5.0 (Series40; NokiaC2-03/07.48; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/2.2.0.0.33",
     "expect": {
-      "name": "Series40"
+      "name": "Nokia Series 40"
     }
   },
   {
     "desc": "uap-core: Nokia Series 40",
     "ua": "Mozilla/5.0 (Series40; NokiaX2-05/08.35; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/2.0.2.68.14",
     "expect": {
-      "name": "Series40"
+      "name": "Nokia Series 40"
     }
   },
   {
@@ -565,42 +580,27 @@
   {
     "desc": "uap-core: Other",
     "ua": "Bunjalloo/0.7.6(Nintendo DS;U;en)",
-    "expect": {
-      "name": "Nintendo",
-      "version": "DS"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Opera/9.50 (Nintendo DSi; Opera/507; U; en-US)",
-    "expect": {
-      "name": "Nintendo",
-      "version": "DSi"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US",
-    "expect": {
-      "name": "Nintendo",
-      "version": "3DS"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Opera/9.30 (Nintendo Wii; U; ; 3642; en)",
-    "expect": {
-      "name": "Nintendo",
-      "version": "Wii"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.21 NintendoBrowser/1.0.0.7494.US",
-    "expect": {
-      "name": "Nintendo",
-      "version": "WiiU"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
@@ -620,7 +620,10 @@
   {
     "desc": "uap-core: iOS 5.1.1",
     "ua": "IUC(U;iOS 5.1.1;Zh-cn;320*480;)/UCWEB7.9.0.94/41/997",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "5.1.1"
+    }
   },
   {
     "desc": "uap-core: Other",
@@ -635,34 +638,22 @@
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/5.0 (PLAYSTATION 3; 3.55)",
-    "expect": {
-      "name": "PLAYSTATION",
-      "version": "3"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/5.0 (PLAYSTATION 3 4.31) AppleWebKit/531.22.8 (KHTML, like Gecko)",
-    "expect": {
-      "name": "PLAYSTATION",
-      "version": "3"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)",
-    "expect": {
-      "name": "PlayStation",
-      "version": "Portable"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/5.0 (PlayStation Vita 1.81) AppleWebKit/531.22.8 (KHTML, like Gecko) Silk/3.2",
-    "expect": {
-      "name": "PlayStation",
-      "version": "Vita"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: Other",
@@ -725,26 +716,28 @@
     "desc": "uap-core: Symbian OS",
     "ua": "Opera/9.80 (Series 60; Opera Mini/6.24455/25.677; U; fr) Presto/2.5.25 Version/10.54",
     "expect": {
-      "name": "Symbian"
+      "name": "Symbian OS"
     }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Opera/9.80 (S60; SymbOS; Opera Mobi/275; U; es-ES) Presto/2.4.13 Version/10.00",
     "expect": {
-      "name": "Symbian"
+      "name": "Symbian OS"
     }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Mozilla/5.0 (S60V5; U; en-us; NokiaC5-03) AppleWebKit/530.13 (KHTML, like Gecko) UCBrowser/8.7.0.218/50/352/UCWEB Mobile",
-    "expect": {}
+    "expect": {
+      "name": "Symbian OS"
+    }
   },
   {
     "desc": "uap-core: Symbian OS 9.4",
     "ua": "Mozilla/5.0 (SymbianOS/9.4; U; Series60/5.0 Nokia5800d-1/21.0.025; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413",
     "expect": {
-      "name": "Symbian",
+      "name": "Symbian OS",
       "version": "9.4"
     }
   },
@@ -752,24 +745,21 @@
     "desc": "uap-core: Symbian^3",
     "ua": "Mozilla/5.0 (Symbian/3; Series60/5.2 NokiaN8-00/013.016; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.8.10 3gpp-gba",
     "expect": {
-      "name": "Symbian",
-      "version": "3"
+      "name": "Symbian^3"
     }
   },
   {
     "desc": "uap-core: Symbian^3 Anna",
     "ua": "Mozilla/5.0 (Symbian/3; Series60/5.2 NokiaN8-00/012.002; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.0 Mobile Safari/533.4 3gpp-gba",
     "expect": {
-      "name": "Symbian",
-      "version": "3"
+      "name": "Symbian^3 Anna"
     }
   },
   {
     "desc": "uap-core: Symbian^3 Belle",
     "ua": "Mozilla/5.0 (Symbian/3; Series60/5.3 Nokia701/111.020.0307; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.4.1.14 Mobile Safari/533.4 3gpp-gba",
     "expect": {
-      "name": "Symbian",
-      "version": "3"
+      "name": "Symbian^3 Belle"
     }
   },
   {
@@ -799,7 +789,9 @@
   {
     "desc": "uap-core: VRE",
     "ua": "Opera/9.80 (VRE; Opera Mini/4.2/28.2794; U; en) Presto/2.8.119 Version/11.10",
-    "expect": {}
+    "expect": {
+      "name": "VRE"
+    }
   },
   {
     "desc": "uap-core: webOS 1.2",
@@ -828,20 +820,24 @@
   {
     "desc": "uap-core: WebTV 2.6",
     "ua": "Mozilla/4.0 WebTV/2.6 (compatible; MSIE 4.0)",
-    "expect": {}
+    "expect": {
+      "name": "WebTV",
+      "version": "2.6"
+    }
   },
   {
     "desc": "uap-core: WeTab",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; nl-NL) AppleWebKit/534.3 (KHTML, like Gecko) WeTab-Browser Safari/534.3",
     "expect": {
-      "name": "Linux",
-      "version": "i686"
+      "name": "WeTab"
     }
   },
   {
     "desc": "uap-core: Windows",
     "ua": "Mozilla/5.0 (Windows; U; en-US) AppleWebKit/531.9 (KHTML, like Gecko) AdobeAIR/2.5.1",
-    "expect": {}
+    "expect": {
+      "name": "Windows"
+    }
   },
   {
     "desc": "uap-core: Windows 2000",
@@ -927,8 +923,8 @@
     "desc": "uap-core: Windows RT 8.1",
     "ua": "Mozilla/5.0 (Windows NT 6.3; ARM; WOW64; Trident/7.0; rv:11.0) like Gecko",
     "expect": {
-      "name": "Windows RT",
-      "version": "8.1"
+      "name": "Windows",
+      "version": "RT 8.1"
     }
   },
   {
@@ -983,8 +979,7 @@
     "desc": "uap-core: Windows Phone",
     "ua": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; XBLWP7; ZuneWP7)",
     "expect": {
-      "name": "Windows",
-      "version": "7"
+      "name": "Windows Phone"
     }
   },
   {
@@ -1023,8 +1018,8 @@
     "desc": "uap-core: Windows RT",
     "ua": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)",
     "expect": {
-      "name": "Windows RT",
-      "version": "8"
+      "name": "Windows",
+      "version": "RT"
     }
   },
   {
@@ -1112,7 +1107,7 @@
     "ua": "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.13) Gecko/20080208 Mandriva/2.0.0.13-1mdv2008.1 (2008.1) Firefox/2.0.0.13",
     "expect": {
       "name": "Mandriva",
-      "version": "2.0.0.13-1mdv2008.1"
+      "version": "2008.1"
     }
   },
   {
@@ -1127,37 +1122,40 @@
     "desc": "uap-core: LG 2013",
     "ua": "Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ HbbTV/1.1.1 ( ;LGE ;NetCast 4.0 ;03.20.30 ;1.0M ;)",
     "expect": {
-      "name": "Linux"
+      "name": "LG",
+      "version": "2013"
     }
   },
   {
     "desc": "uap-core: LG 2012",
     "ua": "Mozilla/5.0 (DirectFB; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ HbbTV/1.1.1 ( ;LGE ;NetCast 3.0 ;1.0 ;1.0M ;)",
     "expect": {
-      "name": "Linux"
+      "name": "LG",
+      "version": "2012"
     }
   },
   {
     "desc": "uap-core: Sony 2013",
     "ua": "Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11",
     "expect": {
-      "name": "Linux"
+      "name": "Sony",
+      "version": "2013"
     }
   },
   {
     "desc": "uap-core: Sony 2012",
     "ua": "Opera/9.80 (Linux mips; U;  HbbTV/1.1.1 (; Sony; KDL40HX751; PKG1.902EUA; 2012;);; en) Presto/2.10.250 Version/11.60",
     "expect": {
-      "name": "Linux",
-      "version": "mips"
+      "name": "Sony",
+      "version": "2012"
     }
   },
   {
     "desc": "uap-core: Sony 2011",
     "ua": "Opera/9.80 (Linux mips; U;  HbbTV/1.1.1 (; Sony; KDL22EX320; PKG4.017EUA; 2011;);; en) Presto/2.7.61 Version/11.00",
     "expect": {
-      "name": "Linux",
-      "version": "mips"
+      "name": "Sony",
+      "version": "2011"
     }
   },
   {
@@ -1171,79 +1169,104 @@
   {
     "desc": "uap-core: Samsung 2013.UE40F7000",
     "ua": "HbbTV/1.1.1 (;Samsung;SmartTV2013;T-FXPDEUC-1102.2;;) WebKit",
-    "expect": {}
+    "expect": {
+      "name": "Samsung",
+      "version": "2013.UE40F7000"
+    }
   },
   {
     "desc": "uap-core: Samsung 2013.UE32F4500",
     "ua": "HbbTV/1.1.1 (;Samsung;SmartTV2013;T-MST12DEUC-1102.1;;) WebKit",
-    "expect": {}
+    "expect": {
+      "name": "Samsung",
+      "version": "2013.UE32F4500"
+    }
   },
   {
     "desc": "uap-core: Samsung 2012",
     "ua": "HbbTV/1.1.1 (;Samsung;SmartTV2012;;;) WebKit",
-    "expect": {}
+    "expect": {
+      "name": "Samsung",
+      "version": "2012"
+    }
   },
   {
     "desc": "uap-core: Samsung 2011",
     "ua": "HbbTV/1.1.1 (;;;;;) Maple_2011",
-    "expect": {}
+    "expect": {
+      "name": "Samsung",
+      "version": "2011"
+    }
   },
   {
     "desc": "uap-core: Philips 2012",
     "ua": "Opera/9.80 (Linux mips ; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/3.2.1; en) Presto/2.6.33 Version/10.70",
     "expect": {
-      "name": "NETTV",
-      "version": "3.2.1"
+      "name": "Philips",
+      "version": "2012"
     }
   },
   {
     "desc": "uap-core: Philips 2013",
     "ua": "Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/4.1.3 PHILIPSTV/1.1.1; en) Presto/2.10.250 Version/11.60",
     "expect": {
-      "name": "NETTV",
-      "version": "4.1.3"
+      "name": "Philips",
+      "version": "2013"
     }
   },
   {
     "desc": "uap-core: Panasonic 2011",
     "ua": "HbbTV/1.1.1 (;Panasonic;VIERA 2011;f.532;0071-0802 2000-0000;)",
-    "expect": {}
+    "expect": {
+      "name": "Panasonic",
+      "version": "2011"
+    }
   },
   {
     "desc": "uap-core: Panasonic 2012",
     "ua": "HbbTV/1.1.1 (;Panasonic;VIERA 2012;1.261;0071-3103 2000-0000;)",
-    "expect": {}
+    "expect": {
+      "name": "Panasonic",
+      "version": "2012"
+    }
   },
   {
     "desc": "uap-core: Panasonic 2013",
     "ua": "HbbTV/1.2.1 (;Panasonic;VIERA 2013;3.672;4101-0003 0002-0000;)",
-    "expect": {}
+    "expect": {
+      "name": "Panasonic",
+      "version": "2013"
+    }
   },
   {
     "desc": "uap-core: FireHbbTV 1.1.20",
     "ua": "HbbTV/1.1.1 (;;;;;) firetv-firefox-plugin 1.1.20",
-    "expect": {}
+    "expect": {
+      "name": "FireHbbTV",
+      "version": "1.1.20"
+    }
   },
   {
     "desc": "uap-core: Android 4.0.4",
     "ua": "JUC(Linux;U;Android4.0.4;Zh_cn;GT-S6012;240*320;)UCWEB7.8.0.95/139/351",
     "expect": {
       "name": "Android",
-      "version": "0.4"
+      "version": "4.0.4"
     }
   },
   {
     "desc": "uap-core: Android 7.1.2",
     "ua": "DAVdroid/1.9.2-gplay (2017/11/04; dav4android; okhttp3) Android/7.1.2",
     "expect": {
-      "name": "android"
+      "name": "Android",
+      "version": "7.1.2"
     }
   },
   {
     "desc": "uap-core: Symbian OS 9.4",
     "ua": "Mozilla/5.0 (SymbianOS 9.4; Series60/5.0 NokiaN97-1/10.0.012; Profile/MIDP-2.1 Configuration/CLDC-1.1; en-us) AppleWebKit/525 (KHTML, like Gecko) WicKed/7.1.12344",
     "expect": {
-      "name": "Symbian",
+      "name": "Symbian OS",
       "version": "9.4"
     }
   },
@@ -1271,57 +1294,65 @@
     "desc": "uap-core: Symbian OS",
     "ua": "UCWEB/2.0(Symbian; U; S60 V5; en-US; Nokia808 PureView) U2/1.0.0 UCBrowser/8.8.0.245 U2/1.0.0 Mobile",
     "expect": {
-      "name": "Symbian"
+      "name": "Symbian OS"
     }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Opera/9.80 (S60; SymbOS; Opera Mobi/SYB-1204232256; U; en-GB) Presto/2.10.254 Version/12.00",
     "expect": {
-      "name": "Symbian"
+      "name": "Symbian OS"
     }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Nokia5228/40.1.003/sw_platform=S60;sw_platform_version=5.0;java_build_version=1.4.48",
     "expect": {
-      "name": "Symbian"
+      "name": "Symbian OS"
     }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Mozilla/5.0 (S60V5; U; ru; NokiaN97 mini)/UC Browser8.5.0.183/50/352/UCWEB Mobile",
-    "expect": {}
+    "expect": {
+      "name": "Symbian OS"
+    }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Mozilla/5.0 (S60V3; U; ru; Nokia N96)/UC Browser8.5.0.183/28/444/UCWEB Mobile",
-    "expect": {}
+    "expect": {
+      "name": "Symbian OS"
+    }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "MQQBrowser/Mini2.2 (Nokia5230/50.0.001/sw_platform=S60;sw_platform_version=5.0;java_build_version=1.4.43)",
     "expect": {
-      "name": "Symbian"
+      "name": "Symbian OS"
     }
   },
   {
     "desc": "uap-core: Symbian OS",
     "ua": "Mozilla/4.0 (compatible; MSIE 5.0; S60/3.0 NOKIAN73/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1)",
-    "expect": {}
+    "expect": {
+      "name": "Symbian OS"
+    }
   },
   {
     "desc": "uap-core: iOS 6.1.4",
     "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone 6_1_4 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Mobile/7E18 Grindr/1.8.8 (iPhone5,2/6.1.4)",
     "expect": {
-      "name": "macOS"
+      "name": "iOS",
+      "version": "6.1.4"
     }
   },
   {
     "desc": "uap-core: iOS 7.0",
     "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone 7_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Mobile/7E18 Grindr/1.8.8 (iPhone3,1/7.0)",
     "expect": {
-      "name": "macOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
@@ -1360,7 +1391,7 @@
     "ua": "Layar/3.1 Android/2.1-update1 (Samsung GT-I5500)",
     "expect": {
       "name": "Android",
-      "version": "2.1"
+      "version": "2.1.update1"
     }
   },
   {
@@ -1471,7 +1502,8 @@
     "desc": "uap-core: Linux 2.6.28",
     "ua": "FeedDaemon FRITZ!OS/06.01 Linux/2.6.28.10",
     "expect": {
-      "name": "Linux"
+      "name": "Linux",
+      "version": "2.6.28"
     }
   },
   {
@@ -1526,7 +1558,7 @@
     "desc": "uap-core: Maemo",
     "ua": "Mozilla/4.0 (compatible; MSIE 8.0; Linux armv7l; Maemo; Opera Mobi/9; es-ES) Opera 11.00",
     "expect": {
-      "name": "iOS"
+      "name": "Maemo"
     }
   },
   {
@@ -1550,15 +1582,15 @@
     "ua": "Mozilla/5.0 (compatible; Konqueror/3.2; Linux 2.6.8.1; X11; i686; en_US) (KHTML, like Gecko)",
     "expect": {
       "name": "Linux",
-      "version": "2.6.8.1"
+      "version": "2.6.8"
     }
   },
   {
     "desc": "uap-core: Gentoo 2.4.20",
     "ua": "Mozilla/5.0 (compatible; Konqueror/3.2.; Linux 2.4.20-gentoo-r2; X11; i",
     "expect": {
-      "name": "gentoo",
-      "version": "r2"
+      "name": "Gentoo",
+      "version": "2.4.20"
     }
   },
   {
@@ -1566,7 +1598,7 @@
     "ua": "Mozilla/5.0 (compatible; Konqueror/3.5; Linux 2.6.27.47-TSDX; X11; x86_64; es) KHTML/3.5.7 (like Gecko),gzip(gfe),gzip(gfe)",
     "expect": {
       "name": "Linux",
-      "version": "2.6.27.47"
+      "version": "2.6.27"
     }
   },
   {
@@ -1574,15 +1606,15 @@
     "ua": "Mozilla/5.0 (compatible; Konqueror/3.5; NetBSD 4.0_RC3; X11) KHTML/3.5.7 (like Gecko)",
     "expect": {
       "name": "NetBSD",
-      "version": "4.0_RC3"
+      "version": "4.0"
     }
   },
   {
     "desc": "uap-core: Gentoo 2.4.20",
     "ua": "Mozilla/5.0 (Linux 2.4.20-gentoo-r5 i686; U) Opera 7.11  [en]",
     "expect": {
-      "name": "gentoo",
-      "version": "r5"
+      "name": "Gentoo",
+      "version": "2.4.20"
     }
   },
   {
@@ -1605,16 +1637,14 @@
     "desc": "uap-core: FreeBSD",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.19) Gecko/2010031218 FreeBSD/i386 Firefox/3.0.19,gzip(gfe),gzip(gfe)",
     "expect": {
-      "name": "Linux",
-      "version": "i686"
+      "name": "FreeBSD"
     }
   },
   {
     "desc": "uap-core: Linux",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.10) Gecko/20100923 Caixa Magica Linux/1.9.2.10-0.1xcm15 (15) Firefox/3.6.10,gzip(gfe),gzip(gfe)",
     "expect": {
-      "name": "Linux",
-      "version": "i686"
+      "name": "Linux"
     }
   },
   {
@@ -1653,28 +1683,32 @@
     "desc": "uap-core: Linux 3.5.0",
     "ua": "python-requests/1.2.3 CPython/2.7.3 Linux/3.5.0-23-generic",
     "expect": {
-      "name": "Linux"
+      "name": "Linux",
+      "version": "3.5.0"
     }
   },
   {
     "desc": "uap-core: Android 2.3.6",
     "ua": "JUC (Linux; U; 2.3.6; zh-cn; GT-S7500; 320*480) UCWEB7.9.0.94/139/352",
     "expect": {
-      "name": "Linux"
+      "name": "Android",
+      "version": "2.3.6"
     }
   },
   {
     "desc": "uap-core: Android 4.0.3",
     "ua": "JUC (Linux; U; 4.0.3; zh-cn; NOVO7_Mars; 1024*552) UCWEB1.0.1.113/147/800",
     "expect": {
-      "name": "Linux"
+      "name": "Android",
+      "version": "4.0.3"
     }
   },
   {
     "desc": "uap-core: Android 4.0.4",
     "ua": "JUC(Linux;U;4.0.4;Zh_cn;GT-I9308;720*1280;)UCWEB7.7.0.85/139/999",
     "expect": {
-      "name": "Linux"
+      "name": "Android",
+      "version": "4.0.4"
     }
   },
   {
@@ -1682,39 +1716,48 @@
     "ua": "JUC(Linux;U;Android2.2.1;Zh_cn;GT-S5570;240*320;)UCWEB7.8.0.95/140/350",
     "expect": {
       "name": "Android",
-      "version": "2.1"
+      "version": "2.2.1"
     }
   },
   {
     "desc": "uap-core: Android 2.2.1",
     "ua": "UCWEB/2.0 (Linux; U; Adr 2.2.1; en-US; Dell Streak) U2/1.0.0 UCBrowser/9.3.1.344 U2/1.0.0 Mobile",
     "expect": {
-      "name": "Linux"
+      "name": "Android",
+      "version": "2.2.1"
     }
   },
   {
     "desc": "uap-core: Android 2.3.6",
     "ua": "UCWEB/2.0 (Linux; U; Adr 2.3.6; en-US; HUAWEI_Y210-0251) U2/1.0.0 UCBrowser/8.6.0.318 U2/1.0.0 Mobile",
     "expect": {
-      "name": "Linux"
+      "name": "Android",
+      "version": "2.3.6"
     }
   },
   {
     "desc": "uap-core: Android 4.2.2",
     "ua": "UCWEB/2.0 (Linux; U; Adr 4.2.2; zh-CN; ZTE V818) U2/1.0.0 UCBrowser/9.3.2.349 U2/1.0.0 Mobile",
     "expect": {
-      "name": "Linux"
+      "name": "Android",
+      "version": "4.2.2"
     }
   },
   {
     "desc": "uap-core: Windows Phone 7.10",
     "ua": "UCWEB/2.0 (Windows; U; wds 7.10; en-US; DELL; Venue Pro) U2/1.0.0 UCBrowser/3.0.0.285 U2/1.0.0 Mobile",
-    "expect": {}
+    "expect": {
+      "name": "Windows Phone",
+      "version": "7.10"
+    }
   },
   {
     "desc": "uap-core: Windows Phone 8.0",
     "ua": "UCWEB/2.0 (Windows; U; wds 8.0; zh-CN; NOKIA; RM-910_apac_prc_200) U2/1.0.0 UCBrowser/3.0.1.302 U2/1.0.0 Mobile",
-    "expect": {}
+    "expect": {
+      "name": "Windows Phone",
+      "version": "8.0"
+    }
   },
   {
     "desc": "uap-core: iOS 6.1.3",
@@ -1727,52 +1770,63 @@
   {
     "desc": "uap-core: iOS 5.0.1",
     "ua": "UCWEB/2.0 (iOS; U; iPh OS 5_0_1; zh-CN; iPh4,1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "5.0.1"
+    }
   },
   {
     "desc": "uap-core: iOS 7.0.4",
     "ua": "UCWEB/2.0 (iOS; U; iPh OS 7_0_4; ru; iPh3,1) U2/1.0.0 UCBrowser/9.0.0.260 U2/1.0.0 Mobile",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "7.0.4"
+    }
   },
   {
     "desc": "uap-core: iOS 7.0.4",
     "ua": "UCWEB/2.0 (iOS; U; iPh OS 7_0_4; zh-CN; iPh4,1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "7.0.4"
+    }
   },
   {
     "desc": "uap-core: GoogleTV 3.2",
     "ua": "Mozilla/5.0 (Linux; GoogleTV 3.2; LG Google TV G3 Build/MASTER) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Safari/534.24",
     "expect": {
-      "name": "Linux"
+      "name": "GoogleTV",
+      "version": "3.2"
     }
   },
   {
     "desc": "uap-core: GoogleTV 3.2",
     "ua": "Mozilla/5.0 (Linux; GoogleTV 3.2; NSZ-GS7/GX70 Build/MASTER) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Safari/534.24",
     "expect": {
-      "name": "Linux"
+      "name": "GoogleTV",
+      "version": "3.2"
     }
   },
   {
     "desc": "uap-core: GoogleTV 4.0.4",
     "ua": "Mozilla/5.0 (Linux; GoogleTV 4.0.4; LG Google TV Build/000000) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Safari/534.24",
     "expect": {
-      "name": "Linux"
+      "name": "GoogleTV",
+      "version": "4.0.4"
     }
   },
   {
     "desc": "uap-core: GoogleTV",
     "ua": "Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Large Screen Safari/534.24 GoogleTV/000000",
     "expect": {
-      "name": "Linux"
+      "name": "GoogleTV"
     }
   },
   {
     "desc": "uap-core: GoogleTV",
     "ua": "Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/162853",
     "expect": {
-      "name": "Linux",
-      "version": "i686"
+      "name": "GoogleTV"
     }
   },
   {
@@ -1787,16 +1841,14 @@
     "desc": "uap-core: Windows Mobile",
     "ua": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) 320x240; VZW; Motorola-A4500; Windows Mobile 6.1 Standard",
     "expect": {
-      "name": "Windows Mobile",
-      "version": "6.1"
+      "name": "Windows Mobile"
     }
   },
   {
     "desc": "uap-core: Windows Mobile",
     "ua": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) 320x240; VZW; Motorola-Q9c; Windows Mobile 6.1 Standard",
     "expect": {
-      "name": "Windows Mobile",
-      "version": "6.1"
+      "name": "Windows Mobile"
     }
   },
   {
@@ -1842,7 +1894,10 @@
   {
     "desc": "uap-core: Windows NT",
     "ua": "Mozilla/5.0 (Windows U; Win NT 5.0; en-US; rv:1.8.0.2) Gecko/20060308 Firefox/1.5.0.2",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "NT"
+    }
   },
   {
     "desc": "uap-core: Windows NT",
@@ -1871,7 +1926,10 @@
   {
     "desc": "uap-core: Windows 3.1",
     "ua": "Mozilla/5.0 (Windows; U; Win16; en-US; rv:1.7) Safari/85.5",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "3.1"
+    }
   },
   {
     "desc": "uap-core: Windows 3.1",
@@ -1886,7 +1944,7 @@
     "ua": "Mozilla/5.0 (Windows; U; Win3.11; en-US; rv:21.56.11.90) Gecko/20500230 Firefox/3.5",
     "expect": {
       "name": "Windows",
-      "version": "3.11"
+      "version": "3.1"
     }
   },
   {
@@ -1894,7 +1952,7 @@
     "ua": "Mozilla/5.0 (Windows; U; Win32; rv:1.6),gzip(gfe),gzip(gfe),gzip(gfe)",
     "expect": {
       "name": "Windows",
-      "version": "32"
+      "version": "95"
     }
   },
   {
@@ -1916,27 +1974,42 @@
   {
     "desc": "uap-core: Windows CE",
     "ua": "Mozilla/5.0 (Windows; U; WindowsCE 5.2; en-US; rv:1.9.2a2pre) Gecko/20090904 Fennec/1.0a3",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "CE"
+    }
   },
   {
     "desc": "uap-core: Windows CE",
     "ua": "Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko Firefox/5.0.1",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "CE"
+    }
   },
   {
     "desc": "uap-core: Windows CE",
     "ua": "Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 SeaMonkey/2.1.1",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "CE"
+    }
   },
   {
     "desc": "uap-core: Windows CE",
     "ua": "Mozilla/5.0 (WindowsCE 6.0; rv:2.1.1) Gecko/ Firefox/5.0.1",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "CE"
+    }
   },
   {
     "desc": "uap-core: Windows CE",
     "ua": "Mozilla/5.0 (WindowsCE; rv:4.0) Gecko/20120320 Firefox/4.0",
-    "expect": {}
+    "expect": {
+      "name": "Windows",
+      "version": "CE"
+    }
   },
   {
     "desc": "uap-core: Windows Mobile",
@@ -1955,630 +2028,719 @@
   {
     "desc": "uap-core: Nokia Series 30 Plus",
     "ua": "Mozilla/5.0 (Series30Plus; Nokia220/10.03.11; Profile/Series30Plus Configuration/Series30Plus) Gecko/20100401 S40OviBrowser/3.8.1.0.5",
-    "expect": {}
+    "expect": {
+      "name": "Nokia Series 30 Plus"
+    }
   },
   {
     "desc": "uap-core: Mac OS X 10.5.7",
     "ua": "Safari5530.17 CFNetwork/438.12 Darwin/9.7.0 (i386) (Macmini2,1)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.5.7"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.5.8",
     "ua": "Safari5531.21.10 CFNetwork/438.14 Darwin/9.8.0 (i386) (MacBook5%2C2)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.5.8"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.6.4",
     "ua": "Safari/6533.18.5 CFNetwork/454.9.8 Darwin/10.4.0 (i386) (MacBookPro7,1)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.6.4"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.7.4",
     "ua": "Safari/7536.30.1 CFNetwork/520.5.1 Darwin/11.4.2 (i386) (MacBook3,1)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.7.4"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.8.3",
     "ua": "Reader Notifier/5 CFNetwork/596.3.3 Darwin/12.3.0 (x86_64) (MacBookPro7,1)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.8.3"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.9.0",
     "ua": "Safari/9537.71 CFNetwork/673.0.2 Darwin/13.0.1 (x86_64) (MacBookPro11,1)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.9.0"
     }
   },
   {
     "desc": "uap-core: iOS 8.2",
     "ua": "Mail/53 CFNetwork/711.2.23 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "8.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.10.2",
     "ua": "Safari/10600.3.18 CFNetwork/720.2.4 Darwin/14.1.0 (x86_64)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.10.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.10.4",
     "ua": "com.apple.geod/1077.0.18 CFNetwork/720.4 Darwin/14.4.0 (x86_64)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.10.4"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.10.4",
     "ua": "Mac OS X/10.10.4 (14E11f)",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS X",
+      "version": "10.10.4"
     }
   },
   {
     "desc": "uap-core: ATV OS X",
     "ua": "AppleCoreMedia/1.0.0.12F69 (Apple TV; U; CPU OS 8_3 like Mac OS X; en_us)",
     "expect": {
-      "name": "iOS",
-      "version": "8.3"
+      "name": "ATV OS X"
     }
   },
   {
     "desc": "uap-core: iOS 5.1",
     "ua": "DEPoker-iPad/1.0.2 CFNetwork/548.1.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.1"
     }
   },
   {
     "desc": "uap-core: iOS 7.0",
     "ua": "JDSports-iPad/1.1 CFNetwork/672.0.8 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: iOS 5.1",
     "ua": "AngryBirdsBlack-iPhone/1.1.0 CFNetwork/548.1.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.1"
     }
   },
   {
     "desc": "uap-core: iOS 4.3",
     "ua": "Bing for iPad/1.1.2 CFNetwork/485.13.9 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "4.3"
     }
   },
   {
     "desc": "uap-core: iOS 5.1",
     "ua": "NightstandPaid-iPad/1.3.1 CFNetwork/548.1.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.1"
     }
   },
   {
     "desc": "uap-core: iOS 7.0",
     "ua": "Glo-De-iPad/1.4.7 CFNetwork/672.0.2 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: iOS 7.0",
     "ua": "Island for iPhone/1.95 CFNetwork/672.0.2 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: iOS 5.1",
     "ua": "WormsiPhone-iPad/2.3 CFNetwork/548.1.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.1"
     }
   },
   {
     "desc": "uap-core: iOS 6.1",
     "ua": "Rummy LITE iPad/2.3.0 CFNetwork/609.1.4 Darwin/13.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "6.1"
     }
   },
   {
     "desc": "uap-core: iOS 4",
     "ua": "MobileRSSFree-iPad/3.1 CFNetwork/467.12 Darwin/10.3.1",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "4"
     }
   },
   {
     "desc": "uap-core: iOS 4.3",
     "ua": "MobileRSSFree-iPad/3.1.4 CFNetwork/485.13.9 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "4.3"
     }
   },
   {
     "desc": "uap-core: iOS 7.0",
     "ua": "babbelIndonesian-iPad/4.0.1 CFNetwork/672.0.8 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: iOS 6.1",
     "ua": "WeltMobile-iPad/4.2 CFNetwork/609.1.4 Darwin/13.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "6.1"
     }
   },
   {
     "desc": "uap-core: iOS 5.0.1",
     "ua": "IMPlusFull-iPad/7.9.1 CFNetwork/548.0.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.0.1"
     }
   },
   {
     "desc": "uap-core: iOS 1",
     "ua": "Cooliris/1.3 CFNetwork/342.1 Darwin/9.4.1",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "1"
     }
   },
   {
     "desc": "uap-core: iOS 4",
     "ua": "Poof/1.0 CFNetwork/485.12.7 Darwin/10.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "4"
     }
   },
   {
     "desc": "uap-core: iOS 5.0.1",
     "ua": "Parking Mania Free/1.9.5.0 CFNetwork/548.0.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.0.1"
     }
   },
   {
     "desc": "uap-core: iOS 6.1",
     "ua": "Planet Boing!/1.4.8 CFNetwork/609.1.4 Darwin/13.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "6.1"
     }
   },
   {
     "desc": "uap-core: iOS 7.0",
     "ua": "PlayTube/1.7 CFNetwork/672.0.2 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: iOS 5",
     "ua": "nick/14 CFNetwork/548.0.3 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5"
     }
   },
   {
     "desc": "uap-core: iOS 5.0.1",
     "ua": "Parking Mania Free/1.9.5.0 CFNetwork/548.0.4 Darwin/11.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "5.0.1"
     }
   },
   {
     "desc": "uap-core: iOS 6.0",
     "ua": "JyukenSapuriApp/1.9.0 CFNetwork/609 Darwin/13.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "6.0"
     }
   },
   {
     "desc": "uap-core: iOS 7.1",
     "ua": "DailyBeast/1.1 CFNetwork/672.1.13 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.1"
     }
   },
   {
     "desc": "uap-core: iOS 7.1.1",
     "ua": "Yelp/8.0.0 CFNetwork/672.1.14 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.1.1"
     }
   },
   {
     "desc": "uap-core: iOS 7.1.2",
     "ua": "Yelp/8.0.0 CFNetwork/672.1.15 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "7.1.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.9.3",
     "ua": "Bloodhound/2.1 CFNetwork/673.4 Darwin/13.3.0 (x86_64) (MacBookPro10%2C1)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.9.3"
     }
   },
   {
     "desc": "uap-core: iOS 8.0",
     "ua": "Yelp/8.2.1 CFNetwork/705.1 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "8.0"
     }
   },
   {
     "desc": "uap-core: iOS 8.0.b5",
     "ua": "Yelp/8.2.0 CFNetwork/709.1 Darwin/14.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "8.0.b5"
     }
   },
   {
     "desc": "uap-core: iOS 11.2.6",
     "ua": "App/1.0.0 CFNetwork/894 Darwin/17.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.2.6"
     }
   },
   {
     "desc": "uap-core: iOS 11.3",
     "ua": "App/1.0.0 CFNetwork/897.15 Darwin/17.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.3"
     }
   },
   {
     "desc": "uap-core: iOS 11.4",
     "ua": "App/1.0.0 CFNetwork/901.1 Darwin/17.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.4"
     }
   },
   {
     "desc": "uap-core: iOS 11.4.1",
     "ua": "App/1.0.0 CFNetwork/902.2 Darwin/17.7.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.4.1"
     }
   },
   {
     "desc": "uap-core: iOS 12.0",
     "ua": "App/1.0.0 CFNetwork/958.1 Darwin/18.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "12.0"
     }
   },
   {
     "desc": "uap-core: iOS 12.1",
     "ua": "App/1.0.0 CFNetwork/976 Darwin/18.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "12.1"
     }
   },
   {
     "desc": "uap-core: iOS 12.2",
     "ua": "App/1.0.0 CFNetwork/978.0.7 Darwin/18.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "12.2"
     }
   },
   {
     "desc": "uap-core: iOS 12.3",
     "ua": "App/1.0.0 CFNetwork/978.0.7 Darwin/18.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "12.3"
     }
   },
   {
     "desc": "uap-core: iOS 12.4",
     "ua": "App/1.0.0 CFNetwork/978.0.7 Darwin/18.7.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "12.4"
     }
   },
   {
     "desc": "uap-core: iOS 13",
     "ua": "App/1.0.0 CFNetwork/1107.1 Darwin/19.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13"
     }
   },
   {
     "desc": "uap-core: iOS 13",
     "ua": "App/1.0.0 CFNetwork/1098.7 Darwin/19.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13"
     }
   },
   {
     "desc": "uap-core: iOS 13.3",
     "ua": "App/1.0.0 CFNetwork/1121.2.2 Darwin/19.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13.3"
     }
   },
   {
     "desc": "uap-core: iOS 13.3.1",
     "ua": "App/1.0.0 CFNetwork/1121.2.2 Darwin/19.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13.3.1"
     }
   },
   {
     "desc": "uap-core: iOS 13.4",
     "ua": "App/1.0.0 CFNetwork/1125.2 Darwin/19.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13.4"
     }
   },
   {
     "desc": "uap-core: iOS 13.5",
     "ua": "App/1.0.0 CFNetwork/1126 Darwin/19.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13.5"
     }
   },
   {
     "desc": "uap-core: iOS 13.6",
     "ua": "App/1.0.0 CFNetwork/1128.0.1 Darwin/19.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "13.6"
     }
   },
   {
     "desc": "uap-core: iOS 14",
     "ua": "App/1.0.0 CFNetwork/1197 Darwin/20.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14"
     }
   },
   {
     "desc": "uap-core: iOS 14",
     "ua": "App/1.0.0 CFNetwork/1179.0.1 Darwin/20.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14"
     }
   },
   {
     "desc": "uap-core: iOS 14.2",
     "ua": "App/1.0.0 CFNetwork/1200.1 Darwin/20.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.2"
     }
   },
   {
     "desc": "uap-core: iOS 14.3",
     "ua": "App/1.0.0 CFNetwork/1209 Darwin/20.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.3"
     }
   },
   {
     "desc": "uap-core: iOS 14.4",
     "ua": "App/1.0.0 CFNetwork/1220.1 Darwin/20.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.4"
     }
   },
   {
     "desc": "uap-core: iOS 14.5",
     "ua": "App/1.0.0 CFNetwork/1237 Darwin/20.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.5"
     }
   },
   {
     "desc": "uap-core: iOS 14.2",
     "ua": "App/1.0.0 CFNetwork/1206 Darwin/20.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.2"
     }
   },
   {
     "desc": "uap-core: iOS 14.3",
     "ua": "App/1.0.0 CFNetwork/1209 Darwin/20.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.3"
     }
   },
   {
     "desc": "uap-core: iOS 14.4",
     "ua": "App/1.0.0 CFNetwork/1220.1 Darwin/20.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.4"
     }
   },
   {
     "desc": "uap-core: iOS 14.5",
     "ua": "App/1.0.0 CFNetwork/1236 Darwin/20.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.5"
     }
   },
   {
     "desc": "uap-core: iOS 14.5",
     "ua": "App/1.0.0 CFNetwork/1233 Darwin/20.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.5"
     }
   },
   {
     "desc": "uap-core: iOS 14.6",
     "ua": "App/0 CFNetwork/1240.0.4 Darwin/20.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.6"
     }
   },
   {
     "desc": "uap-core: iOS 14.8",
     "ua": "App/0 CFNetwork/1240.0.4 Darwin/20.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "14.8"
     }
   },
   {
     "desc": "uap-core: iOS 15.0",
     "ua": "App/0 CFNetwork/1300.1 Darwin/21.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.0"
     }
   },
   {
     "desc": "uap-core: iOS 15.1",
     "ua": "App/0 CFNetwork/1325.0.1 Darwin/21.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.1"
     }
   },
   {
     "desc": "uap-core: iOS 15.2",
     "ua": "App/0 CFNetwork/1327.0.4 Darwin/21.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.2"
     }
   },
   {
     "desc": "uap-core: iOS 15.3",
     "ua": "App/0 CFNetwork/1329 Darwin/21.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.3"
     }
   },
   {
     "desc": "uap-core: iOS 15.4",
     "ua": "App/0 CFNetwork/1331.0.7 Darwin/21.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.4"
     }
   },
   {
     "desc": "uap-core: iOS 15.5",
     "ua": "App/0 CFNetwork/1333.0.3 Darwin/21.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.5"
     }
   },
   {
     "desc": "uap-core: iOS 15.6",
     "ua": "App/0 CFNetwork/1333.0.4 Darwin/21.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "15.6"
     }
   },
   {
     "desc": "uap-core: iOS 16.0",
     "ua": "App/0 CFNetwork/1390 Darwin/22.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "16.0"
     }
   },
   {
     "desc": "uap-core: iOS 16.1",
     "ua": "App/0 CFNetwork/1399 Darwin/22.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "16.1"
     }
   },
   {
     "desc": "uap-core: iOS 16.2",
     "ua": "App/0 CFNetwork/1402 Darwin/22.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "16.2"
     }
   },
   {
     "desc": "uap-core: iOS 16.3",
     "ua": "App/0 CFNetwork/1404.0.5 Darwin/22.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "16.3"
     }
   },
   {
     "desc": "uap-core: iOS 16.4",
     "ua": "App/0 CFNetwork/1406.0.4 Darwin/22.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "16.4"
     }
   },
   {
     "desc": "uap-core: iOS 16.5",
     "ua": "App/0 CFNetwork/1442 Darwin/22.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "16.5"
     }
   },
   {
     "desc": "uap-core: iOS 17.0",
     "ua": "App/0 CFNetwork/1442 Darwin/23.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "17.0"
     }
   },
   {
     "desc": "uap-core: iOS 17.1",
     "ua": "App/0 CFNetwork/1442 Darwin/23.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "17.1"
     }
   },
   {
     "desc": "uap-core: iOS 17.2",
     "ua": "App/0 CFNetwork/1442 Darwin/23.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "17.2"
     }
   },
   {
     "desc": "uap-core: iOS 17.3",
     "ua": "App/0 CFNetwork/1442 Darwin/23.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "17.3"
     }
   },
   {
     "desc": "uap-core: iOS 17.4",
     "ua": "App/0 CFNetwork/1442 Darwin/23.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "17.4"
     }
   },
   {
     "desc": "uap-core: iOS 17.5",
     "ua": "App/0 CFNetwork/1442 Darwin/23.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "17.5"
     }
   },
   {
     "desc": "uap-core: iOS 18.0",
     "ua": "App/0 CFNetwork/1442 Darwin/24.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "18.0"
     }
   },
   {
     "desc": "uap-core: iOS 18.1",
     "ua": "App/0 CFNetwork/1442 Darwin/24.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "18.1"
     }
   },
   {
@@ -2592,7 +2754,10 @@
   {
     "desc": "uap-core: iOS 6.1.2",
     "ua": "Appcelerator Titanium/2.1.2.GA (iPhone/6.1.2; iPhone OS; de_DE;)",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "6.1.2"
+    }
   },
   {
     "desc": "uap-core: iOS 7.0.2",
@@ -2613,12 +2778,18 @@
   {
     "desc": "uap-core: iOS 6.1",
     "ua": "server-bag [iPhone OS,6.1,10B144,iPhone3,2]",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "6.1"
+    }
   },
   {
     "desc": "uap-core: iOS 6.1.2",
     "ua": "IUC(U;iOS 6.1.2;Zh-cn;320*480;)/UCWEB8.2.1.132/42/997",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "6.1.2"
+    }
   },
   {
     "desc": "uap-core: iOS 7.0",
@@ -2640,43 +2811,47 @@
     "desc": "uap-core: iOS 7.0",
     "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone OS  7_0 like Mac OS X; tr_TR)",
     "expect": {
-      "name": "macOS"
+      "name": "iOS",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: iOS 7.0.2",
     "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone OS  7_0_2 like Mac OS X; de_DE)",
     "expect": {
-      "name": "macOS"
+      "name": "iOS",
+      "version": "7.0.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.10.2",
     "ua": "MacAppStore/2.0 (Macintosh; OS X 10.10.2; 14C81f) AppleWebKit/0600.3.10.2",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS X",
+      "version": "10.10.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.9.2",
     "ua": "iTunes/12.0.1 (Macintosh; OS X 10.9.2) AppleWebKit/537.74.9",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS X",
+      "version": "10.9.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.10.2",
     "ua": "Mozilla/5.0 (Macintosh; U; MacOS X 10_10_2; en-US; Valve Steam Client/1424305157; ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.86 Safari/537.36",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS X",
+      "version": "10.10.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X",
     "ua": "Mozilla/5.0 (Macintosh; U; Mac OS X Mach-O; en-US; rv:2.0a) Gecko/20040614 Firefox/3.0.0",
     "expect": {
-      "name": "macOS",
-      "version": "Mach"
+      "name": "Mac OS X"
     }
   },
   {
@@ -2684,7 +2859,7 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/18.0 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "1.0.1"
     }
   },
   {
@@ -2692,7 +2867,7 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/18.1 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "1.1"
     }
   },
   {
@@ -2700,7 +2875,7 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "1.2"
     }
   },
   {
@@ -2708,7 +2883,7 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/28.0 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "1.3"
     }
   },
   {
@@ -2716,7 +2891,7 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/30.0 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "1.4"
     }
   },
   {
@@ -2724,7 +2899,7 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/32.0 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "2.0"
     }
   },
   {
@@ -2732,110 +2907,134 @@
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/34.0 Firefox/26.0",
     "expect": {
       "name": "Firefox OS",
-      "version": "26.0"
+      "version": "2.1"
     }
   },
   {
     "desc": "uap-core: Firefox OS",
     "ua": "Mozilla/5.0 (Mobile; rv:26.0) Gecko/11.0 Firefox/26.0",
     "expect": {
-      "name": "Firefox OS",
-      "version": "26.0"
+      "name": "Firefox OS"
     }
   },
   {
     "desc": "uap-core: iOS 9.0",
     "ua": "TestApp/1.0 CFNetwork/758.0.2 Darwin/15.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "9.0"
     }
   },
   {
     "desc": "uap-core: iOS 9.3.1",
     "ua": "TestApp/1.0 CFNetwork/758.3.15 Darwin/15.4.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "9.3.1"
     }
   },
   {
     "desc": "uap-core: iOS 9.3.2",
     "ua": "TestApp/1.0 CFNetwork/758.4.3 Darwin/15.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "9.3.2"
     }
   },
   {
     "desc": "uap-core: iOS 9.3.5",
     "ua": "TestApp/1.0 CFNetwork/758.5.3 Darwin/15.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "9.3.5"
     }
   },
   {
     "desc": "uap-core: iOS 10.0",
     "ua": "TestApp/1.0 CFNetwork/808.0.2 Darwin/16.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.0"
     }
   },
   {
     "desc": "uap-core: iOS 10.1",
     "ua": "TestApp/1.0 CFNetwork/808.1.4 Darwin/16.1.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.1"
     }
   },
   {
     "desc": "uap-core: iOS 10.2",
     "ua": "TestApp/1.0 CFNetwork/808.2.16 Darwin/16.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.2"
     }
   },
   {
     "desc": "uap-core: iOS 10.2.1",
     "ua": "App/1.0.0 CFNetwork/808.3 Darwin/16.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.2.1"
     }
   },
   {
     "desc": "uap-core: tvOS 1.0",
     "ua": "TestApp-tvOS/1.0-1",
-    "expect": {}
+    "expect": {
+      "name": "tvOS",
+      "version": "1.0"
+    }
   },
   {
     "desc": "uap-core: Roku 6.2",
     "ua": "Roku/DVP-6.2 (096.02E06005A)",
-    "expect": {}
+    "expect": {
+      "name": "Roku",
+      "version": "6.2"
+    }
   },
   {
     "desc": "uap-core: Roku 5.0",
     "ua": "Roku/DVP-5.0 (025.00E08043A)",
-    "expect": {}
+    "expect": {
+      "name": "Roku",
+      "version": "5.0"
+    }
   },
   {
     "desc": "uap-core: Roku 5.1",
     "ua": "Roku/DVP-5.1 (025.01E01195A)",
-    "expect": {}
+    "expect": {
+      "name": "Roku",
+      "version": "5.1"
+    }
   },
   {
     "desc": "uap-core: Web0S",
     "ua": "Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.41 (KHTML, like Gecko) Large Screen WebAppManager Safari/537.41",
     "expect": {
-      "name": "webOS",
-      "version": "1"
+      "name": "Web0S"
     }
   },
   {
     "desc": "uap-core: iOS 9.3.1",
     "ua": "Mozilla/5.0+(iPhone;+CPU+iPhone+OS+9_3_1+like+Mac+OS+X)+AppleWebKit/601.1.46+(KHTML,+like+Gecko)+Version/9.0+Mobile/13E238+Safari/601.1",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "9.3.1"
+    }
   },
   {
     "desc": "uap-core: iOS 9.3.1",
     "ua": "Mozilla/5.0+(iPad;+CPU+OS+9_3_1+like+Mac+OS+X)+AppleWebKit/601.1.46+(KHTML,+like+Gecko)+Version/9.0+Mobile/13E238+Safari/601.1",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "9.3.1"
+    }
   },
   {
     "desc": "uap-core: iOS 14.4.1",
@@ -2856,17 +3055,25 @@
   {
     "desc": "uap-core: iOS 7.1",
     "ua": "Deezer/4.8.2 (iOS; 7.1; Mobile; de)",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "7.1"
+    }
   },
   {
     "desc": "uap-core: iOS",
     "ua": "Mozilla/5.0 (iOS; U; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/19.0",
-    "expect": {}
+    "expect": {
+      "name": "iOS"
+    }
   },
   {
     "desc": "uap-core: iOS 7.0.4",
     "ua": "UCWEB/2.0 (iOS; U; iPd OS 7_0_4; zh-CN; iPd5,1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "7.0.4"
+    }
   },
   {
     "desc": "uap-core: iOS 8.1.3",
@@ -2880,16 +3087,14 @@
     "desc": "uap-core: iOS",
     "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/102 Version/11.1.1 Safari/605.1.15",
     "expect": {
-      "name": "macOS",
-      "version": "10.13.5"
+      "name": "iOS"
     }
   },
   {
     "desc": "uap-core: iOS",
     "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) EdgiOS/125 Version/13.0.3 Safari/605.1.15",
     "expect": {
-      "name": "macOS",
-      "version": "10.14.6"
+      "name": "iOS"
     }
   },
   {
@@ -2951,37 +3156,47 @@
   {
     "desc": "uap-core: iOS",
     "ua": "Zendesk for iPhone 1.2.1 (4395)",
-    "expect": {}
+    "expect": {
+      "name": "iOS"
+    }
   },
   {
     "desc": "uap-core: Mac OS X 10.11.6",
     "ua": "Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_11_6)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/52.0.2743.116+Safari/537.36",
     "expect": {
-      "name": "macOS"
+      "name": "Mac OS X",
+      "version": "10.11.6"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.12",
     "ua": "Safari/12602.2.14.0.7 CFNetwork/807.1.3 Darwin/16.1.0 (x86_64)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.12"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.13",
     "ua": "Box Sync/4.0.7848;Darwin/10.13;i386/64bit",
-    "expect": {}
+    "expect": {
+      "name": "Mac OS X",
+      "version": "10.13"
+    }
   },
   {
     "desc": "uap-core: Mac OS X 10.13",
     "ua": "Box/1.2.93;Darwin/10.13;i386/64bit",
-    "expect": {}
+    "expect": {
+      "name": "Mac OS X",
+      "version": "10.13"
+    }
   },
   {
     "desc": "uap-core: Mac OS X 10.13.0",
     "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_0) AppleWebKit/537.36 (KHTML, like Gecko) BoxNotes/1.3.0 Chrome/56.0.2924.87 Electron/1.6.8 Safari/537.36",
     "expect": {
-      "name": "macOS",
+      "name": "Mac OS X",
       "version": "10.13.0"
     }
   },
@@ -3028,7 +3243,9 @@
   {
     "desc": "uap-core: Windows",
     "ua": "Mozilla/5.0 (Windows) mirall/2.3.2 (build 1) (Nextcloud)",
-    "expect": {}
+    "expect": {
+      "name": "Windows"
+    }
   },
   {
     "desc": "uap-core: Linux",
@@ -3048,57 +3265,63 @@
     "desc": "uap-core: iOS 10.3",
     "ua": "MyApp/1.0 CFNetwork/811.4.18 Darwin/16.5.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.3"
     }
   },
   {
     "desc": "uap-core: iOS 10.3.2",
     "ua": "MyApp/1.0 CFNetwork/811.5.4 Darwin/16.6.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.3.2"
     }
   },
   {
     "desc": "uap-core: iOS 10.3.3",
     "ua": "MyApp/1.0 CFNetwork/811.5.4 Darwin/16.7.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "10.3.3"
     }
   },
   {
     "desc": "uap-core: iOS 11.0",
     "ua": "MyApp/1.0 CFNetwork/887 Darwin/17.0.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.0"
     }
   },
   {
     "desc": "uap-core: iOS 11.1",
     "ua": "MyApp/1.0 CFNetwork/889.9 Darwin/17.2.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.1"
     }
   },
   {
     "desc": "uap-core: iOS 11.2",
     "ua": "MyApp/1.0 CFNetwork/893.10 Darwin/17.3.0",
     "expect": {
-      "name": "iOS"
+      "name": "iOS",
+      "version": "11.2"
     }
   },
   {
     "desc": "uap-core: Mac OS X 10.13",
     "ua": "MyApp/1.0 CFNetwork/893.13.1 Darwin/17.3.0 (x86_64)",
     "expect": {
-      "name": "iOS"
+      "name": "Mac OS X",
+      "version": "10.13"
     }
   },
   {
     "desc": "uap-core: iOS",
     "ua": "Outlook-iOS/665.29827.prod.iphone (2.63.0)",
     "expect": {
-      "name": "iOS",
-      "version": "665.29827.prod.iphone"
+      "name": "iOS"
     }
   },
   {
@@ -3161,14 +3384,14 @@
     "desc": "uap-core: Linux",
     "ua": "Wget/1.18 (linux-gnu)",
     "expect": {
-      "name": "linux"
+      "name": "Linux"
     }
   },
   {
     "desc": "uap-core: FreeBSD 10.3",
     "ua": "Wget/1.18 (freebsd10.3)",
     "expect": {
-      "name": "freebsd",
+      "name": "FreeBSD",
       "version": "10.3"
     }
   },
@@ -3176,47 +3399,53 @@
     "desc": "uap-core: Red Hat",
     "ua": "curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.19.1 Basic ECC zlib/1.2.3 libidn/1.18 libssh2/1.4.2",
     "expect": {
-      "name": "redhat"
+      "name": "Red Hat"
     }
   },
   {
     "desc": "uap-core: Linux 4.9.0",
     "ua": "ibm-cos-sdk-java/2.3.0 Linux/4.9.0-8-amd64 Java_HotSpot(TM)_64-Bit_Server_VM/9.0.4+11/9.0.4",
     "expect": {
-      "name": "Linux"
+      "name": "Linux",
+      "version": "4.9.0"
     }
   },
   {
     "desc": "uap-core: Windows",
     "ua": "aws-sdk-dotnet-45/3.3.11.0 aws-sdk-dotnet-core/3.3.17.10 .NET_Runtime/4.0 .NET_Framework/4.0 OS/Microsoft_Windows_NT_6.2.9200.0 ClientSync",
-    "expect": {}
+    "expect": {
+      "name": "Windows"
+    }
   },
   {
     "desc": "uap-core: Linux",
     "ua": "rusoto/0.36.0 rust/1.35.0 linux",
     "expect": {
-      "name": "linux"
+      "name": "Linux"
     }
   },
   {
     "desc": "uap-core: Android 8.0.0",
     "ua": "SalesforceMobileSDK/5.3.0 android mobile/8.0.0 (SM-G955F) Salesforce1/15.2 Native uid_c4589f605fad8c7e ftr_ Cordova/6.2.3",
     "expect": {
-      "name": "android"
+      "name": "Android",
+      "version": "8.0.0"
     }
   },
   {
     "desc": "uap-core: Android 7.0",
     "ua": "SalesforceMobileSDK/5.3.0 android mobile/7.0 (SM-G955U) Salesforce1/15.2 Native uid_4ec4068eddf27447 ftr_ Cordova/6.2.3",
     "expect": {
-      "name": "android"
+      "name": "Android",
+      "version": "7.0"
     }
   },
   {
     "desc": "uap-core: Android 9",
     "ua": "SalesforceMobileSDK/5.3.0 android mobile/9 (SM-G955U) Salesforce1/15.2 Native uid_4ec4068eddf27447 ftr_ Cordova/6.2.3",
     "expect": {
-      "name": "android"
+      "name": "Android",
+      "version": "9"
     }
   },
   {
@@ -3230,12 +3459,18 @@
   {
     "desc": "uap-core: Chrome OS 10718.88.2",
     "ua": "Mozilla/5.0 (X11; Windows aarch64 10718.88.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.118 Safari/537.36 CitrixChromeApp",
-    "expect": {}
+    "expect": {
+      "name": "Chrome OS",
+      "version": "10718.88.2"
+    }
   },
   {
     "desc": "uap-core: Chrome OS 10718.88.2",
     "ua": "Mozilla/5.0 (X11; Windows x86_64 10718.88.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.118 Safari/537.36 CitrixChromeApp",
-    "expect": {}
+    "expect": {
+      "name": "Chrome OS",
+      "version": "10718.88.2"
+    }
   },
   {
     "desc": "uap-core: Windows 10",
@@ -3248,13 +3483,16 @@
   {
     "desc": "uap-core: iOS 12.1.0",
     "ua": "ViaFree-DK/3.8.3 (com.MTGx.ViaFree.dk; build:7383; iOS 12.1.0) Alamofire/4.7.0",
-    "expect": {}
+    "expect": {
+      "name": "iOS",
+      "version": "12.1.0"
+    }
   },
   {
     "desc": "uap-core: tvOS 12.1.0",
     "ua": "Viafree-tvOS-DK/3.7.1 (com.MTGx.ViaFree.dk; build:7341; tvOS 12.1.0) Alamofire/4.7.0",
     "expect": {
-      "name": "iOS",
+      "name": "tvOS",
       "version": "12.1.0"
     }
   },
@@ -3303,7 +3541,7 @@
     "ua": "Mozilla/5.0 (Windows NT 4.0; rv:52.0) Gecko/20100101 Firefox/52.0",
     "expect": {
       "name": "Windows",
-      "version": "NT 4.0"
+      "version": "NT"
     }
   },
   {
@@ -3326,7 +3564,8 @@
     "desc": "uap-core: Windows CE",
     "ua": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE,BrailleNote; IEMobile 7.11)",
     "expect": {
-      "name": "Windows CE"
+      "name": "Windows",
+      "version": "CE"
     }
   },
   {
@@ -3345,10 +3584,7 @@
   {
     "desc": "uap-core: Other",
     "ua": "Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; AspiegelBot)",
-    "expect": {
-      "name": "Android",
-      "version": "7.0"
-    }
+    "expect": {}
   },
   {
     "desc": "uap-core: iOS 14.3",
@@ -3406,30 +3642,39 @@
     "desc": "uap-core: Android 11",
     "ua": "surveyon/2.7.6 Mobile (Android: 11; MODEL:CPH2127; PRODUCT:CPH2127T2; MANUFACTURER:OPPO;)",
     "expect": {
-      "name": "Android"
+      "name": "Android",
+      "version": "11"
     }
   },
   {
     "desc": "uap-core: Android 5.1.1",
     "ua": "surveyon/2.7.6 Mobile (Android: 5.1.1; MODEL:vivo Y21L; PRODUCT:Y31L; MANUFACTURER:vivo;)",
     "expect": {
-      "name": "Android"
+      "name": "Android",
+      "version": "5.1.1"
     }
   },
   {
     "desc": "uap-core: Mac OS X 22.4.0",
     "ua": "Boto3/1.28.62 md/Botocore#1.31.62 ua/2.0 os/macos#22.4.0 md/arch#arm64 lang/python#3.11.6 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.31.62",
-    "expect": {}
+    "expect": {
+      "name": "Mac OS X",
+      "version": "22.4.0"
+    }
   },
   {
     "desc": "uap-core: Mac OS X",
     "ua": "APN/1.0 HashiCorp/1.0 Terraform/1.8.1 (+https://www.terraform.io) terraform-provider-aws/4.67.0 (+https://registry.terraform.io/providers/hashicorp/aws) aws-sdk-go-v2/1.18.0 os/macos lang/go/1.19.8 md/GOOS/darwin md/GOARCH/arm64 api/identitystore/1.16.11",
-    "expect": {}
+    "expect": {
+      "name": "Mac OS X"
+    }
   },
   {
     "desc": "uap-core: Mac OS X",
     "ua": "APN/1.0 HashiCorp/1.0 Terraform/1.8.0 (+https://www.terraform.io) terraform-provider-aws/4.67.0 (+https://registry.terraform.io/providers/hashicorp/aws) aws-sdk-go/1.44.261 (go1.19.8; darwin; arm64)",
-    "expect": {}
+    "expect": {
+      "name": "Mac OS X"
+    }
   },
   {
     "desc": "uap-core: HarmonyOS 3.0.0",

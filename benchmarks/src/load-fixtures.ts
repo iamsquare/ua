@@ -18,22 +18,36 @@ export type CategoryFixtures = {
 
 const fixturesRoot = join(import.meta.dirname, '../../test/fixtures/ua');
 
-const readJsonDir = (dir: string) =>
+/** Upstream uap-core fixture file — scored separately from the main suite. */
+export const UAP_CORE_FILE = 'uap-core.json';
+
+const readJsonDir = (dir: string, options: { exclude?: string[] } = {}) =>
   pipe(
     readdirSync(dir),
     filter(endsWith('.json')),
+    filter((name) => !options.exclude?.includes(name)),
     map((name): FixtureCase[] => JSON.parse(readFileSync(join(dir, name), 'utf8'))),
     flat(),
   );
 
+const readJsonFile = (path: string): FixtureCase[] => JSON.parse(readFileSync(path, 'utf8'));
+
+/** Main curated fixtures (excludes `uap-core.json`). */
 export const loadFixtures = () =>
   map(
     [CATEGORY.BROWSER, CATEGORY.OS, CATEGORY.DEVICE, CATEGORY.CPU, CATEGORY.ENGINE] as const,
     (category) => ({
       category,
-      cases: readJsonDir(join(fixturesRoot, category)),
+      cases: readJsonDir(join(fixturesRoot, category), { exclude: [UAP_CORE_FILE] }),
     }),
   );
+
+/** Upstream uap-core fixtures only (browser / os / device). */
+export const loadUapCoreFixtures = () =>
+  map([CATEGORY.BROWSER, CATEGORY.OS, CATEGORY.DEVICE] as const, (category) => ({
+    category,
+    cases: readJsonFile(join(fixturesRoot, category, UAP_CORE_FILE)),
+  }));
 
 export const allUserAgents = (fixtures: CategoryFixtures[]) =>
   pipe(

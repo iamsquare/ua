@@ -31,8 +31,7 @@
     "ua": "Aqualung/R-1114",
     "expect": {
       "name": "Aqualung",
-      "version": "R-1114",
-      "major": "undefined"
+      "version": "R-1114"
     }
   },
   {
@@ -120,9 +119,7 @@
     "desc": "FStream",
     "ua": "FStream",
     "expect": {
-      "name": "FStream",
-      "version": "undefined",
-      "major": "undefined"
+      "name": "FStream"
     }
   },
   {
@@ -211,8 +208,7 @@
     "ua": "MPlayer 1.1-4.2.1",
     "expect": {
       "name": "MPlayer",
-      "version": "1.1-4.2.1",
-      "major": ""
+      "version": "1.1-4.2.1"
     }
   },
   {
@@ -220,8 +216,7 @@
     "ua": "MPlayer SVN-r33713-4.6.1",
     "expect": {
       "name": "MPlayer",
-      "version": "r33713-4.6.1",
-      "major": "undefined"
+      "version": "r33713-4.6.1"
     }
   },
   {
@@ -229,8 +224,7 @@
     "ua": "MPlayer svn r34540 (Ubuntu), built with gcc-4.6",
     "expect": {
       "name": "MPlayer",
-      "version": "r34540",
-      "major": "undefined"
+      "version": "r34540"
     }
   },
   {
@@ -292,8 +286,7 @@
     "ua": "MPlayer Sherpya-SVN-r33124-4.2.5",
     "expect": {
       "name": "MPlayer",
-      "version": "r33124-4.2.5",
-      "major": "undefined"
+      "version": "r33124-4.2.5"
     }
   },
   {
@@ -373,8 +366,7 @@
     "ua": "RadioClientApplication/20 CFNetwork/609.1.4 Darwin/13.0.0",
     "expect": {
       "name": "RadioClientApplication",
-      "version": "20",
-      "major": "undefined"
+      "version": "20"
     }
   },
   {
