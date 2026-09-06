@@ -1,32 +1,18 @@
 import { LiquidMetal } from '@paper-design/shaders-react';
-import { Suspense, useEffect, useRef, useState } from 'react';
-import { useEffectOnceWhen, useMutationObserver } from 'rooks';
-import type { ValueOf } from 'type-fest';
+import { Suspense, useEffect } from 'react';
+import { useEffectOnceWhen } from 'rooks';
 
 import logoUrl from '@/assets/logo.svg?url';
+import { THEME, useAnimatedThemeColor } from '@/hooks/useThemeColors';
 
-const THEME = {
-  LIGHT: 'light',
-  DARK: 'dark',
-} as const;
+const COLOR_BACK = '#ffffff00';
 
-type Theme = ValueOf<typeof THEME>;
-
-const THEME_PROPS = {
-  [THEME.LIGHT]: {
-    colorBack: '#ffffff00',
-    colorTint: '#2563eb',
-  },
-  [THEME.DARK]: {
-    colorBack: '#ffffff00',
-    colorTint: '#93c5fd',
-  },
+const COLORS = {
+  [THEME.LIGHT]: '#2563eb',
+  [THEME.DARK]: '#93c5fd',
 } as const;
 
 const READY_FALLBACK_MS = 2500;
-
-const readTheme = (): Theme =>
-  document.documentElement.dataset.theme === THEME.LIGHT ? THEME.LIGHT : THEME.DARK;
 
 const markPageReady = () => {
   const root = document.documentElement;
@@ -38,27 +24,19 @@ const markPageReady = () => {
 };
 
 const HeroLiquidMetalLogoInner = () => {
-  const target = useRef(window.document.documentElement);
-  const [theme, setTheme] = useState<Theme>(() => readTheme());
+  const colors = useAnimatedThemeColor(COLORS);
 
   useEffectOnceWhen(() => {
     markPageReady();
   });
-
-  useMutationObserver(target, () => setTheme(readTheme()), {
-    attributes: true,
-    attributeFilter: ['data-theme'],
-  });
-
-  const { colorBack, colorTint } = THEME_PROPS[theme];
 
   return (
     <LiquidMetal
       width="100%"
       height="100%"
       image={logoUrl}
-      colorBack={colorBack}
-      colorTint={colorTint}
+      colorBack={COLOR_BACK}
+      colorTint={colors}
       shape="none"
       repetition={3}
       softness={0.1}
@@ -80,14 +58,14 @@ const HeroLiquidMetalLogoInner = () => {
 
 export const HeroLiquidMetalLogo = () => {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       markPageReady();
       return;
     }
 
-    const timeoutId = window.setTimeout(markPageReady, READY_FALLBACK_MS);
+    const timeoutId = globalThis.setTimeout(markPageReady, READY_FALLBACK_MS);
 
-    return () => window.clearTimeout(timeoutId);
+    return () => globalThis.clearTimeout(timeoutId);
   }, []);
 
   return (

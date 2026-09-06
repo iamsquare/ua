@@ -1,32 +1,14 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import { useRef, useState } from 'react';
-import { useMutationObserver } from 'rooks';
-import type { ValueOf } from 'type-fest';
 
-const THEME = {
-  LIGHT: 'light',
-  DARK: 'dark',
-} as const;
-
-type Theme = ValueOf<typeof THEME>;
+import { THEME, useAnimatedThemeColors } from '@/hooks/useThemeColors';
 
 const COLORS = {
   [THEME.LIGHT]: ['#2563eb', '#93c5fd', '#0ea5e9', '#e0f2fe'],
   [THEME.DARK]: ['#1e3a5f', '#2563eb', '#93c5fd', '#09090b'],
-} as const;
-
-const readTheme = (): Theme =>
-  document.documentElement.dataset.theme === THEME.LIGHT ? THEME.LIGHT : THEME.DARK;
+};
 
 export const HeroMeshGradient = () => {
-  const target = useRef(window.document.documentElement);
-
-  const [theme, setTheme] = useState<Theme>(() => readTheme());
-
-  useMutationObserver(target, () => setTheme(readTheme()), {
-    attributes: true,
-    attributeFilter: ['data-theme'],
-  });
+  const colors = useAnimatedThemeColors(COLORS);
 
   return (
     <div className="size-full dark:opacity-50 opacity-100 mask-b-from-black via-black/65% to-transparent/95%">
@@ -34,7 +16,7 @@ export const HeroMeshGradient = () => {
         width="100%"
         height="100%"
         fit="cover"
-        colors={Array.from(COLORS[theme])}
+        colors={Array.from(colors)}
         distortion={0.7}
         swirl={0.1}
         grainMixer={0}

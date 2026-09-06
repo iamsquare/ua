@@ -36,43 +36,7 @@
   --color-gray-900: var(--color-zinc-900);
   --color-gray-950: var(--color-zinc-950);
 
-  --animate-install-copy-flash: install-copy-flash 0.75s ease-out forwards;
-  --animate-install-copy-toast: install-copy-toast 0.75s ease-out forwards;
   --animate-page-fade-in: page-fade-in 0.7s ease-out forwards;
-}
-
-@keyframes install-copy-flash {
-  0% {
-    opacity: 1;
-    border-color: var(--color-accent-600);
-  }
-
-  40% {
-    opacity: 1;
-    border-color: var(--color-emerald-400);
-  }
-
-  100% {
-    opacity: 0;
-    border-color: var(--color-emerald-400);
-  }
-}
-
-@keyframes install-copy-toast {
-  0% {
-    opacity: 1;
-    transform: translateY(--spacing(18));
-  }
-
-  40% {
-    opacity: 1;
-    transform: translateY(--spacing(21));
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(--spacing(24));
-  }
 }
 
 @keyframes page-fade-in {
@@ -107,13 +71,7 @@
   html.theme-transition *,
   html.theme-transition *::before,
   html.theme-transition *::after {
-    @apply motion-safe:[transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,box-shadow]!
-      motion-safe:duration-300! motion-safe:ease-in-out!;
-  }
-
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    @apply motion-safe:[animation-duration:300ms] motion-safe:[animation-timing-function:ease];
+    @apply motion-safe:[transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,box-shadow] motion-safe:duration-300 motion-safe:ease-linear;
   }
 }
 

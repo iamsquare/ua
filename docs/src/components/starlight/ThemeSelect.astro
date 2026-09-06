@@ -33,7 +33,7 @@ const label = Astro.locals.t('themeSelect.accessibleLabel');
 </style>
 
 <script>
-  import { isFunction, isNonNullish, isNullish } from 'remeda';
+  import { isNonNullish, isNullish } from 'remeda';
   import type { ValueOf } from 'type-fest';
 
   const THEME = {
@@ -45,7 +45,7 @@ const label = Astro.locals.t('themeSelect.accessibleLabel');
   type Theme = ValueOf<typeof THEME>;
 
   const STORAGE_KEY = 'starlight-theme';
-  const THEME_TRANSITION_MS = 200;
+  const THEME_TRANSITION_MS = 300;
 
   const parseTheme = (theme: unknown): Theme =>
     theme === THEME.AUTO || theme === THEME.DARK || theme === THEME.LIGHT ? theme : THEME.AUTO;
@@ -60,12 +60,13 @@ const label = Astro.locals.t('themeSelect.accessibleLabel');
   };
 
   const getPreferredColorScheme = (): Exclude<Theme, 'auto'> =>
-    matchMedia('(prefers-color-scheme: light)').matches ? THEME.LIGHT : THEME.DARK;
+    globalThis.matchMedia('(prefers-color-scheme: light)').matches ? THEME.LIGHT : THEME.DARK;
 
   const resolveTheme = (theme: Theme): Exclude<Theme, 'auto'> =>
     theme === THEME.AUTO ? getPreferredColorScheme() : theme;
 
-  const prefersReducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = () =>
+    globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const setThemePreference = (theme: Theme) => {
     document.documentElement.dataset.themePreference = theme;
@@ -82,14 +83,9 @@ const label = Astro.locals.t('themeSelect.accessibleLabel');
       return;
     }
 
-    if (isFunction(document.startViewTransition)) {
-      document.startViewTransition(apply);
-      return;
-    }
-
     root.classList.add('theme-transition');
     apply();
-    window.setTimeout(() => root.classList.remove('theme-transition'), THEME_TRANSITION_MS);
+    globalThis.setTimeout(() => root.classList.remove('theme-transition'), THEME_TRANSITION_MS);
   };
 
   const applyTheme = (theme: Theme) => {
@@ -113,10 +109,9 @@ const label = Astro.locals.t('themeSelect.accessibleLabel');
         'click',
         this.#onClick,
       );
-      matchMedia('(prefers-color-scheme: light)').addEventListener(
-        'change',
-        this.#onSystemPreferenceChange,
-      );
+      window
+        .matchMedia('(prefers-color-scheme: light)')
+        .addEventListener('change', this.#onSystemPreferenceChange);
     }
 
     disconnectedCallback() {
@@ -124,10 +119,9 @@ const label = Astro.locals.t('themeSelect.accessibleLabel');
         'click',
         this.#onClick,
       );
-      matchMedia('(prefers-color-scheme: light)').removeEventListener(
-        'change',
-        this.#onSystemPreferenceChange,
-      );
+      window
+        .matchMedia('(prefers-color-scheme: light)')
+        .removeEventListener('change', this.#onSystemPreferenceChange);
     }
 
     #onClick = () => {

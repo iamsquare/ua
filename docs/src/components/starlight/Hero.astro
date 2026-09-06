@@ -15,7 +15,7 @@ const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero ||
 <script is:inline>
   document.documentElement.setAttribute('data-page-pending', '');
 
-  window.setTimeout(() => {
+  globalThis.setTimeout(() => {
     if (document.documentElement.hasAttribute('data-page-ready')) return;
 
     document.documentElement.setAttribute('data-page-ready', '');
@@ -77,14 +77,7 @@ const { tagline, actions = [] } = Astro.locals.starlightRoute.entry.data.hero ||
           </div>
         )
       }
-      <div class="flex flex-col items-center justify-center gap-3">
-        <div
-          class="text-[--spacing(10)] rounded-full bg-accent-600 dark:bg-accent-500 px-10 py-3 font-mono font-semibold tracking-wide text-white"
-        >
-          v{pkg.version}
-        </div>
-        <InstallCommand client:load sizeLabel="~16.7 kB min+gzip" />
-      </div>
+      <InstallCommand client:load version={pkg.version} sizeLabel="~16.7 kB min+gzip" />
     </div>
   </div>
 </section>
