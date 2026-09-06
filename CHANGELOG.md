@@ -1,5 +1,11 @@
 # @iamsquare/ua
 
+## 1.1.1
+
+### Patch Changes
+
+- cdeab03: Fixed minor issues with client hints implementation
+
 ## 1.1.0
 
 ### Minor Changes

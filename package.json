@@ -1,6 +1,6 @@
 {
   "name": "@iamsquare/ua",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "User-Agent parser for browsers and Node.js. Detect browsers, OS, devices, bots, apps, and AI crawlers.",
   "type": "module",
   "license": "MIT",
