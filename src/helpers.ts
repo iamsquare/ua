@@ -61,7 +61,11 @@ export const isElectron = () => {
     return true;
   }
 
-  return isNonNullish(navigator) && / electron\//i.test(navigator.userAgent);
+  return (
+    typeof navigator !== 'undefined' &&
+    isNonNullish(navigator) &&
+    / electron\//i.test(navigator.userAgent)
+  );
 };
 
 /**
