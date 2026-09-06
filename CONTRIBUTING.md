@@ -12,7 +12,7 @@ pnpm install
 
 | Command          | Description                    |
 | ---------------- | ------------------------------ |
-| `pnpm test`      | Run the Vitest fixture suite   |
+| `pnpm test`      | Run the Vitest suite           |
 | `pnpm typecheck` | Type-check with `tsc --noEmit` |
 | `pnpm lint`      | Lint and autofix               |
 | `pnpm build`     | Build ESM + CJS outputs        |
@@ -21,7 +21,7 @@ pnpm install
 ## Pull requests
 
 1. Open a focused PR with a clear description of the change.
-2. Add or update fixtures under [`test/fixtures`](./test/fixtures) when changing detection behavior.
+2. Add or update fixtures under [`test/fixtures`](./test/fixtures) when changing detection behavior. Device form-factor regressions that show up in real traffic may also fail [`test/user-agents-smoke.test.ts`](./test/user-agents-smoke.test.ts).
 3. If the change affects the published package, add a Changeset with `pnpm changeset`.
 4. Keep PRs limited to one concern when practical.
 

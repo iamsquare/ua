@@ -138,6 +138,7 @@
     "prettier": "catalog:",
     "tsdown": "^0.23.0",
     "typescript": "catalog:",
+    "user-agents": "2.1.175",
     "vite": "^8.2.2",
     "vitest": "^5.0.0",
     "yaml": "^2.9.0"

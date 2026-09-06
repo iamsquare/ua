@@ -27,3 +27,4 @@ catalog:
 minimumReleaseAgeExclude:
   - lint-staged@17.5.0
   - tinybench@6.1.6
+  - user-agents@2.1.175
