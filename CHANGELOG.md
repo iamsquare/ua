@@ -1,5 +1,11 @@
 # @iamsquare/ua
 
+## 1.2.0
+
+### Minor Changes
+
+- 14d18b1: Internal optimizations, fixtures cleanup, separate uap-core testing suite from main suite
+
 ## 1.1.1
 
 ### Patch Changes
