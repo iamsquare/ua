@@ -17,4 +17,11 @@ describe('bots helpers', () => {
 
     expect(isAICrawler(ua)).toBe(true);
   });
+
+  it('does not detect spider as AI crawler', () => {
+    const ua =
+      'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)';
+
+    expect(isAICrawler(ua)).toBe(false);
+  });
 });

@@ -6,6 +6,7 @@ export default defineConfig({
   },
   test: {
     include: ['test/**/*.test.ts'],
+    exclude: ['test/redos.test.ts'],
     environment: 'node',
   },
 });

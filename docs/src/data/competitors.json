@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-05T23:17:55.476Z",
+    "generatedAt": "2026-09-06T05:30:56.308Z",
     "node": "v24.16.0",
     "fixtureCases": 19824,
     "uniqueUserAgents": 19306
@@ -51,16 +51,16 @@
       "speed": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
-        "totalMs": 2000.0140390000179,
-        "opsPerSec": 81298.61680320297,
-        "iterations": 110876,
+        "totalMs": 2000.0012810000358,
+        "opsPerSec": 85832.23541374362,
+        "iterations": 121772,
         "uaCount": 19306
       },
       "size": {
         "id": "@iamsquare/ua",
         "label": "@iamsquare/ua",
-        "rawBytes": 92464,
-        "gzipBytes": 17121
+        "rawBytes": 93898,
+        "gzipBytes": 17279
       }
     },
     {
@@ -108,16 +108,16 @@
       "speed": {
         "id": "ua-parser-js",
         "label": "ua-parser-js",
-        "totalMs": 2000.0002019999747,
-        "opsPerSec": 30546.508980718925,
-        "iterations": 52647,
+        "totalMs": 2000.0020310000577,
+        "opsPerSec": 30220.67826866131,
+        "iterations": 53170,
         "uaCount": 19306
       },
       "size": {
         "id": "ua-parser-js",
         "label": "ua-parser-js",
-        "rawBytes": 56469,
-        "gzipBytes": 17772
+        "rawBytes": 56508,
+        "gzipBytes": 17785
       }
     },
     {
@@ -165,16 +165,16 @@
       "speed": {
         "id": "my-ua-parser",
         "label": "my-ua-parser",
-        "totalMs": 2000.0060809998818,
-        "opsPerSec": 119554.55408924978,
-        "iterations": 157522,
+        "totalMs": 2000.0025610000598,
+        "opsPerSec": 119361.98334487608,
+        "iterations": 160130,
         "uaCount": 19306
       },
       "size": {
         "id": "my-ua-parser",
         "label": "my-ua-parser",
-        "rawBytes": 38611,
-        "gzipBytes": 11257
+        "rawBytes": 38649,
+        "gzipBytes": 11272
       }
     },
     {
@@ -222,16 +222,16 @@
       "speed": {
         "id": "bowser",
         "label": "bowser",
-        "totalMs": 2000.0032100001317,
-        "opsPerSec": 158291.62119664287,
-        "iterations": 266768,
+        "totalMs": 2000.0028429999652,
+        "opsPerSec": 157073.04238803202,
+        "iterations": 269961,
         "uaCount": 19306
       },
       "size": {
         "id": "bowser",
         "label": "bowser",
-        "rawBytes": 49157,
-        "gzipBytes": 8387
+        "rawBytes": 49190,
+        "gzipBytes": 8402
       }
     },
     {
@@ -279,16 +279,16 @@
       "speed": {
         "id": "platform",
         "label": "platform",
-        "totalMs": 2000.0249529999978,
-        "opsPerSec": 19943.940028829882,
-        "iterations": 37948,
+        "totalMs": 2000.0293230000207,
+        "opsPerSec": 19599.86401383878,
+        "iterations": 38273,
         "uaCount": 19306
       },
       "size": {
         "id": "platform",
         "label": "platform",
-        "rawBytes": 28101,
-        "gzipBytes": 7880
+        "rawBytes": 28135,
+        "gzipBytes": 7893
       }
     },
     {
@@ -336,16 +336,16 @@
       "speed": {
         "id": "detect-browser",
         "label": "detect-browser",
-        "totalMs": 2000.002734999754,
-        "opsPerSec": 918317.4689347233,
-        "iterations": 1389090,
+        "totalMs": 2000.0010579998866,
+        "opsPerSec": 884892.4574482053,
+        "iterations": 1381060,
         "uaCount": 19306
       },
       "size": {
         "id": "detect-browser",
         "label": "detect-browser",
-        "rawBytes": 7550,
-        "gzipBytes": 2445
+        "rawBytes": 7590,
+        "gzipBytes": 2459
       }
     }
   ]

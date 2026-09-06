@@ -1,3 +1,1 @@
-import { isNonNullish } from 'remeda';
-
-export const isBrowser = () => isNonNullish(window) && isNonNullish(document);
+export const isBrowser = () => typeof window !== 'undefined' && typeof document !== 'undefined';

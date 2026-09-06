@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import type { ReadonlyDeep } from 'type-fest';
 
 import { cn } from '@/lib/cn';
 
 const COMMAND = 'npm install @iamsquare/ua';
 
-type InstallCommandProps = ReadonlyDeep<{
-  sizeLabel: string;
-}>;
-
-export const InstallCommand = ({ sizeLabel }: InstallCommandProps) => {
+export const InstallCommand = ({ sizeLabel }: { sizeLabel: string }) => {
   const [flashKey, setFlashKey] = useState(0);
 
   return (

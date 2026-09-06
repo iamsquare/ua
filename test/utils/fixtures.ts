@@ -104,3 +104,32 @@ export const runExtensionFixtures = ({
     });
   });
 };
+
+export const clientHintsFixturesRoot = join(import.meta.dirname, '../fixtures/client-hints');
+
+export type ClientHintsFixtureCase = {
+  desc: string;
+  headers: Record<string, string>;
+  expect: {
+    browser?: Record<string, string | undefined>;
+    device?: Record<string, string | undefined>;
+  };
+};
+
+export const runClientHintsFixtures = ({ name, file }: { name: string; file: string }) => {
+  describe(`client-hints ${name} fixtures`, () => {
+    const cases: ClientHintsFixtureCase[] = JSON.parse(
+      readFileSync(join(clientHintsFixturesRoot, file), 'utf8'),
+    );
+
+    it.each(map(cases, (unit) => merge(unit, { testName: unit.desc })))(
+      '$testName',
+      ({ headers, expect: expected }) => {
+        const result = parseUA(undefined, { withClientHints: true, headers });
+
+        if (expected.browser) assertExpect(result.browser, expected.browser);
+        if (expected.device) assertExpect(result.device, expected.device);
+      },
+    );
+  });
+};

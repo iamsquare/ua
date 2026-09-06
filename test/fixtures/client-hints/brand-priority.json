@@ -1,0 +1,80 @@
+[
+  {
+    "desc": "Chrome first order (Not_A Brand, Chromium, Google Chrome)",
+    "headers": {
+      "sec-ch-ua-full-version-list": "\"Not_A Brand;v=8, Chromium;v=120.0.6099.131, Google Chrome;v=120.0.6099.132\""
+    },
+    "expect": {
+      "browser": {
+        "name": "Chrome",
+        "version": "120.0.6099.132",
+        "major": "120"
+      }
+    }
+  },
+  {
+    "desc": "Chrome second order (Chromium, Not_A Brand, Google Chrome)",
+    "headers": {
+      "sec-ch-ua-full-version-list": "\"Chromium;v=120.0.6099.131, Not_A Brand;v=8, Google Chrome;v=120.0.6099.132\""
+    },
+    "expect": {
+      "browser": {
+        "name": "Chrome",
+        "version": "120.0.6099.132",
+        "major": "120"
+      }
+    }
+  },
+  {
+    "desc": "Chrome third order (Google Chrome, Chromium, Not_A Brand)",
+    "headers": {
+      "sec-ch-ua-full-version-list": "\"Google Chrome;v=120.0.6099.132, Chromium;v=120.0.6099.131, Not_A Brand;v=8\""
+    },
+    "expect": {
+      "browser": {
+        "name": "Chrome",
+        "version": "120.0.6099.132",
+        "major": "120"
+      }
+    }
+  },
+  {
+    "desc": "Edge over Chrome (Edge first)",
+    "headers": {
+      "sec-ch-ua-full-version-list": "\"Microsoft Edge;v=120.0.6099.133, Google Chrome;v=120.0.6099.132, Chromium;v=120.0.6099.131, Not_A Brand;v=8\""
+    },
+    "expect": {
+      "browser": {
+        "name": "Edge",
+        "version": "120.0.6099.133",
+        "major": "120"
+      }
+    }
+  },
+  {
+    "desc": "Edge over Chrome (Edge mid)",
+    "headers": {
+      "sec-ch-ua-full-version-list": "\"Chromium;v=120.0.6099.131, Google Chrome;v=120.0.6099.132, Microsoft Edge;v=120.0.6099.133, Not_A Brand;v=8\""
+    },
+    "expect": {
+      "browser": {
+        "name": "Edge",
+        "version": "120.0.6099.133",
+        "major": "120"
+      }
+    }
+  },
+  {
+    "desc": "Edge over Chrome (Edge after Not_A Brand)",
+    "headers": {
+      "sec-ch-ua-full-version-list": "\"Not_A Brand;v=8, Microsoft Edge;v=120.0.6099.133, Google Chrome;v=120.0.6099.132, Chromium;v=120.0.6099.131\""
+    },
+    "expect": {
+      "browser": {
+        "name": "Edge",
+        "version": "120.0.6099.133",
+        "major": "120"
+      }
+    }
+  }
+]

@@ -22,6 +22,7 @@ import {
 } from 'remeda';
 
 import { CPUArch, EngineName, OSName } from '@/enums';
+import { isBrowser as isBrowserEnv } from '@/env';
 import { parseDevice, parseUA } from '@/parse-ua';
 import type { Browser, CPU, Device, Engine, OS, Result } from '@/types';
 
@@ -86,7 +87,31 @@ export const isAppleSilicon = (value: ResultOrUa) => {
     return false;
   }
 
-  return toLowerCase(cpu.architecture ?? '') === toLowerCase(CPUArch.ARM);
+  if (toLowerCase(cpu.architecture ?? '') === toLowerCase(CPUArch.ARM)) {
+    return true;
+  }
+
+  if (isBrowserEnv()) {
+    try {
+      const canvas = document.createElement('canvas');
+      const webglContext =
+        canvas.getContext('webgl') ||
+        canvas.getContext('webgl2') ||
+        (canvas.getContext('experimental-webgl') as WebGLRenderingContext | null);
+
+      return isNonNullish(
+        webglContext
+          ?.getParameter(
+            webglContext.getExtension('WEBGL_debug_renderer_info')!.UNMASKED_RENDERER_WEBGL ?? 0,
+          )
+          ?.match(/apple m\d/i),
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  return false;
 };
 
 /**

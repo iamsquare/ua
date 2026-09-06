@@ -91,7 +91,10 @@ export const HeroLiquidMetalLogo = () => {
   }, []);
 
   return (
-    <div className="size-[clamp(--spacing(128),28vw,--spacing(256))]" aria-hidden="true">
+    <div
+      className="size-[clamp(--spacing(128),28vw,--spacing(256))] shadow-lg shadow-accent-800 dark:shadow-gray-200/30"
+      aria-hidden="true"
+    >
       <Suspense fallback={null}>
         <HeroLiquidMetalLogoInner />
       </Suspense>

@@ -10,6 +10,7 @@ import {
   merge,
   pipe,
   reduce,
+  split,
 } from 'remeda';
 
 import { majorFromVersion, mapString, matchRules } from '@/engine/match-rules';
@@ -17,9 +18,11 @@ import { headerValue } from '@/headers';
 import { coreMaps, cpuRules, deviceRules } from '@/rules';
 import type { Browser, CPU, Device, Engine, HeadersLike, OS, Result } from '@/types';
 
+type BrandEntry = { brand: string; version?: string };
+
 export type ClientHints = {
-  brands?: { brand: string; version: string }[];
-  fullVersionList?: { brand: string; version: string }[];
+  brands?: BrandEntry[];
+  fullVersionList?: BrandEntry[];
   mobile?: boolean;
   model?: string;
   platform?: string;
@@ -28,8 +31,6 @@ export type ClientHints = {
   formFactors?: string[] | string;
   bitness?: string;
 };
-
-type BrandEntry = { brand: string; version: string };
 
 type BrandAcc = {
   browser: Browser;
@@ -40,10 +41,20 @@ type BrandAcc = {
 const parseBrandList = (raw?: string) => {
   if (isEmptyish(raw)) return;
 
-  const brands = map(Array.from(raw.matchAll(/"([^"]+)";v="([^"]+)"/g)), (match) => ({
-    brand: match[1] ?? '',
-    version: match[2] ?? '',
-  }));
+  const brands = pipe(
+    raw.replace(/\\?"/g, ''),
+    split(','),
+    map((token) => token.trim()),
+    filter((token) => !isEmptyish(token)),
+    map((token) => {
+      if (!token.includes(';')) return { brand: token };
+
+      const [brand = '', version] = split(token, ';v=');
+
+      return { brand: brand.trim(), version: version?.trim() };
+    }),
+    filter((entry) => !isEmptyish(entry.brand)),
+  );
 
   return hasAtLeast(brands, 1) ? brands : undefined;
 };
@@ -93,7 +104,7 @@ const applyBrandHints = (browser: Browser, engine: Engine, brands?: BrandEntry[]
       (acc: BrandAcc, entry) => {
         if (!shouldPreferBrand(acc.prevBrand, entry.brand)) {
           return entry.brand === 'Chromium'
-            ? merge(acc, { engine: { ...acc.engine, version: entry.version } })
+            ? merge(acc, { engine: merge(acc.engine, { version: entry.version }) })
             : acc;
         }
 
@@ -197,7 +208,7 @@ export const applyClientHints = (result: Result, hints: ClientHints): Result => 
   const { browser, engine } = applyBrandHints(result.browser, result.engine, brands);
 
   return {
-    ...result,
+    ua: result.ua,
     browser,
     engine,
     cpu: applyCpuHints(result.cpu, hints),

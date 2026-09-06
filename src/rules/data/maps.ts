@@ -25,11 +25,11 @@ export const formFactorsMap = {
 } as const satisfies StringMap;
 
 export const browserHintsMap = {
-  Chrome: 'Google Chrome',
-  Edge: 'Microsoft Edge',
-  'Edge WebView2': 'Microsoft Edge WebView2',
   'Chrome WebView': 'Android WebView',
   'Chrome Headless': 'HeadlessChrome',
+  Chrome: 'Google Chrome',
+  'Edge WebView2': 'Microsoft Edge WebView2',
+  Edge: 'Microsoft Edge',
   'Huawei Browser': 'HuaweiBrowser',
   'MIUI Browser': 'Miui Browser',
   'Opera Mobi': 'OperaMobile',

@@ -15,7 +15,7 @@ export const adapters = [
   bowserAdapter,
   platformAdapter,
   detectBrowserAdapter,
-] as const satisfies readonly ParserAdapter[];
+] as const satisfies ParserAdapter[];
 
 export const loadAdapter = (id: string): ParserAdapter => {
   const adapter = find(adapters, (entry) => entry.id === id);

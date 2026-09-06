@@ -5,12 +5,12 @@ import { type AssignKind } from '@/rules/kinds';
 /** Device form-factor constants used by core rules and `@iamsquare/ua/enums`. */
 export const DEVICE_TYPE = {
   CONSOLE: 'console',
+  EMBEDDED: 'embedded',
   MOBILE: 'mobile',
-  TABLET: 'tablet',
   SMARTTV: 'smarttv',
+  TABLET: 'tablet',
   WEARABLE: 'wearable',
   XR: 'xr',
-  EMBEDDED: 'embedded',
 } as const;
 
 /** Device form-factor string values (e.g. `"mobile"`, `"tablet"`). */
@@ -18,13 +18,13 @@ export type DeviceType = ValueOf<typeof DEVICE_TYPE>;
 
 /** Browser category constants for extension-detected types (crawler, in-app, etc.). */
 export const BROWSER_TYPE = {
-  CLI: 'cli',
   CRAWLER: 'crawler',
+  CLI: 'cli',
+  EMAIL: 'email',
   FETCHER: 'fetcher',
   INAPP: 'inapp',
-  LIBRARY: 'library',
   MEDIAPLAYER: 'mediaplayer',
-  EMAIL: 'email',
+  LIBRARY: 'library',
 } as const;
 
 /** Browser category string values (e.g. `"crawler"`, `"inapp"`). */

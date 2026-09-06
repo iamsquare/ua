@@ -1,0 +1,314 @@
+[
+  {
+    "desc": "220733SG",
+    "headers": {
+      "sec-ch-ua-model": "220733SG"
+    },
+    "expect": {
+      "device": {
+        "model": "220733SG",
+        "vendor": "Xiaomi",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "5087Z",
+    "headers": {
+      "sec-ch-ua-model": "5087Z"
+    },
+    "expect": {
+      "device": {
+        "model": "5087Z",
+        "vendor": "TCL",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "9137W",
+    "headers": {
+      "sec-ch-ua-model": "9137W"
+    },
+    "expect": {
+      "device": {
+        "model": "9137W",
+        "vendor": "TCL",
+        "type": "tablet"
+      }
+    }
+  },
+  {
+    "desc": "BE2015",
+    "headers": {
+      "sec-ch-ua-model": "BE2015"
+    },
+    "expect": {
+      "device": {
+        "model": "BE2015",
+        "vendor": "OnePlus",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "CPH2389",
+    "headers": {
+      "sec-ch-ua-model": "CPH2389"
+    },
+    "expect": {
+      "device": {
+        "model": "CPH2389",
+        "vendor": "OnePlus",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "Infinix X669C",
+    "headers": {
+      "sec-ch-ua-model": "Infinix X669C"
+    },
+    "expect": {
+      "device": {
+        "model": "Infinix X669C",
+        "vendor": "Infinix",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "itel L6502",
+    "headers": {
+      "sec-ch-ua-model": "itel L6502"
+    },
+    "expect": {
+      "device": {
+        "model": "itel L6502",
+        "vendor": "itel",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "Lenovo TB-X606F",
+    "headers": {
+      "sec-ch-ua-model": "Lenovo TB-X606F"
+    },
+    "expect": {
+      "device": {
+        "model": "Lenovo TB-X606F",
+        "vendor": "Lenovo",
+        "type": "tablet"
+      }
+    }
+  },
+  {
+    "desc": "LM-Q720",
+    "headers": {
+      "sec-ch-ua-model": "LM-Q720"
+    },
+    "expect": {
+      "device": {
+        "model": "LM-Q720",
+        "vendor": "LG",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "M2003J15SC",
+    "headers": {
+      "sec-ch-ua-model": "M2003J15SC"
+    },
+    "expect": {
+      "device": {
+        "model": "M2003J15SC",
+        "vendor": "Xiaomi",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "MAR-LX1A",
+    "headers": {
+      "sec-ch-ua-model": "MAR-LX1A"
+    },
+    "expect": {
+      "device": {
+        "model": "MAR-LX1A",
+        "vendor": "Huawei",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "moto g(20)",
+    "headers": {
+      "sec-ch-ua-model": "moto g(20)"
+    },
+    "expect": {
+      "device": {
+        "model": "moto g(20)",
+        "vendor": "Motorola",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "Nokia C210",
+    "headers": {
+      "sec-ch-ua-model": "Nokia C210"
+    },
+    "expect": {
+      "device": {
+        "model": "Nokia C210",
+        "vendor": "Nokia",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "Pixel 8",
+    "headers": {
+      "sec-ch-ua-model": "Pixel 8"
+    },
+    "expect": {
+      "device": {
+        "model": "Pixel 8",
+        "vendor": "Google",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "Redmi Note 9S",
+    "headers": {
+      "sec-ch-ua-model": "Redmi Note 9S"
+    },
+    "expect": {
+      "device": {
+        "model": "Redmi Note 9S",
+        "vendor": "Xiaomi",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "RMX3830",
+    "headers": {
+      "sec-ch-ua-model": "RMX3830"
+    },
+    "expect": {
+      "device": {
+        "model": "RMX3830",
+        "vendor": "Realme",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "SM-S536DL",
+    "headers": {
+      "sec-ch-ua-model": "SM-S536DL"
+    },
+    "expect": {
+      "device": {
+        "model": "SM-S536DL",
+        "vendor": "Samsung",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "SM-S546VL",
+    "headers": {
+      "sec-ch-ua-model": "SM-S546VL"
+    },
+    "expect": {
+      "device": {
+        "model": "SM-S546VL",
+        "vendor": "Samsung",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "SM-T875",
+    "headers": {
+      "sec-ch-ua-model": "SM-T875"
+    },
+    "expect": {
+      "device": {
+        "model": "SM-T875",
+        "vendor": "Samsung",
+        "type": "tablet"
+      }
+    }
+  },
+  {
+    "desc": "STK-L21",
+    "headers": {
+      "sec-ch-ua-model": "STK-L21"
+    },
+    "expect": {
+      "device": {
+        "model": "STK-L21",
+        "vendor": "Huawei",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "T430W",
+    "headers": {
+      "sec-ch-ua-model": "T430W"
+    },
+    "expect": {
+      "device": {
+        "model": "T430W",
+        "vendor": "TCL",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "TECNO KI5k",
+    "headers": {
+      "sec-ch-ua-model": "TECNO KI5k"
+    },
+    "expect": {
+      "device": {
+        "model": "TECNO KI5k",
+        "vendor": "TECNO",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "vivo 1820",
+    "headers": {
+      "sec-ch-ua-model": "vivo 1820"
+    },
+    "expect": {
+      "device": {
+        "model": "vivo 1820",
+        "vendor": "Vivo",
+        "type": "mobile"
+      }
+    }
+  },
+  {
+    "desc": "Xbox",
+    "headers": {
+      "sec-ch-ua-model": "Xbox"
+    },
+    "expect": {
+      "device": {
+        "model": "Xbox",
+        "vendor": "Microsoft",
+        "type": "console"
+      }
+    }
+  }
+]

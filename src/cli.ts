@@ -37,7 +37,7 @@ const DEFAULT_EXTENSION_NAMES = [
   'extraDevice',
   'inApp',
   'vehicle',
-] as const satisfies readonly ExtensionName[];
+] as const satisfies ExtensionName[];
 
 const isExtensionName = (name: string): name is ExtensionName =>
   isIncludedIn(name, EXTENSION_NAMES);
