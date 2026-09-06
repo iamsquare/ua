@@ -8,6 +8,7 @@ packages:
 allowBuilds:
   esbuild: true
   sharp: true
+  unrs-resolver: true
 
 catalog:
   '@types/node': ^22.15.30
@@ -22,3 +23,7 @@ catalog:
   type-fest: ^5.9.0
   typescript: ^6.0.3
   typescript-eslint: ^8.69.0
+
+minimumReleaseAgeExclude:
+  - lint-staged@17.5.0
+  - tinybench@6.1.6

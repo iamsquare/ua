@@ -1,5 +1,6 @@
 import { MeshGradient } from '@paper-design/shaders-react';
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import { useMutationObserver } from 'rooks';
 import type { ValueOf } from 'type-fest';
 
 const THEME = {
@@ -18,18 +19,14 @@ const readTheme = (): Theme =>
   document.documentElement.dataset.theme === THEME.LIGHT ? THEME.LIGHT : THEME.DARK;
 
 export const HeroMeshGradient = () => {
+  const target = useRef(window.document.documentElement);
+
   const [theme, setTheme] = useState<Theme>(() => readTheme());
 
-  useEffect(() => {
-    const observer = new MutationObserver(() => setTheme(readTheme()));
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  useMutationObserver(target, () => setTheme(readTheme()), {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
 
   return (
     <div className="size-full dark:opacity-50 opacity-100 mask-b-from-black via-black/65% to-transparent/95%">

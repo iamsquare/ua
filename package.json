@@ -122,8 +122,8 @@
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.2",
-    "@commitlint/cli": "^21.2.1",
-    "@commitlint/config-conventional": "^21.2.0",
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
     "@commitlint/types": "^21.2.0",
     "@iamsquare/eslint-config": "workspace:*",
     "@iamsquare/prettier-config": "workspace:*",
@@ -140,5 +140,5 @@
     "vitest": "^5.0.0",
     "yaml": "^2.9.0"
   },
-  "packageManager": "pnpm@10.34.5"
+  "packageManager": "pnpm@12.3.4"
 }

@@ -1,5 +1,6 @@
 import { LiquidMetal } from '@paper-design/shaders-react';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { useEffectOnceWhen, useMutationObserver } from 'rooks';
 import type { ValueOf } from 'type-fest';
 
 import logoUrl from '@/assets/logo.svg?url';
@@ -37,20 +38,17 @@ const markPageReady = () => {
 };
 
 const HeroLiquidMetalLogoInner = () => {
+  const target = useRef(window.document.documentElement);
   const [theme, setTheme] = useState<Theme>(() => readTheme());
 
-  useEffect(() => {
+  useEffectOnceWhen(() => {
     markPageReady();
+  });
 
-    const observer = new MutationObserver(() => setTheme(readTheme()));
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  useMutationObserver(target, () => setTheme(readTheme()), {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
 
   const { colorBack, colorTint } = THEME_PROPS[theme];
 
