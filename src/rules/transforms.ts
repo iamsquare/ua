@@ -1,4 +1,4 @@
-import { prop, toLowerCase } from 'remeda';
+import { prop, toLowerCase, toUpperCase } from 'remeda';
 import type { KeysOfUnion } from 'type-fest';
 
 import { TransformKind } from '@/rules/kinds';
@@ -15,6 +15,7 @@ const EMAIL_NAME_MAP = {
 
 export const transforms = {
   [TransformKind.Lower]: toLowerCase(),
+  [TransformKind.Upper]: toUpperCase(),
   [TransformKind.Trim]: (value: string) => value.replace(/^\s+/, '').trim(),
   [TransformKind.Email]: (value: string) =>
     prop(EMAIL_NAME_MAP, value as KeysOfUnion<typeof EMAIL_NAME_MAP>) ?? value,

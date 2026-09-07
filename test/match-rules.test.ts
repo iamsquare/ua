@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 
 import { matchDeviceRules, matchRules } from '@/match-rules';
 import { deviceRules } from '@/rules';
-import { AssignKind } from '@/rules/kinds';
 import type { Rule } from '@/types';
 
 describe('matchRules', () => {
@@ -11,15 +10,15 @@ describe('matchRules', () => {
       [
         [/chrome\/([\d.]+)/i],
         [
-          { type: AssignKind.Capture, field: 'version', group: 1 },
-          { type: AssignKind.Literal, field: 'name', value: 'Chrome' },
+          { type: 'capture', field: 'version', group: 1 },
+          { type: 'literal', field: 'name', value: 'Chrome' },
         ],
       ],
       [
         [/firefox\/([\d.]+)/i],
         [
-          { type: AssignKind.Capture, field: 'version', group: 1 },
-          { type: AssignKind.Literal, field: 'name', value: 'Firefox' },
+          { type: 'capture', field: 'version', group: 1 },
+          { type: 'literal', field: 'name', value: 'Firefox' },
         ],
       ],
     ] satisfies Rule[];
@@ -36,12 +35,12 @@ describe('matchRules', () => {
         [/(comodo_dragon)\/([\w.]+)/i],
         [
           {
-            type: AssignKind.Replace,
+            type: 'replace',
             field: 'name',
             group: 1,
             replace: [/_/g, ' '],
           },
-          { type: AssignKind.Capture, field: 'version', group: 2 },
+          { type: 'capture', field: 'version', group: 2 },
         ],
       ],
     ] satisfies Rule[];
@@ -57,8 +56,8 @@ describe('matchRules', () => {
       [
         [/(chrome)\/([\d.]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'Chrome WebView' },
-          { type: AssignKind.Capture, field: 'version', group: 2 },
+          { type: 'literal', field: 'name', value: 'Chrome WebView' },
+          { type: 'capture', field: 'version', group: 2 },
         ],
       ],
     ] satisfies Rule[];

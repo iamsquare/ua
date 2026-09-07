@@ -147,22 +147,21 @@ export const is = (
 };
 
 /**
- * Match a browser slice against a name/type value (ignores `version` / `major`; strips trailing `"browser"`).
+ * Match a browser slice against a name/type value (ignores `version` / `major`).
  *
  * @param browser - `result.browser`
  * @param value - Expected value (e.g. `BrowserName.CHROME`)
  */
 export const isBrowser = (browser: Browser, value: string) =>
-  is(browser, value, { ignore: ['version', 'major'], strip: / ?browser$/i });
+  is(browser, value, { ignore: ['version', 'major'] });
 
 /**
- * Match an OS slice against a name value (ignores `version`; strips trailing `"os"`).
+ * Match an OS slice against a name value (ignores `version`).
  *
  * @param os - `result.os`
  * @param value - Expected value (e.g. `OSName.ANDROID`)
  */
-export const isOS = (os: OS, value: string) =>
-  is(os, value, { ignore: ['version'], strip: / ?os$/i });
+export const isOS = (os: OS, value: string) => is(os, value, { ignore: ['version'] });
 
 /**
  * Match an engine slice against a name value (ignores `version`).

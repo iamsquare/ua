@@ -1,4 +1,3 @@
-import { AssignKind, TransformKind } from '@/rules/kinds';
 import type { ExtensionsData } from '@/rules/load';
 
 export const extensionsData = {
@@ -7,9 +6,9 @@ export const extensionsData = {
       [
         [/(wget|curl|lynx|elinks|httpie|powershell)[/ ]\(?([\w.-]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'cli' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'cli' },
         ],
       ],
       [
@@ -22,9 +21,9 @@ export const extensionsData = {
           /(slack(?:bot)?(?:-imgproxy|-linkexpanding)?) ([\w.]+)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'fetcher' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'fetcher' },
         ],
       ],
       [
@@ -32,8 +31,8 @@ export const extensionsData = {
           /((?:better uptime |keybase|telegram|vercel)bot|lighthouse$|feedfetcher-google|gemini-deep-research|google(?:docs|imageproxy|-read-aloud|-pagerenderer|producer)|snap url preview|vercel(flags|tracing|-(favicon|screenshot)-bot)|virustotal(?=cloud)|yandex(?:sitelinks|userproxy))/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'fetcher' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'fetcher' },
         ],
       ],
       [
@@ -58,30 +57,30 @@ export const extensionsData = {
           /((?:aihit|blex|diff|fish|huggingface-|liner|msn|pangu|replicate-|runpod-|timpi|together-|xai-|you|zum)bot|(?:audisto |brightedge |magpie-|velenpublicweb)crawler|(?:chatglm-|line|screaming frog seo |yisou)spider|cloudflare(?:-autorag|b\w{21}r)|cotoyogi|(?:firecrawl|twin)agent|freespoke|omgili(?:bot)?|openai image downloader|startpagep\w{14}xy|webzio-extended)\/?([\w.]*)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
         [/(ev-crawler)\/([\w.]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'Headline' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'literal', field: 'name', value: 'Headline' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
         [/(yandexbot\/([\w.]+); mirrordetector)/i],
         [
           {
-            type: AssignKind.Replace,
+            type: 'replace',
             group: 1,
             field: 'name',
             replace: [/\/.+;/gi, ''] as const,
           },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
@@ -90,8 +89,8 @@ export const extensionsData = {
           /\b((ai2|aspiegel|atlassian-|dataforseo|deepseek|imagesift|petal|seekport|turnitin|v0|yacy)bot|360spider-?(image|video)?|baidu-ads|botify|(byte|tiktok)spider|cohere-training-data-crawler|elastic(?=\/s)|marginalia|proximic|siteimprove(?=bot|\.com)|teoma|webzio|yahoo! slurp)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
@@ -102,16 +101,16 @@ export const extensionsData = {
           /\((java)\/([\w.]+)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'library' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'library' },
         ],
       ],
       [
         [/(node-fetch|phpcrawl|undici)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'library' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'library' },
         ],
       ],
     ],
@@ -120,10 +119,10 @@ export const extensionsData = {
         [/whatsapp\/[\d.]+ (a|i)/i],
         [
           {
-            type: AssignKind.Capture,
+            type: 'capture',
             group: 1,
             field: 'name',
-            transform: TransformKind.AndroidOrIos,
+            transform: 'androidOrIos',
           },
         ],
       ],
@@ -134,9 +133,9 @@ export const extensionsData = {
       [
         [/(wget|curl|lynx|elinks|httpie|powershell)[/ ]\(?([\w.-]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'cli' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'cli' },
         ],
       ],
     ],
@@ -165,30 +164,30 @@ export const extensionsData = {
           /((?:aihit|blex|diff|fish|huggingface-|liner|msn|pangu|replicate-|runpod-|timpi|together-|xai-|you|zum)bot|(?:audisto |brightedge |magpie-|velenpublicweb)crawler|(?:chatglm-|line|screaming frog seo |yisou)spider|cloudflare(?:-autorag|b\w{21}r)|cotoyogi|(?:firecrawl|twin)agent|freespoke|omgili(?:bot)?|openai image downloader|startpagep\w{14}xy|webzio-extended)\/?([\w.]*)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
         [/(ev-crawler)\/([\w.]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'Headline' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'literal', field: 'name', value: 'Headline' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
         [/(yandexbot\/([\w.]+); mirrordetector)/i],
         [
           {
-            type: AssignKind.Replace,
+            type: 'replace',
             group: 1,
             field: 'name',
             replace: [/\/.+;/gi, ''] as const,
           },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
       [
@@ -197,15 +196,15 @@ export const extensionsData = {
           /\b((ai2|aspiegel|atlassian-|dataforseo|deepseek|imagesift|petal|seekport|turnitin|v0|yacy)bot|360spider-?(image|video)?|baidu-ads|botify|(byte|tiktok)spider|cohere-training-data-crawler|elastic(?=\/s)|marginalia|proximic|siteimprove(?=bot|\.com)|teoma|webzio|yahoo! slurp)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'crawler' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'crawler' },
         ],
       ],
     ],
   },
   extraDevice: {
     device: [
-      [[/([\w ]+)?smart tv box/i], [{ type: AssignKind.Literal, field: 'type', value: 'smarttv' }]],
+      [[/([\w ]+)?smart tv box/i], [{ type: 'literal', field: 'type', value: 'smarttv' }]],
       [
         [
           /(nook)[\w ]+build\/(\w+)/i,
@@ -216,177 +215,177 @@ export const extensionsData = {
           /(vodafone) ([\w ]+)(?:\)| bui)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'vendor' },
-          { type: AssignKind.Capture, group: 2, field: 'model' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'vendor' },
+          { type: 'capture', group: 2, field: 'model' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/(u304aa)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'AT&T' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'AT&T' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\bsie-(\w*)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Siemens' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Siemens' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\b(rct\w+) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'RCA' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'RCA' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(venue[\d ]{2,7}) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Dell' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Dell' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(q(?:mv|ta)\w+) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Verizon' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Verizon' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(?:barnes[& ]+noble |bn[rt])([\w+ ]*) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Barnes & Noble' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Barnes & Noble' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(tm\d{3}\w+) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'NuVision' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'NuVision' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(k88) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'ZTE' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'ZTE' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(nx\d{3}j) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'ZTE' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'ZTE' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\b(gen\d{3}) b.+49h/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Swiss' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Swiss' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\b(zur\d{3}) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Swiss' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Swiss' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b((zeki)?tb\w*)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Zeki' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Zeki' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b([yr]\d{2}) b/i, /\b(?:dragon[- ]+touch |dt)(\w{5}) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Dragon Touch' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Dragon Touch' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(ns-?\w{0,9}) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Insignia' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Insignia' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b((nxa|next)-?\w{0,9}) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'NextBook' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'NextBook' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(xtreme_)?(v(1[045]|2[015]|[3469]0|7[05])) b/i],
         [
-          { type: AssignKind.Literal, field: 'vendor', value: 'Voice' },
-          { type: AssignKind.Capture, group: 2, field: 'model' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'literal', field: 'vendor', value: 'Voice' },
+          { type: 'capture', group: 2, field: 'model' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\b(lvtel-)?(v1[12]) b/i],
         [
-          { type: AssignKind.Literal, field: 'vendor', value: 'LvTel' },
-          { type: AssignKind.Capture, group: 2, field: 'model' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'literal', field: 'vendor', value: 'LvTel' },
+          { type: 'capture', group: 2, field: 'model' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\b(ph-1) /i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Essential' },
-          { type: AssignKind.Literal, field: 'type', value: 'mobile' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Essential' },
+          { type: 'literal', field: 'type', value: 'mobile' },
         ],
       ],
       [
         [/\b(v(100md|700na|7011|917g).*\b) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Envizen' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Envizen' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\b(trio[-\w. ]+) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'MachSpeed' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'MachSpeed' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
       [
         [/\btu_(1491) b/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'model' },
-          { type: AssignKind.Literal, field: 'vendor', value: 'Rotor' },
-          { type: AssignKind.Literal, field: 'type', value: 'tablet' },
+          { type: 'capture', group: 1, field: 'model' },
+          { type: 'literal', field: 'vendor', value: 'Rotor' },
+          { type: 'literal', field: 'type', value: 'tablet' },
         ],
       ],
     ],
@@ -396,9 +395,9 @@ export const extensionsData = {
       [
         [/(android)\/([\w.-]+email)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'email' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'email' },
         ],
       ],
       [
@@ -406,25 +405,25 @@ export const extensionsData = {
           /((?:air|aqua|blue|claws|daum|fair|fox|k-9|mac|nylas|pegasus|poco|poly|proton|samsung|squirrel|yahoo) ?e?mail(?:-desktop| app| bridge)?|microsoft outlook|r2mail2|spicebird|turnpike|yahoomobile|(?:microsoft )?outlook(?:-express)?|macoutlook|windows-live-mail|alpine|balsa|barca|canary|emclient|eudora|evolution|geary|gnus|horde::imp|incredimail|kmail2?|kontact|lotus-notes|mail(?:bird|mate|spring)|mutt|navermailapp|newton|nine|postbox|rainloop|roundcube webmail|spar(?:row|kdesktop)|sylpheed|the bat!|thunderbird|trojita|tutanota-desktop|wanderlust|zdesktop|zohomail-desktop)(?:m.+ail; |[/ ])([\w.-]+)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name', transform: TransformKind.Email },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'email' },
+          { type: 'capture', group: 1, field: 'name', transform: 'email' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'email' },
         ],
       ],
       [
         [/(mail)\/([\w.]+) cf/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'email' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'email' },
         ],
       ],
       [
         [/(zimbra)\/([\w.-]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'email' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'email' },
         ],
       ],
     ],
@@ -441,9 +440,9 @@ export const extensionsData = {
           /(slack(?:bot)?(?:-imgproxy|-linkexpanding)?) ([\w.]+)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'fetcher' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'fetcher' },
         ],
       ],
       [
@@ -451,8 +450,8 @@ export const extensionsData = {
           /((?:better uptime |keybase|telegram|vercel)bot|lighthouse$|feedfetcher-google|gemini-deep-research|google(?:docs|imageproxy|-read-aloud|-pagerenderer|producer)|snap url preview|vercel(flags|tracing|-(favicon|screenshot)-bot)|virustotal(?=cloud)|yandex(?:sitelinks|userproxy))/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'fetcher' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'fetcher' },
         ],
       ],
     ],
@@ -461,10 +460,10 @@ export const extensionsData = {
         [/whatsapp\/[\d.]+ (a|i)/i],
         [
           {
-            type: AssignKind.Capture,
+            type: 'capture',
             group: 1,
             field: 'name',
-            transform: TransformKind.AndroidOrIos,
+            transform: 'androidOrIos',
           },
         ],
       ],
@@ -475,9 +474,9 @@ export const extensionsData = {
       [
         [/\bcodex\/([\w.]+).+electron\//i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'version' },
-          { type: AssignKind.Literal, field: 'name', value: 'ChatGPT' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'version' },
+          { type: 'literal', field: 'name', value: 'ChatGPT' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
       [
@@ -486,48 +485,48 @@ export const extensionsData = {
           /(flipboard)\/([\w.]+)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
       [
         [/(evernote) win/i, /(teams)mobile-(ios|and)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
       [
         [/chatlyio\/([\d.]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'version' },
-          { type: AssignKind.Literal, field: 'name', value: 'Slack' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'version' },
+          { type: 'literal', field: 'name', value: 'Slack' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
       [
         [/ultralite app_version\/([\w.]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'version' },
-          { type: AssignKind.Literal, field: 'name', value: 'TikTok Lite' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'version' },
+          { type: 'literal', field: 'name', value: 'TikTok Lite' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
       [
         [/\) code\/([\d.]+).+electron\//i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'version' },
-          { type: AssignKind.Literal, field: 'name', value: 'VS Code' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'version' },
+          { type: 'literal', field: 'name', value: 'VS Code' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
       [
         [/jp\.co\.yahoo\.(?:android\.yjtop|ipn\.appli)\/([\d.]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'version' },
-          { type: AssignKind.Literal, field: 'name', value: 'Yahoo! Japan' },
-          { type: AssignKind.Literal, field: 'type', value: 'inapp' },
+          { type: 'capture', group: 1, field: 'version' },
+          { type: 'literal', field: 'name', value: 'Yahoo! Japan' },
+          { type: 'literal', field: 'type', value: 'inapp' },
         ],
       ],
     ],
@@ -542,16 +541,16 @@ export const extensionsData = {
           /\((java)\/([\w.]+)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'library' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'library' },
         ],
       ],
       [
         [/(node-fetch|phpcrawl|undici)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'library' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'library' },
         ],
       ],
     ],
@@ -561,41 +560,41 @@ export const extensionsData = {
       [
         [/(Python-urllib)\/([\w.]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'Python-urllib' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'literal', field: 'name', value: 'Python-urllib' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/APP-BE Test\/([\w.-]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'version' },
-          { type: AssignKind.Literal, field: 'name', value: 'BE Test' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'capture', group: 1, field: 'version' },
+          { type: 'literal', field: 'name', value: 'BE Test' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/\b(stagefright)\/([\w.-]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/(mplayer)\s+svn\s+(r?[\d]+)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/^(videos)\/([\w.-]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'Video' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'literal', field: 'name', value: 'Video' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
@@ -619,17 +618,17 @@ export const extensionsData = {
           /(windows)\/([\w.-]+) upnp\/[\d.]+ dlnadoc\/[\d.]+ home media server/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/(flrp)\/([\w.-]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'Flip Player' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'literal', field: 'name', value: 'Flip Player' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
@@ -637,52 +636,52 @@ export const extensionsData = {
           /(fstream|media player classic|inlight radio|mplayer|nativehost|nero showtime|ocms-bot|queryseekspider|tapinradio|tunein radio|winamp|yourmuze)/i,
         ],
         [
-          { type: AssignKind.Capture, group: 1, field: 'name' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'capture', group: 1, field: 'name' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/(htc_one_s|windows-media-player|wmplayer)\/([\w.-]+)/i],
         [
           {
-            type: AssignKind.Replace,
+            type: 'replace',
             group: 1,
             field: 'name',
             replace: [/[_-]/g, ' '] as const,
           },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
       [
         [/(rad.io|radio.(?:de|at|fr)) ([\d.]+)/i],
         [
-          { type: AssignKind.Literal, field: 'name', value: 'rad.io' },
-          { type: AssignKind.Capture, group: 2, field: 'version' },
-          { type: AssignKind.Literal, field: 'type', value: 'mediaplayer' },
+          { type: 'literal', field: 'name', value: 'rad.io' },
+          { type: 'capture', group: 2, field: 'version' },
+          { type: 'literal', field: 'type', value: 'mediaplayer' },
         ],
       ],
     ],
   },
   vehicle: {
     device: [
-      [[/aftlbt962e2/i], [{ type: AssignKind.Literal, field: 'vendor', value: 'BMW' }]],
-      [[/dilink.+(byd) auto/i], [{ type: AssignKind.Capture, group: 1, field: 'vendor' }]],
+      [[/aftlbt962e2/i], [{ type: 'literal', field: 'vendor', value: 'BMW' }]],
+      [[/dilink.+(byd) auto/i], [{ type: 'capture', group: 1, field: 'vendor' }]],
       [
         [/aftlft962x3/i],
         [
-          { type: AssignKind.Literal, field: 'vendor', value: 'Jeep' },
-          { type: AssignKind.Literal, field: 'model', value: 'Wagooner' },
+          { type: 'literal', field: 'vendor', value: 'Jeep' },
+          { type: 'literal', field: 'model', value: 'Wagooner' },
         ],
       ],
       [
         [/(rivian) (r1t)/i],
         [
-          { type: AssignKind.Capture, group: 1, field: 'vendor' },
-          { type: AssignKind.Capture, group: 2, field: 'model' },
+          { type: 'capture', group: 1, field: 'vendor' },
+          { type: 'capture', group: 2, field: 'model' },
         ],
       ],
-      [[/vcc.+netfront/i], [{ type: AssignKind.Literal, field: 'vendor', value: 'Volvo' }]],
+      [[/vcc.+netfront/i], [{ type: 'literal', field: 'vendor', value: 'Volvo' }]],
     ],
   },
 } as const satisfies ExtensionsData;

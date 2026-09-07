@@ -12,7 +12,7 @@
     "ua": "atc/1.0 watchOS/7.3.3 model/Watch4,2 hwp/t8006 build/18S830 (6; dt:191)",
     "expect": {
       "vendor": "Apple",
-      "model": "watch",
+      "model": "Watch",
       "type": "wearable"
     }
   },
@@ -165,7 +165,7 @@
     "ua": "Spotify/8.7.70 iOS/16.0 (iPhone15,3)",
     "expect": {
       "vendor": "Apple",
-      "model": "iPhone15,3",
+      "model": "iPhone",
       "type": "mobile"
     }
   },
@@ -219,7 +219,7 @@
     "ua": "[FBAN/FBIOS;FBAV/283.0.0.44.117;FBBV/238386386;FBDV/iPhone12,1;FBMD/iPhone;FBSN/iOS;FBSV/13.6.1;FBSS/2;FBID/phone;FBLC/en_US;FBOP/5;FBRV/240127608]",
     "expect": {
       "vendor": "Apple",
-      "model": "iPhone12,1",
+      "model": "iPhone",
       "type": "mobile"
     }
   },

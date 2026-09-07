@@ -5,26 +5,15 @@ import {
   isNonNullish,
   isString,
   isTruthy,
-  mergeDeep,
   pipe,
+  setPath,
   when,
 } from 'remeda';
 
 import { isBrowser } from '@/env';
-import { DEVICE_TYPE, type Result } from '@/types';
+import { type Result } from '@/types';
 
-type NavigatorLike = {
-  userAgent?: string;
-  standalone?: boolean;
-  maxTouchPoints?: number;
-  brave?: { isBrave?: unknown };
-  userAgentData?: {
-    mobile?: boolean;
-    platform?: string;
-  };
-};
-
-const getNavigator = (): NavigatorLike | undefined => {
+const getNavigator = () => {
   if (!isBrowser() || !hasProp(globalThis, 'navigator')) return;
 
   return globalThis.navigator;
@@ -41,15 +30,11 @@ export const applyFeatureCheck = (result: Result): Result => {
     result,
     when(
       () => isFunction(nav?.brave?.isBrave),
-      mergeDeep({
-        browser: { name: 'Brave' },
-      }),
+      (next) => setPath(next, ['browser', 'name'], 'Brave'),
     ),
     when(
       (next) => isTruthy(nav?.userAgentData?.mobile) && isEmptyish(next.device.type),
-      mergeDeep({
-        device: { type: DEVICE_TYPE.MOBILE },
-      }),
+      (next) => setPath(next, ['device', 'type'], 'mobile'),
     ),
     when(
       (next) =>
@@ -58,16 +43,16 @@ export const applyFeatureCheck = (result: Result): Result => {
         hasProp(nav, 'standalone') &&
         isNonNullish(nav.maxTouchPoints) &&
         nav.maxTouchPoints > 2,
-      mergeDeep({
-        device: { model: 'iPad', type: DEVICE_TYPE.TABLET },
-      }),
+      (next) =>
+        pipe(
+          next,
+          (next) => setPath(next, ['device', 'model'], 'iPad'),
+          (next) => setPath(next, ['device', 'type'], 'tablet'),
+        ),
     ),
     when(
       (next) => isEmptyish(next.os.name) && isNonNullish(nav?.userAgentData?.platform),
-      (next) =>
-        mergeDeep(next, {
-          os: { name: nav?.userAgentData?.platform },
-        }),
+      (next) => setPath(next, ['os', 'name'], nav?.userAgentData?.platform),
     ),
   );
 };

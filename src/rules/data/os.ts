@@ -1,14 +1,13 @@
 import { windowsVersionMap } from '@/rules/data/maps';
-import { AssignKind } from '@/rules/kinds';
 import type { AuthoredCategory } from '@/rules/load';
 
 export const osRulesData = [
   [
     [/(windows nt) (6\.[23]); arm/i],
     [
-      { type: AssignKind.Replace, group: 1, field: 'name', replace: [/N/, 'R'] as const },
+      { type: 'replace', group: 1, field: 'name', replace: [/N/, 'R'] as const },
       {
-        type: AssignKind.Map,
+        type: 'map',
         group: 2,
         field: 'version',
         map: windowsVersionMap,
@@ -21,28 +20,28 @@ export const osRulesData = [
       /(windows)[/ ](1[01]|2000|3\.1|7|8(\.1)?|9[58]|me|server 20\d\d( r2)?|vista|xp)/i,
     ],
     [
-      { type: AssignKind.Capture, group: 1, field: 'name' },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'capture', group: 1, field: 'name' },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
   [
     [/windows nt ?([\d.)]*)(?!.+xbox)/i, /\bwin(?=3| ?9|n)(?:nt| 9x )?([\d.;]*)/i],
     [
       {
-        type: AssignKind.ReplaceMap,
+        type: 'replace-map',
         group: 1,
         field: 'version',
         replace: [/(;|\))/g, ''] as const,
         map: windowsVersionMap,
       },
-      { type: AssignKind.Literal, field: 'name', value: 'Windows' },
+      { type: 'literal', field: 'name', value: 'Windows' },
     ],
   ],
   [
     [/(windows ce)\/?([\d.]*)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'name' },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'capture', group: 1, field: 'name' },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
   [
@@ -53,69 +52,69 @@ export const osRulesData = [
       /cfnetwork\/.+darwin/i,
     ],
     [
-      { type: AssignKind.Replace, group: 1, field: 'version', replace: [/_/g, '.'] as const },
-      { type: AssignKind.Literal, field: 'name', value: 'iOS' },
+      { type: 'replace', group: 1, field: 'version', replace: [/_/g, '.'] as const },
+      { type: 'literal', field: 'name', value: 'iOS' },
     ],
   ],
   [
     [/(mac os x) ?([\w. ]*)/i, /(macintosh|mac_powerpc\b)(?!.+(haiku|morphos))/i],
     [
-      { type: AssignKind.Literal, field: 'name', value: 'macOS' },
-      { type: AssignKind.Replace, group: 2, field: 'version', replace: [/_/g, '.'] as const },
+      { type: 'literal', field: 'name', value: 'macOS' },
+      { type: 'replace', group: 2, field: 'version', replace: [/_/g, '.'] as const },
     ],
   ],
   [
     [/android ([\d.]+).*crkey/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Chromecast Android' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Chromecast Android' },
     ],
   ],
   [
     [/fuchsia.*crkey\/([\d.]+)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Chromecast Fuchsia' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Chromecast Fuchsia' },
     ],
   ],
   [
     [/crkey\/([\d.]+).*devicetype\/smartspeaker/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Chromecast SmartSpeaker' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Chromecast SmartSpeaker' },
     ],
   ],
   [
     [/linux.*crkey\/([\d.]+)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Chromecast Linux' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Chromecast Linux' },
     ],
   ],
   [
     [/crkey\/([\d.]+)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Chromecast' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Chromecast' },
     ],
   ],
   [
     [/droid ([\w.]+)\b.+(android[- ]x86)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Capture, group: 2, field: 'name' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'capture', group: 2, field: 'name' },
     ],
   ],
   [
     [/(ubuntu) ([\w.]+) like android/i],
     [
       {
-        type: AssignKind.Replace,
+        type: 'replace',
         group: 1,
         field: 'name',
         replace: [/(.+)/, '$1 Touch'] as const,
       },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
   [
@@ -124,22 +123,22 @@ export const osRulesData = [
       /(android|bada|blackberry|kaios|maemo|meego|openharmony|qnx|rim tablet os|sailfish|series40|symbian|tizen)\w*[-/.; ]?([\d.]*)/i,
     ],
     [
-      { type: AssignKind.Capture, group: 1, field: 'name' },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'capture', group: 1, field: 'name' },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
   [
     [/\(bb(10);/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'BlackBerry' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'BlackBerry' },
     ],
   ],
   [
     [/(?:symbian ?os|symbos|s60(?=;)|series ?60)[-/ ]?([\w.]*)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Symbian' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Symbian' },
     ],
   ],
   [
@@ -147,22 +146,22 @@ export const osRulesData = [
       /mozilla\/[\d.]+ \((?:mobile[;\w ]*|tablet|tv|[^)]*(?:viera|lg(?:l25|-d300)|alcatel ?o.+|y300-f1)); rv:([\w.]+)\).+gecko\//i,
     ],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Firefox OS' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Firefox OS' },
     ],
   ],
   [
     [/\b(?:hp)?wos(?:browser)?\/([\w.]+)/i, /webos(?:[ /]?|\.tv-20(?=2[2-9]))(\d[\d.]*)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'webOS' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'webOS' },
     ],
   ],
   [
     [/web0s;.+?(?:chr[o0]me|safari)\/(\d+)/i],
     [
       {
-        type: AssignKind.Map,
+        type: 'map',
         group: 1,
         field: 'version',
         map: {
@@ -179,28 +178,28 @@ export const osRulesData = [
           '*': 'TV',
         },
       },
-      { type: AssignKind.Literal, field: 'name', value: 'webOS' },
+      { type: 'literal', field: 'name', value: 'webOS' },
     ],
   ],
   [
     [/watch(?: ?os[,/ ]|\d,\d\/)([\d.]+)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'watchOS' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'watchOS' },
     ],
   ],
   [
     [/cros [\w]+(?:\)| ([\w.]+)\b)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Chrome OS' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Chrome OS' },
     ],
   ],
   [
     [/kepler ([\w.]+); (aft|aeo)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'version' },
-      { type: AssignKind.Literal, field: 'name', value: 'Vega OS' },
+      { type: 'capture', group: 1, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Vega OS' },
     ],
   ],
   [
@@ -222,22 +221,22 @@ export const osRulesData = [
       /(haiku) ?(r\d)?/i,
     ],
     [
-      { type: AssignKind.Capture, group: 1, field: 'name' },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'map', group: 1, field: 'name', map: { PICO: 'pico' } },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
   [
     [/(sunos) ?([\d.]*)/i],
     [
-      { type: AssignKind.Literal, field: 'name', value: 'Solaris' },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'literal', field: 'name', value: 'Solaris' },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
   [
     [/\b(beos|os\/2|amigaos|openvms|hp-ux|serenityos)/i, /(unix) ?([\w.]*)/i],
     [
-      { type: AssignKind.Capture, group: 1, field: 'name' },
-      { type: AssignKind.Capture, group: 2, field: 'version' },
+      { type: 'capture', group: 1, field: 'name' },
+      { type: 'capture', group: 2, field: 'version' },
     ],
   ],
 ] as const satisfies AuthoredCategory;

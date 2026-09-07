@@ -4,90 +4,82 @@
  * @module @iamsquare/ua/bots
  */
 
-import { isIncludedIn, isString, map, pipe, toLowerCase } from 'remeda';
+import { isIncludedIn, isString, toLowerCase } from 'remeda';
+import type { ValueOf } from 'type-fest';
 
-import { BrowserType, Extension } from '@/enums';
+import { type BrowserType, type Extension } from '@/enums';
 import { bots, crawler, fetcher } from '@/extensions';
 import { parseBrowser } from '@/parse-ua';
 import type { Result } from '@/types';
 
-const BOT_TYPES = map(
-  [BrowserType.CLI, BrowserType.CRAWLER, BrowserType.FETCHER, BrowserType.LIBRARY],
-  toLowerCase(),
-);
+const BOT_TYPES = ['cli', 'crawler', 'fetcher', 'library'] satisfies ValueOf<typeof BrowserType>[];
 
-const AI_ASSISTANTS = map(
-  [
-    Extension.BrowserName.Fetcher.AMAZON_NOVA_ACT,
-    Extension.BrowserName.Fetcher.ANTHROPIC_CLAUDE_USER,
-    Extension.BrowserName.Fetcher.COHERE_AI,
-    Extension.BrowserName.Fetcher.DUCKDUCKGO_ASSISTBOT,
-    Extension.BrowserName.Fetcher.GOOGLE_GEMINI_DEEP_RESEARCH,
-    Extension.BrowserName.Fetcher.MISTRALAI_USER,
-    Extension.BrowserName.Fetcher.OPENAI_CHATGPT_USER,
-    Extension.BrowserName.Fetcher.PERPLEXITY_USER,
-  ],
-  toLowerCase(),
-);
+const AI_ASSISTANTS = [
+  'chatgpt-user',
+  'claude-user',
+  'cohere-ai',
+  'duckassistbot',
+  'gemini-deep-research',
+  'mistralai-user',
+  'novaact',
+  'perplexity-user',
+] satisfies Lowercase<ValueOf<typeof Extension.BrowserName.Fetcher>>[];
 
-const AI_CRAWLERS = pipe(
-  [
-    Extension.BrowserName.Crawler.AI2_BOT,
-    Extension.BrowserName.Crawler.AMAZON_BOT,
-    Extension.BrowserName.Crawler.ANTHROPIC_AI,
-    Extension.BrowserName.Crawler.ANTHROPIC_CLAUDE_BOT,
-    Extension.BrowserName.Crawler.ANTHROPIC_CLAUDE_SEARCHBOT,
-    Extension.BrowserName.Crawler.ANTHROPIC_CLAUDE_WEB,
-    Extension.BrowserName.Crawler.APPLE_BOT,
-    Extension.BrowserName.Crawler.APPLE_BOT_EXTENDED,
-    Extension.BrowserName.Crawler.ATLASSIAN_BOT,
-    Extension.BrowserName.Crawler.BRAVE_BOT,
-    Extension.BrowserName.Crawler.BYTEDANCE_BYTESPIDER,
-    Extension.BrowserName.Crawler.BYTEDANCE_TIKTOKSPIDER,
-    Extension.BrowserName.Crawler.CLOUDFLARE_AUTORAG,
-    Extension.BrowserName.Crawler.COHERE_TRAINING_DATA_CRAWLER,
-    Extension.BrowserName.Crawler.COMMON_CRAWL_CCBOT,
-    Extension.BrowserName.Crawler.COVEO_BOT,
-    Extension.BrowserName.Crawler.DATAFORSEO_BOT,
-    Extension.BrowserName.Crawler.DEEPSEEK_BOT,
-    Extension.BrowserName.Crawler.DIFFBOT,
-    Extension.BrowserName.Crawler.GOOGLE_EXTENDED,
-    Extension.BrowserName.Crawler.GOOGLE_NOTEBOOKLM,
-    Extension.BrowserName.Crawler.GOOGLE_OTHER,
-    Extension.BrowserName.Crawler.GOOGLE_OTHER_IMAGE,
-    Extension.BrowserName.Crawler.GOOGLE_OTHER_VIDEO,
-    Extension.BrowserName.Crawler.GOOGLE_CLOUDVERTEXBOT,
-    Extension.BrowserName.Crawler.HIVE_IMAGESIFTBOT,
-    Extension.BrowserName.Crawler.HUAWEI_PETALBOT,
-    Extension.BrowserName.Crawler.HUAWEI_PANGUBOT,
-    Extension.BrowserName.Crawler.HUGGINGFACE_BOT,
-    Extension.BrowserName.Crawler.KANGAROO_BOT,
-    Extension.BrowserName.Crawler.FIRECRAWL_AGENT,
-    Extension.BrowserName.Crawler.META_FACEBOOKBOT,
-    Extension.BrowserName.Crawler.META_EXTERNALAGENT,
-    Extension.BrowserName.Crawler.META_WEBINDEXER,
-    Extension.BrowserName.Crawler.MOONSHOT_KIMIBOT,
-    Extension.BrowserName.Crawler.OPENAI_GPTBOT,
-    Extension.BrowserName.Crawler.OPENAI_SEARCH_BOT,
-    Extension.BrowserName.Crawler.PERPLEXITY_BOT,
-    Extension.BrowserName.Crawler.REPLICATE_BOT,
-    Extension.BrowserName.Crawler.RUNPOD_BOT,
-    Extension.BrowserName.Crawler.SB_INTUITIONS_BOT,
-    Extension.BrowserName.Crawler.SEMRUSH_BOT_CONTENTSHAKE,
-    Extension.BrowserName.Crawler.SEMRUSH_BOT_SWA,
-    Extension.BrowserName.Crawler.TIMPI_BOT,
-    Extension.BrowserName.Crawler.TOGETHER_BOT,
-    Extension.BrowserName.Crawler.HUNTER_VELENPUBLICWEBCRAWLER,
-    Extension.BrowserName.Crawler.VERCEL_V0BOT,
-    Extension.BrowserName.Crawler.WEBZIO_OMGILI,
-    Extension.BrowserName.Crawler.WEBZIO_OMGILI_BOT,
-    Extension.BrowserName.Crawler.WEBZIO_EXTENDED,
-    Extension.BrowserName.Crawler.XAI_BOT,
-    Extension.BrowserName.Crawler.YOU_BOT,
-    Extension.BrowserName.Crawler.ZHIPU_CHATGLM_SPIDER,
-  ],
-  map(toLowerCase()),
-);
+const AI_CRAWLERS = [
+  'ai2bot',
+  'amazonbot',
+  'anthropic-ai',
+  'applebot-extended',
+  'applebot',
+  'atlassian-bot',
+  'bravebot',
+  'bytespider',
+  'ccbot',
+  'chatglm-spider',
+  'claude-searchbot',
+  'claude-web',
+  'claudebot',
+  'cloudflare-autorag',
+  'cohere-training-data-crawler',
+  'coveobot',
+  'dataforseobot',
+  'deepseekbot',
+  'diffbot',
+  'facebookbot',
+  'firecrawlagent',
+  'google-cloudvertexbot',
+  'google-extended',
+  'google-notebooklm',
+  'googleother-image',
+  'googleother-video',
+  'googleother',
+  'gptbot',
+  'huggingface-bot',
+  'imagesiftbot',
+  'kangaroo bot',
+  'kimibot',
+  'meta-externalagent',
+  'meta-webindexer',
+  'oai-searchbot',
+  'omgili',
+  'omgilibot',
+  'pangubot',
+  'perplexitybot',
+  'petalbot',
+  'replicate-bot',
+  'runpod-bot',
+  'sbintuitionsbot',
+  'semrushbot-ocob',
+  'semrushbot-swa',
+  'tiktokspider',
+  'timpibot',
+  'together-bot',
+  'v0bot',
+  'velenpublicwebcrawler',
+  'webzio-extended',
+  'xai-bot',
+  'youbot',
+] satisfies Lowercase<ValueOf<typeof Extension.BrowserName.Crawler>>[];
 
 const resolveBrowserName = (resultOrUa: Result | string) => {
   const browser = isString(resultOrUa)

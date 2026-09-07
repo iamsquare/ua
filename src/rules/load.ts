@@ -54,45 +54,49 @@ export type ExtensionsData = Record<string, Partial<Record<string, AuthoredCateg
 const toAssign = (item: AuthoredAssign): Assign => {
   switch (item.type) {
     case AssignKind.Literal:
-      return { type: AssignKind.Literal, field: item.field, value: item.value };
+      return {
+        type: 'literal',
+        field: item.field,
+        value: item.value,
+      };
     case AssignKind.Capture:
       return item.transform
         ? {
-            type: AssignKind.Capture,
+            type: 'capture',
             field: item.field,
             group: item.group,
             transform: transforms[item.transform],
           }
         : {
-            type: AssignKind.Capture,
+            type: 'capture',
             field: item.field,
             group: item.group,
           };
     case AssignKind.Replace:
       return item.transform
         ? {
-            type: AssignKind.Replace,
+            type: 'replace',
             field: item.field,
             group: item.group,
             replace: item.replace,
             transform: transforms[item.transform],
           }
         : {
-            type: AssignKind.Replace,
+            type: 'replace',
             field: item.field,
             group: item.group,
             replace: item.replace,
           };
     case AssignKind.Map:
       return {
-        type: AssignKind.Map,
+        type: 'map',
         field: item.field,
         group: item.group,
         map: item.map,
       };
     case AssignKind.ReplaceMap:
       return {
-        type: AssignKind.ReplaceMap,
+        type: 'replace-map',
         field: item.field,
         group: item.group,
         replace: item.replace,
@@ -100,7 +104,7 @@ const toAssign = (item: AuthoredAssign): Assign => {
       };
     case AssignKind.Test:
       return {
-        type: AssignKind.Test,
+        type: 'test',
         field: item.field,
         group: item.group,
         test: item.test,

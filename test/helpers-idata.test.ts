@@ -34,13 +34,7 @@ describe('is / toString helpers', () => {
     );
 
     expect(isBrowser(result.browser, BrowserName.CHROME)).toBe(true);
-    expect(isBrowser(result.browser, 'chrome')).toBe(true);
     expect(isBrowser(result.browser, result.browser.version ?? '')).toBe(false);
-  });
-
-  it('strips Browser / OS suffixes via typed helpers', () => {
-    expect(isBrowser({ name: 'Android Browser' }, 'Android')).toBe(true);
-    expect(isOS({ name: 'Mac OS' }, 'Mac')).toBe(true);
   });
 
   it('matches engine name via isEngine and ignores version', () => {
@@ -48,7 +42,7 @@ describe('is / toString helpers', () => {
     expect(isEngine({ name: EngineName.BLINK, version: '120' }, '120')).toBe(false);
   });
 
-  it('allows generic is for custom ignore/strip', () => {
+  it('allows generic is for custom ignore', () => {
     expect(is({ name: 'Chrome', version: '120' }, '120')).toBe(true);
     expect(is({ name: 'Chrome', version: '120' }, '120', { ignore: ['version'] })).toBe(false);
   });

@@ -13,9 +13,10 @@ export type AssignKind = ValueOf<typeof AssignKind>;
 
 export const TransformKind = {
   Lower: 'lower',
+  Upper: 'upper',
   Trim: 'trim',
   Email: 'email',
-  AndroidOrIos: 'aos',
+  AndroidOrIos: 'androidOrIos',
 } as const;
 
 export type TransformKind = ValueOf<typeof TransformKind>;

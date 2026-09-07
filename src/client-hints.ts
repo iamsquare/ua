@@ -15,7 +15,8 @@ import {
 
 import { headerValue } from '@/headers';
 import { majorFromVersion, mapString, matchRules } from '@/match-rules';
-import { coreMaps, cpuRules, deviceRules } from '@/rules';
+import { cpuRules, deviceRules } from '@/rules';
+import { formFactorsMap, browserHintsMap } from '@/rules/data/maps';
 import type { Browser, CPU, Device, Engine, HeadersLike, OS, Result } from '@/types';
 
 type BrandEntry = { brand: string; version?: string };
@@ -108,7 +109,7 @@ const applyBrandHints = (browser: Browser, engine: Engine, brands?: BrandEntry[]
             : acc;
         }
 
-        const brandName = mapString(entry.brand, coreMaps.browserHintsMap) ?? entry.brand;
+        const brandName = mapString(entry.brand, browserHintsMap) ?? entry.brand;
         const existingName = acc.browser.name;
 
         const nextBrowser =
@@ -166,7 +167,7 @@ const applyFormFactorHint = (device: Device, formFactors?: ClientHints['formFact
 
   const formFactor = pipe(
     factors,
-    map((factor) => mapString(factor, coreMaps.formFactorsMap)),
+    map((factor) => mapString(factor, formFactorsMap)),
     find(isNonNullish),
   );
 
