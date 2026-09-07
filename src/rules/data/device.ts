@@ -5,7 +5,7 @@ export const deviceRulesData = [
   [
     [/(?:\/|\()(ip(?:hone|od)[\w, ]*)[/);]/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Apple' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -13,7 +13,7 @@ export const deviceRulesData = [
   [
     [/\b(?:ios|apple\w+)\/.+[(/](ipad)/i, /\b(ipad)[\d,]*[;\] ].+(mac |i(pad)?)os/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Apple' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -21,14 +21,14 @@ export const deviceRulesData = [
   [
     [/(macintosh);/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Apple' },
     ],
   ],
   [
     [/\b(sch-i[89]0\d|shw-m380s|sm-[ptx]\w{2,4}|gt-[pn]\d{2,4}|sgh-t8[56]9|nexus 10)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Samsung' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -40,7 +40,7 @@ export const deviceRulesData = [
       /sec-(sgh\w+)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Samsung' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -48,7 +48,7 @@ export const deviceRulesData = [
   [
     [/(pixel (c|tablet))\b/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Google' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -58,7 +58,7 @@ export const deviceRulesData = [
       /droid.+;(?: google)? (g(01[13]a|020[aem]|025[jn]|1b60|1f8f|2ybb|4s1m|576d|5nz6|8hhn|8vou|a02099|c15s|d1yq|e2ae|ec77|gh2x|kv4x|p4bc|pj41|r83y|tt9q|ur25|wvk6)|pixel[\d ]*a?( pro)?( xl)?( fold)?( \(5g\))?)( bui|\))/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Google' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -66,8 +66,8 @@ export const deviceRulesData = [
   [
     [/(google) (pixelbook( go)?)/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
     ],
   ],
   [
@@ -76,7 +76,7 @@ export const deviceRulesData = [
       /\b(?:xiao)?((?:red)?mi[-_ ]?pad[\w- ]*)(?: bui|\))/i,
     ],
     [
-      { type: AssignKind.Replace, field: 'model', replace: [/_/g, ' '] as const },
+      { type: AssignKind.Replace, group: 1, field: 'model', replace: [/_/g, ' '] as const },
       { type: AssignKind.Literal, field: 'vendor', value: 'Xiaomi' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -90,7 +90,7 @@ export const deviceRulesData = [
       /; ([\w ]+) miui\/v?\d/i,
     ],
     [
-      { type: AssignKind.Replace, field: 'model', replace: [/_/g, ' '] as const },
+      { type: AssignKind.Replace, group: 1, field: 'model', replace: [/_/g, ' '] as const },
       { type: AssignKind.Literal, field: 'vendor', value: 'Xiaomi' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -98,7 +98,7 @@ export const deviceRulesData = [
   [
     [/\b(sh-?[altvz]?\d\d[a-ekm]?)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Sharp' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -106,7 +106,7 @@ export const deviceRulesData = [
   [
     [/\b((?:brt|eln|hey2?|gdi|jdn)-a?[lnw]09|(?:ag[rm]3?|jdn2|kob2)-a?[lw]0[09]hn)(?: bui|\)|;)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Honor' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -114,7 +114,7 @@ export const deviceRulesData = [
   [
     [/honor([-\w ]+)[;)]/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Honor' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -124,7 +124,7 @@ export const deviceRulesData = [
       /\b((?:ag[rs][2356]?k?|bah[234]?|bg[2o]|bt[kv]|cmr|cpn|db[ry]2?|jdn2|got|kob2?k?|mon|pce|scm|sht?|[tw]gr|vrd)-[ad]?[lw][0125][09]b?|605hw|bg2-u03|(?:gem|fdr|m2|ple|t1)-[7a]0[1-4][lu]|t1-a2[13][lw]|mediapad[\w. ]*(?= bui|\)))\b(?!.+d\/s)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Huawei' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -135,7 +135,7 @@ export const deviceRulesData = [
       /\b(nexus 6p|\w{2,4}e?-[atu]?[ln][\dx][\dc][adnt]?)\b(?!.+d\/s)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Huawei' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -146,7 +146,7 @@ export const deviceRulesData = [
       /(?:one)?(?:plus)? (a\d0\d\d)(?: b|\))/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'OnePlus' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -154,7 +154,7 @@ export const deviceRulesData = [
   [
     [/; (\w+) bui.+ oppo/i, /\b(cph[12]\d{3}|p(?:af|c[al]|d\w|e[ar])[mt]\d0|x9007|a101op)\b/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'OPPO' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -162,9 +162,10 @@ export const deviceRulesData = [
   [
     [/\b(opd2(\d{3}a?))(?: bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       {
         type: AssignKind.Map,
+        group: 2,
         field: 'vendor',
         map: {
           OnePlus: ['203', '304', '403', '404', '413', '415'],
@@ -177,7 +178,7 @@ export const deviceRulesData = [
   [
     [/(vivo (5r?|6|8l?|go|one|s|x[il]?[2-4]?)[\w+ ]*)(?: bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'BLU' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -185,7 +186,7 @@ export const deviceRulesData = [
   [
     [/; vivo (\w+)(?: bui|\))/i, /\b(v[12]\d{3}\w?[at])(?: bui|;)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Vivo' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -193,7 +194,7 @@ export const deviceRulesData = [
   [
     [/\b(rmx[1-3]\d{3})(?: bui|;|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Realme' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -204,7 +205,7 @@ export const deviceRulesData = [
       /lenovo ?(b[68]0[08]0-?[hf]?|tab(?:[\w- ]+?)|tb[\w-]{6,7})( bui|;|\)|\/)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Lenovo' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -212,7 +213,7 @@ export const deviceRulesData = [
   [
     [/lenovo[-_ ]?([-\w ]+?)(?: bui|\)|\/)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Lenovo' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -224,7 +225,7 @@ export const deviceRulesData = [
       /((?:moto(?! 360)[-\w() ]+|xt\d{3,4}[cgkosw+]?[-\d]*|nexus 6)(?= bui|\)))/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Motorola' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -232,7 +233,7 @@ export const deviceRulesData = [
   [
     [/\b(mz60\d|xoom[2 ]{0,2}) build\//i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Motorola' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -240,7 +241,7 @@ export const deviceRulesData = [
   [
     [/\b(?:lg)?([vl]k-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'LG' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -252,7 +253,7 @@ export const deviceRulesData = [
       /\blg-?([\d\w]+) bui/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'LG' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -260,15 +261,15 @@ export const deviceRulesData = [
   [
     [/(nokia) (t[12][01])/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
   ],
   [
     [/(?:maemo|nokia).*(n900|lumia \d+|rm-\d+)/i, /nokia[-_ ]?(([-\w. ]*?))( bui|\)|;|\/)/i],
     [
-      { type: AssignKind.Replace, field: 'model', replace: [/_/g, ' '] as const },
+      { type: AssignKind.Replace, group: 1, field: 'model', replace: [/_/g, ' '] as const },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Nokia' },
     ],
@@ -278,7 +279,7 @@ export const deviceRulesData = [
       /droid.+; (a?\d{3}so|[c-g]\d{4}|so[-gl]\w+|xq-\w\w\d\d)(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Sony' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -294,7 +295,7 @@ export const deviceRulesData = [
   [
     [/(alexa)webm/i, /(kf[a-z]{2}wi|aeo(?!bc)\w\w)( bui|\))/i, /(kf[a-z]+)( bui|\)).+silk\//i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Amazon' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -304,6 +305,7 @@ export const deviceRulesData = [
     [
       {
         type: AssignKind.Replace,
+        group: 1,
         field: 'model',
         replace: [/(.+)/g, 'Fire Phone $1'] as const,
       },
@@ -314,15 +316,15 @@ export const deviceRulesData = [
   [
     [/(playbook);[-\w),; ]+(rim)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
-      { type: AssignKind.Capture, field: 'vendor' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
+      { type: AssignKind.Capture, group: 2, field: 'vendor' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
   ],
   [
     [/\b((?:bb[a-f]|st[hv])100-\d)/i, /(?:blackberry|\(bb10;) (\w+)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'BlackBerry' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -330,7 +332,7 @@ export const deviceRulesData = [
   [
     [/(?:\b|asus_)(transfo[prime ]{4,10} \w+|eeepc|slider \w+|nexus 7|padfone|p00[cj])/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'ASUS' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -338,7 +340,7 @@ export const deviceRulesData = [
   [
     [/ (z[bes]6[027][012][km][ls]|zenfone \d\w?)\b/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'ASUS' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -346,7 +348,7 @@ export const deviceRulesData = [
   [
     [/(nexus 9)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'HTC' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -358,8 +360,8 @@ export const deviceRulesData = [
       /(alcatel|geeksphone|nexian|panasonic(?!(?:;|\.))|sony(?!-bra))[-_ ]?([-\w]*)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Replace, field: 'model', replace: [/_/g, ' '] as const },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Replace, group: 2, field: 'model', replace: [/_/g, ' '] as const },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
   ],
@@ -369,7 +371,7 @@ export const deviceRulesData = [
       /droid [\w.]+; ((?:8[14]9[16]|9(?:0(?:48|60|8[01])|1(?:3[27]|66)|2(?:6[69]|9[56])|466))[gqswx])(_\w(\w|\w\w))?(\)| bui)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'TCL' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -379,7 +381,7 @@ export const deviceRulesData = [
       /droid [\w.]+; (418(?:7d|8v)|5087z|5102l|61(?:02[dh]|25[adfh]|27[ai]|56[dh]|59k|65[ah])|a509dl|t(?:43(?:0w|1[adepqu])|50(?:6d|7[adju])|6(?:09dl|10k|12b|71[efho]|76[hjk])|7(?:66[ahju]|67[hw]|7[045][bh]|71[hk]|73o|76[ho]|79w|81[hks]?|82h|90[bhsy]|99b)|810[hs]))(_\w(\w|\w\w))?(\)| bui)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'TCL' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -387,10 +389,11 @@ export const deviceRulesData = [
   [
     [/(itel) ((\w+))/i],
     [
-      { type: AssignKind.Capture, field: 'vendor', transform: TransformKind.Lower },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor', transform: TransformKind.Lower },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       {
         type: AssignKind.Map,
+        group: 3,
         field: 'type',
         map: {
           tablet: ['p10001l', 'w7001'],
@@ -402,7 +405,7 @@ export const deviceRulesData = [
   [
     [/droid.+; ([ab][1-7]-?[0178a]\d\d?)( bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Acer' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -410,7 +413,7 @@ export const deviceRulesData = [
   [
     [/droid.+; (m[1-5] note) bui/i, /\bmz-([-\w]{2,})/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Meizu' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -418,7 +421,7 @@ export const deviceRulesData = [
   [
     [/; ((?:power )?armor(?:[\w ]{0,8}))(?: bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Ulefone' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -426,7 +429,7 @@ export const deviceRulesData = [
   [
     [/; (energy ?\w+)(?: bui|\))/i, /; energizer ([\w ]+)(?: bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Energizer' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -434,7 +437,7 @@ export const deviceRulesData = [
   [
     [/; cat (b35);/i, /; (b15q?|s22 flip|s48c|s62 pro)(?: bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Cat' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -442,7 +445,7 @@ export const deviceRulesData = [
   [
     [/((?:new )?andromax[\w- ]+)(?: bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Smartfren' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -450,7 +453,7 @@ export const deviceRulesData = [
   [
     [/droid.+; (a(in)?(0(15|59|6[35])|142)p?)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Nothing' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -461,7 +464,7 @@ export const deviceRulesData = [
       /archos ?(5|gamepad2?|([\w ]*[t1789]|hello) ?\d+[\w ]*)( b|\))/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Archos' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -469,7 +472,7 @@ export const deviceRulesData = [
   [
     [/archos ([\w ]+)( b|\))/i, /; (ac[3-6]\d\w{2,8})( b|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Archos' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -477,7 +480,7 @@ export const deviceRulesData = [
   [
     [/blackview ([-\w ]+)( b|\))/i, /; (a200 pro|bv\d{4}[-\w ]*)( b|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Blackview' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -485,7 +488,7 @@ export const deviceRulesData = [
   [
     [/; (n159v)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'HMD' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -493,9 +496,10 @@ export const deviceRulesData = [
   [
     [/((revvl[ \w+]+|tm(?:rv|af)\w*[45]g(?:tb)?))( b|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       {
         type: AssignKind.Test,
+        group: 2,
         field: 'type',
         test: /ta?b/i,
         ifTrue: 'tablet',
@@ -510,8 +514,8 @@ export const deviceRulesData = [
       /(infinix|tecno) (x1101b?|p904|dp(7c|8d|10a)( pro)?|p70[1-3]a?|p904|t1101)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
   ],
@@ -526,23 +530,23 @@ export const deviceRulesData = [
       /droid[^;]+; (philips)[_ ]([sv-x][\d]{3,4}[xz]?)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
   ],
   [
     [/(kobo)\s(ereader|touch)/i, /(hp).+(touchpad(?!.+tablet)|tablet)/i, /(kindle)\/([\w.]+)/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
   ],
   [
     [/(surface duo)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Microsoft' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -550,7 +554,7 @@ export const deviceRulesData = [
   [
     [/droid [\d.]+; (fp\du?)(?: b|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Fairphone' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -558,7 +562,7 @@ export const deviceRulesData = [
   [
     [/((?:tegranote|shield t(?!.+d tv))[\w- ]*?)(?: b|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Nvidia' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -566,15 +570,15 @@ export const deviceRulesData = [
   [
     [/(sprint) (\w+)/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
   ],
   [
     [/(kin\.[onetw]{3})/i],
     [
-      { type: AssignKind.Replace, field: 'model', replace: [/\./g, ' '] as const },
+      { type: AssignKind.Replace, group: 1, field: 'model', replace: [/\./g, ' '] as const },
       { type: AssignKind.Literal, field: 'vendor', value: 'Microsoft' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -582,7 +586,7 @@ export const deviceRulesData = [
   [
     [/droid.+; ([c6]+|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Zebra' },
       { type: AssignKind.Literal, field: 'type', value: 'tablet' },
     ],
@@ -590,7 +594,7 @@ export const deviceRulesData = [
   [
     [/droid.+; (ec30|ps20|tc[2-8]\d[kx])\)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Zebra' },
       { type: AssignKind.Literal, field: 'type', value: 'mobile' },
     ],
@@ -598,7 +602,7 @@ export const deviceRulesData = [
   [
     [/(philips)[\w ]+tv/i, /smart-tv.+(samsung)/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
   ],
@@ -607,6 +611,7 @@ export const deviceRulesData = [
     [
       {
         type: AssignKind.Replace,
+        group: 1,
         field: 'model',
         replace: [/^/, 'SmartTV'] as const,
       },
@@ -617,8 +622,8 @@ export const deviceRulesData = [
   [
     [/(vizio)(?: |.+model\/)(\w+-\w+)/i, /tcast.+(lg)e?. ([-\w]+)/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
   ],
@@ -632,7 +637,7 @@ export const deviceRulesData = [
   [
     [/(apple) ?tv/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
       { type: AssignKind.Literal, field: 'model', value: 'Apple TV' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -650,6 +655,7 @@ export const deviceRulesData = [
     [
       {
         type: AssignKind.Replace,
+        group: 1,
         field: 'model',
         replace: [/^/, 'Chromecast '] as const,
       },
@@ -676,7 +682,7 @@ export const deviceRulesData = [
   [
     [/(portaltv)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Facebook' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -684,7 +690,7 @@ export const deviceRulesData = [
   [
     [/droid.+aft(\w+)( bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Amazon' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -692,7 +698,7 @@ export const deviceRulesData = [
   [
     [/(shield \w+ tv)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Nvidia' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -700,7 +706,7 @@ export const deviceRulesData = [
   [
     [/\(dtv[);].+(aquos)/i, /(aquos-tv[\w ]+)\)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Sharp' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -708,7 +714,7 @@ export const deviceRulesData = [
   [
     [/(bravia[\w ]+)( bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Sony' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -716,7 +722,7 @@ export const deviceRulesData = [
   [
     [/(mi(tv|box)-?\w+) bui/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Xiaomi' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
@@ -724,8 +730,8 @@ export const deviceRulesData = [
   [
     [/Hbbtv.*(technisat) (.*);/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
   ],
@@ -737,20 +743,21 @@ export const deviceRulesData = [
     [
       {
         type: AssignKind.ReplaceMap,
+        group: 1,
         field: 'vendor',
         replace: [/.+\/(\w+)/, '$1'] as const,
         map: {
           LG: 'lge',
         },
       },
-      { type: AssignKind.Capture, field: 'model', transform: TransformKind.Trim },
+      { type: AssignKind.Capture, group: 2, field: 'model', transform: TransformKind.Trim },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
   ],
   [
     [/(playstation \w+)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Sony' },
       { type: AssignKind.Literal, field: 'type', value: 'console' },
     ],
@@ -758,7 +765,7 @@ export const deviceRulesData = [
   [
     [/\b(xbox(?: one)?(?!; xbox))[); ]/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Microsoft' },
       { type: AssignKind.Literal, field: 'type', value: 'console' },
     ],
@@ -774,6 +781,7 @@ export const deviceRulesData = [
     [
       {
         type: AssignKind.Map,
+        group: 1,
         field: 'vendor',
         map: {
           Nvidia: 'Shield',
@@ -781,14 +789,14 @@ export const deviceRulesData = [
           Logitech: 'GR0006',
         },
       },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'console' },
     ],
   ],
   [
     [/\b(sm-[lr]\d\d[0156][fnuw]?s?|gear live)\b/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Samsung' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -796,15 +804,15 @@ export const deviceRulesData = [
   [
     [/((pebble))app/i, /(asus|google|lg|oppo|xiaomi) ((pixel |zen)?watch[\w ]*)( bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
   ],
   [
     [/(ow(?:19|20)?we?[1-3]{1,3})/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'OPPO' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -812,7 +820,7 @@ export const deviceRulesData = [
   [
     [/(watch)(?: ?os[,/]|\d,\d\/)[\d.]+/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Apple' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -820,7 +828,7 @@ export const deviceRulesData = [
   [
     [/(opwwe\d{3})/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'OnePlus' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -828,7 +836,7 @@ export const deviceRulesData = [
   [
     [/(moto 360)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Motorola' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -836,7 +844,7 @@ export const deviceRulesData = [
   [
     [/(smartwatch 3)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Sony' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -844,7 +852,7 @@ export const deviceRulesData = [
   [
     [/(g watch r)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'LG' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -852,7 +860,7 @@ export const deviceRulesData = [
   [
     [/droid.+; (wt63?0{2,3})\)/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Zebra' },
       { type: AssignKind.Literal, field: 'type', value: 'wearable' },
     ],
@@ -860,7 +868,7 @@ export const deviceRulesData = [
   [
     [/droid.+; (glass) \d/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Google' },
       { type: AssignKind.Literal, field: 'type', value: 'xr' },
     ],
@@ -868,15 +876,15 @@ export const deviceRulesData = [
   [
     [/(pico) ([\w ]+) os\d/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
+      { type: AssignKind.Capture, group: 2, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'xr' },
     ],
   ],
   [
     [/(quest( \d| pro)?s?).+vr/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Facebook' },
       { type: AssignKind.Literal, field: 'type', value: 'xr' },
     ],
@@ -885,14 +893,14 @@ export const deviceRulesData = [
   [
     [/(tesla)(?: qtcarbrowser|\/[-\w.]+)/i],
     [
-      { type: AssignKind.Capture, field: 'vendor' },
+      { type: AssignKind.Capture, group: 1, field: 'vendor' },
       { type: AssignKind.Literal, field: 'type', value: 'embedded' },
     ],
   ],
   [
     [/(aeobc)\b/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Amazon' },
       { type: AssignKind.Literal, field: 'type', value: 'embedded' },
     ],
@@ -900,7 +908,7 @@ export const deviceRulesData = [
   [
     [/(homepod).+mac os/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Apple' },
       { type: AssignKind.Literal, field: 'type', value: 'embedded' },
     ],
@@ -909,7 +917,7 @@ export const deviceRulesData = [
   [
     [/droid.+; ([\w- ]+) (4k|android|smart|google)[- ]?tv/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'type', value: 'smarttv' },
     ],
   ],
@@ -920,9 +928,10 @@ export const deviceRulesData = [
   [
     [/droid .+?; ([^;]+?)(?: bui|; wv\)|\) applew|; hmsc).+?(mobile|vr|\d) safari/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       {
         type: AssignKind.Map,
+        group: 2,
         field: 'type',
         map: {
           mobile: 'Mobile',
@@ -943,7 +952,7 @@ export const deviceRulesData = [
   [
     [/droid .+?; ([\w. -]+)( bui|\))/i],
     [
-      { type: AssignKind.Capture, field: 'model' },
+      { type: AssignKind.Capture, group: 1, field: 'model' },
       { type: AssignKind.Literal, field: 'vendor', value: 'Generic' },
     ],
   ],

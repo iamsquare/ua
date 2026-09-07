@@ -13,8 +13,8 @@ import {
   split,
 } from 'remeda';
 
-import { majorFromVersion, mapString, matchRules } from '@/engine/match-rules';
 import { headerValue } from '@/headers';
+import { majorFromVersion, mapString, matchRules } from '@/match-rules';
 import { coreMaps, cpuRules, deviceRules } from '@/rules';
 import type { Browser, CPU, Device, Engine, HeadersLike, OS, Result } from '@/types';
 

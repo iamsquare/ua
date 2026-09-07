@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { matchDeviceRules, matchRules } from '@/engine/match-rules';
+import { matchDeviceRules, matchRules } from '@/match-rules';
 import { deviceRules } from '@/rules';
 import { AssignKind } from '@/rules/kinds';
 import type { Rule } from '@/types';
@@ -11,14 +11,14 @@ describe('matchRules', () => {
       [
         [/chrome\/([\d.]+)/i],
         [
-          { type: AssignKind.Capture, field: 'version' },
+          { type: AssignKind.Capture, field: 'version', group: 1 },
           { type: AssignKind.Literal, field: 'name', value: 'Chrome' },
         ],
       ],
       [
         [/firefox\/([\d.]+)/i],
         [
-          { type: AssignKind.Capture, field: 'version' },
+          { type: AssignKind.Capture, field: 'version', group: 1 },
           { type: AssignKind.Literal, field: 'name', value: 'Firefox' },
         ],
       ],
@@ -38,9 +38,10 @@ describe('matchRules', () => {
           {
             type: AssignKind.Replace,
             field: 'name',
+            group: 1,
             replace: [/_/g, ' '],
           },
-          { type: AssignKind.Capture, field: 'version' },
+          { type: AssignKind.Capture, field: 'version', group: 2 },
         ],
       ],
     ] satisfies Rule[];
@@ -51,13 +52,13 @@ describe('matchRules', () => {
     });
   });
 
-  it('lets Literal skip a capture slot so the next assign reads the following group', () => {
+  it('reads an explicit group so Literal need not skip a capture slot', () => {
     const rules = [
       [
         [/(chrome)\/([\d.]+)/i],
         [
           { type: AssignKind.Literal, field: 'name', value: 'Chrome WebView' },
-          { type: AssignKind.Capture, field: 'version' },
+          { type: AssignKind.Capture, field: 'version', group: 2 },
         ],
       ],
     ] satisfies Rule[];

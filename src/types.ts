@@ -111,24 +111,27 @@ export type Transform = (value: string, match: RegExpExecArray) => string | unde
 
 /** @internal */
 export type Assign =
-  | { type: typeof AssignKind.Capture; field: string; transform?: Transform }
+  | { type: typeof AssignKind.Capture; field: string; group: number; transform?: Transform }
   | { type: typeof AssignKind.Literal; field: string; value: string | undefined }
   | {
       type: typeof AssignKind.Replace;
       field: string;
+      group: number;
       replace: [RegExp | string, string];
       transform?: Transform;
     }
-  | { type: typeof AssignKind.Map; field: string; map: StringMap }
+  | { type: typeof AssignKind.Map; field: string; group: number; map: StringMap }
   | {
       type: typeof AssignKind.ReplaceMap;
       field: string;
+      group: number;
       replace: [RegExp | string, string];
       map: StringMap;
     }
   | {
       type: typeof AssignKind.Test;
       field: string;
+      group: number;
       test: RegExp;
       ifTrue: string;
       ifFalse: string;

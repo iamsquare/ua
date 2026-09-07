@@ -1,8 +1,8 @@
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
 
-import { UA_MAX_LENGTH } from '@/engine/match-rules';
 import { parseUA } from '@/index';
+import { UA_MAX_LENGTH } from '@/match-rules';
 
 const REDOS_THRESHOLD_MS = 1000;
 

@@ -5,21 +5,21 @@ export const engineRulesData = [
   [
     [/windows.+ edge\/([\w.]+)/i],
     [
-      { type: AssignKind.Capture, field: 'version' },
+      { type: AssignKind.Capture, group: 1, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'EdgeHTML' },
     ],
   ],
   [
     [/(arkweb)\/([\w.]+)/i],
     [
-      { type: AssignKind.Capture, field: 'name' },
-      { type: AssignKind.Capture, field: 'version' },
+      { type: AssignKind.Capture, group: 1, field: 'name' },
+      { type: AssignKind.Capture, group: 2, field: 'version' },
     ],
   ],
   [
     [/webkit\/537\.36.+chrome\/(?!27)([\w.]+)/i],
     [
-      { type: AssignKind.Capture, field: 'version' },
+      { type: AssignKind.Capture, group: 1, field: 'version' },
       { type: AssignKind.Literal, field: 'name', value: 'Blink' },
     ],
   ],
@@ -33,16 +33,16 @@ export const engineRulesData = [
       /\b(libweb)/i,
     ],
     [
-      { type: AssignKind.Capture, field: 'name' },
-      { type: AssignKind.Capture, field: 'version' },
+      { type: AssignKind.Capture, group: 1, field: 'name' },
+      { type: AssignKind.Capture, group: 2, field: 'version' },
     ],
   ],
   [[/ladybird\//i], [{ type: AssignKind.Literal, field: 'name', value: 'LibWeb' }]],
   [
     [/rv:([\w.]{1,9})\b.+(gecko)/i],
     [
-      { type: AssignKind.Capture, field: 'version' },
-      { type: AssignKind.Capture, field: 'name' },
+      { type: AssignKind.Capture, group: 1, field: 'version' },
+      { type: AssignKind.Capture, group: 2, field: 'name' },
     ],
   ],
 ] as const satisfies AuthoredCategory;

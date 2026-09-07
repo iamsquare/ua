@@ -1,4 +1,13 @@
-import { isArray, isEmpty, isNullish, isString, keys, sliceString } from 'remeda';
+import {
+  isArray,
+  isEmpty,
+  isEmptyish,
+  isNullish,
+  isString,
+  keys,
+  sliceString,
+  toLowerCase,
+} from 'remeda';
 
 import { AssignKind } from '@/rules/kinds';
 import type { Assign, Rule, StringMap } from '@/types';
@@ -19,7 +28,7 @@ export const includesIgnoreCase = (needle: unknown, haystack: string) => {
 
   if (isEmpty(needle)) return isEmpty(haystack);
 
-  return haystack.toLowerCase().includes(needle.toLowerCase());
+  return toLowerCase(haystack).includes(toLowerCase(needle));
 };
 
 export const mapString = (value: string, mapTable: StringMap) => {
@@ -42,37 +51,41 @@ export const mapString = (value: string, mapTable: StringMap) => {
   return isString(fallback) ? fallback : value;
 };
 
-const resolveAssign = (assign: Assign, match: RegExpExecArray, captureIndex: number) => {
-  const captured = match[captureIndex];
-  const nextIndex = captureIndex + 1;
-  const present = captured ? captured : undefined;
+const resolveAssign = (assign: Assign, match: RegExpExecArray) => {
+  if (assign.type === AssignKind.Literal) {
+    return {
+      field: assign.field,
+      value: assign.value,
+    };
+  }
+
+  const captured = match[assign.group];
+  const present = !isEmptyish(captured) ? captured : undefined;
 
   switch (assign.type) {
-    case AssignKind.Literal:
-      return { field: assign.field, value: assign.value, nextIndex };
-
     case AssignKind.Test:
       return {
         field: assign.field,
         value: present ? (assign.test.test(present) ? assign.ifTrue : assign.ifFalse) : undefined,
-        nextIndex,
       };
 
     case AssignKind.Map: {
-      if (isNullish(captured)) return { field: assign.field, value: undefined, nextIndex };
+      if (isNullish(captured)) return { field: assign.field, value: undefined };
 
-      return { field: assign.field, value: mapString(captured, assign.map), nextIndex };
+      return {
+        field: assign.field,
+        value: mapString(captured, assign.map),
+      };
     }
 
     case AssignKind.ReplaceMap: {
-      if (isNullish(captured)) return { field: assign.field, value: undefined, nextIndex };
+      if (isNullish(captured)) return { field: assign.field, value: undefined };
 
       const [search, replacement] = assign.replace;
 
       return {
         field: assign.field,
         value: mapString(captured.replace(search, replacement), assign.map),
-        nextIndex,
       };
     }
 
@@ -83,7 +96,6 @@ const resolveAssign = (assign: Assign, match: RegExpExecArray, captureIndex: num
       return {
         field: assign.field,
         value: assign.transform ? assign.transform(replaced ?? '', match) : replaced,
-        nextIndex,
       };
     }
 
@@ -91,7 +103,6 @@ const resolveAssign = (assign: Assign, match: RegExpExecArray, captureIndex: num
       return {
         field: assign.field,
         value: assign.transform ? assign.transform(captured ?? '', match) : present,
-        nextIndex,
       };
   }
 };
@@ -104,13 +115,11 @@ export const matchRules = (ua: string, rules: Rule[]) => {
       if (isNullish(match)) continue;
 
       const result: Record<string, string | undefined> = {};
-      let captureIndex = 1;
 
       for (const item of assign) {
-        const resolved = resolveAssign(item, match, captureIndex);
+        const resolved = resolveAssign(item, match);
 
         result[resolved.field] = resolved.value;
-        captureIndex = resolved.nextIndex;
       }
 
       return result;

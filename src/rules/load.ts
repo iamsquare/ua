@@ -5,24 +5,41 @@ import { transforms } from '@/rules/transforms';
 import type { Assign, Rule, StringMap } from '@/types';
 
 export type AuthoredAssign =
-  | { type: typeof AssignKind.Capture; field: string; transform?: TransformKind }
-  | { type: typeof AssignKind.Literal; field: string; value: string | undefined }
+  | {
+      type: typeof AssignKind.Capture;
+      field: string;
+      group: number;
+      transform?: TransformKind;
+    }
+  | {
+      type: typeof AssignKind.Literal;
+      field: string;
+      value: string | undefined;
+    }
   | {
       type: typeof AssignKind.Replace;
       field: string;
+      group: number;
       replace: [RegExp, string];
       transform?: TransformKind;
     }
-  | { type: typeof AssignKind.Map; field: string; map: StringMap }
+  | {
+      type: typeof AssignKind.Map;
+      field: string;
+      group: number;
+      map: StringMap;
+    }
   | {
       type: typeof AssignKind.ReplaceMap;
       field: string;
+      group: number;
       replace: [RegExp, string];
       map: StringMap;
     }
   | {
       type: typeof AssignKind.Test;
       field: string;
+      group: number;
       test: RegExp;
       ifTrue: string;
       ifFalse: string;
@@ -43,24 +60,41 @@ const toAssign = (item: AuthoredAssign): Assign => {
         ? {
             type: AssignKind.Capture,
             field: item.field,
+            group: item.group,
             transform: transforms[item.transform],
           }
-        : { type: AssignKind.Capture, field: item.field };
+        : {
+            type: AssignKind.Capture,
+            field: item.field,
+            group: item.group,
+          };
     case AssignKind.Replace:
       return item.transform
         ? {
             type: AssignKind.Replace,
             field: item.field,
+            group: item.group,
             replace: item.replace,
             transform: transforms[item.transform],
           }
-        : { type: AssignKind.Replace, field: item.field, replace: item.replace };
+        : {
+            type: AssignKind.Replace,
+            field: item.field,
+            group: item.group,
+            replace: item.replace,
+          };
     case AssignKind.Map:
-      return { type: AssignKind.Map, field: item.field, map: item.map };
+      return {
+        type: AssignKind.Map,
+        field: item.field,
+        group: item.group,
+        map: item.map,
+      };
     case AssignKind.ReplaceMap:
       return {
         type: AssignKind.ReplaceMap,
         field: item.field,
+        group: item.group,
         replace: item.replace,
         map: item.map,
       };
@@ -68,6 +102,7 @@ const toAssign = (item: AuthoredAssign): Assign => {
       return {
         type: AssignKind.Test,
         field: item.field,
+        group: item.group,
         test: item.test,
         ifTrue: item.ifTrue,
         ifFalse: item.ifFalse,

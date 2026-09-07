@@ -14,10 +14,10 @@ import {
 import type { KeysOfUnion } from 'type-fest';
 
 import { applyClientHints, parseClientHints } from '@/client-hints';
-import { majorFromVersion, matchDeviceRules, matchRules, trimUa } from '@/engine/match-rules';
 import { isBrowser } from '@/env';
 import { applyFeatureCheck } from '@/feature-check';
 import { headerValue } from '@/headers';
+import { majorFromVersion, matchDeviceRules, matchRules, trimUa } from '@/match-rules';
 import { browserRules, cpuRules, deviceRules, engineRules, osRules } from '@/rules';
 import type {
   Browser,

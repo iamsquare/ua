@@ -32,6 +32,7 @@ export const cpuRulesData = [
     [
       {
         type: AssignKind.Replace,
+        group: 1,
         field: 'architecture',
         replace: [/ower/, ''] as const,
         transform: TransformKind.Lower,
